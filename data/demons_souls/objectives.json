@@ -1,0 +1,173 @@
+{
+    "items": [
+        {
+            "name": "Adjudicator",
+            "id": "adjudicator",
+            "labels": [
+                "boss"
+            ],
+            "location": "The Ritual Path"
+        },
+        {
+            "name": "Armor Spider",
+            "id": "armor_spider",
+            "labels": [
+                "boss"
+            ],
+            "location": "The Tunnel City"
+        },
+        {
+            "name": "Blue Dragon",
+            "id": "blue_dragon",
+            "labels": [
+                "miniboss"
+            ],
+            "location": "The King's Tower"
+        },
+        {
+            "name": "Dirty Colossus",
+            "id": "dirty_colossus",
+            "labels": [
+                "boss"
+            ],
+            "location": "Rotting Haven"
+        },
+        {
+            "name": "Dragon God",
+            "id": "dragon_god",
+            "labels": [
+                "boss"
+            ],
+            "location": "Shrine of the Dragon God"
+        },
+        {
+            "name": "Flamelurker",
+            "id": "flamelurker",
+            "labels": [
+                "boss"
+            ],
+            "location": "Underground Temple"
+        },
+        {
+            "name": "Fool's Idol",
+            "id": "fools_idol",
+            "labels": [
+                "boss"
+            ],
+            "location": "Prison of Hope"
+        },
+        {
+            "name": "Old King Allant",
+            "id": "old_king_allant",
+            "labels": [
+                "boss"
+            ],
+            "location": "Throne of the False King"
+        },
+        {
+            "name": "Leechmonger",
+            "id": "leechmonger",
+            "labels": [
+                "boss"
+            ],
+            "location": "Swamp of Sorrow"
+        },
+        {
+            "name": "Maneater",
+            "id": "maneater",
+            "labels": [
+                "boss"
+            ],
+            "location": "The Ivory Tower"
+        },
+        {
+            "name": "Maiden Astraea",
+            "id": "maiden_astraea",
+            "labels": [
+                "boss"
+            ],
+            "location": "Sanctuary of the Lost"
+        },
+        {
+            "name": "Vanguard",
+            "id": "vanguard",
+            "labels": [
+                "boss"
+            ],
+            "location": "Island's Edge"
+        },
+        {
+            "name": "Old Hero",
+            "id": "old_hero",
+            "labels": [
+                "boss"
+            ],
+            "location": "Altar of Storms"
+        },
+        {
+            "name": "Tower Knight",
+            "id": "tower_knight",
+            "labels": [
+                "boss"
+            ],
+            "location": "The Lord's Path"
+        },
+        {
+            "name": "Old King Doran",
+            "id": "old_king_doran",
+            "labels": [
+                "miniboss",
+                "npc"
+            ],
+            "location": "Gates of Boletaria"
+        },
+        {
+            "name": "Old Monk",
+            "id": "old_monk",
+            "labels": [
+                "boss"
+            ],
+            "location": "Throne Room of Yormedaar"
+        },
+        {
+            "name": "Penetrator",
+            "id": "penetrator",
+            "labels": [
+                "boss"
+            ],
+            "location": "Inner Ward"
+        },
+        {
+            "name": "Phalanx",
+            "id": "phalanx",
+            "labels": [
+                "boss"
+            ],
+            "location": "Gates of Boletaria"
+        },
+        {
+            "name": "Red Dragon",
+            "id": "red_dragon",
+            "labels": [
+                "miniboss"
+            ],
+            "location": "The Lord's Path"
+        },
+        {
+            "name": "Storm King",
+            "id": "storm_king",
+            "labels": [
+                "boss"
+            ],
+            "location": "The Monolith Forest"
+        },
+        {
+            "name": "King Allant",
+            "id": "king_allant",
+            "labels": [
+                "boss"
+            ],
+            "location": "Below the Nexus"
+        }
+    ]
+}

@@ -1,0 +1,586 @@
+{
+    "items": [
+        {
+            "name": "All Archstone Bosses & Minibosses",
+            "id": "all_bosses_minibosses",
+            "description": "Defeat all main and minibosses, including 'Old King Doran' and the 'Red Dragon'",
+            "objectives": [
+                {
+                    "id": "phalanx",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": null
+                },
+                {
+                    "id": "vanguard",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "tower_knight",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "armor_spider",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "fools_idol",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "adjudicator",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "leechmonger",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_king_doran",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": null
+                },
+                {
+                    "id": "red_dragon",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "flamelurker",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "armor_spider"
+                        ]
+                    }
+                },
+                {
+                    "id": "maneater",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "fools_idol"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_hero",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "adjudicator"
+                        ]
+                    }
+                },
+                {
+                    "id": "dirty_colossus",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "dragon_god",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "flamelurker"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_monk",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "maneater"
+                        ]
+                    }
+                },
+                {
+                    "id": "storm_king",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "old_hero"
+                        ]
+                    }
+                },
+                {
+                    "id": "maiden_astraea",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "dirty_colossus"
+                        ]
+                    }
+                },
+                {
+                    "id": "penetrator",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "dragon_god"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "old_monk"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "storm_king"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "maiden_astraea"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "blue_dragon",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "penetrator"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_king_allant",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "penetrator"
+                        ]
+                    }
+                },
+                {
+                    "id": "king_allant",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "old_king_allant"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "All Archstone Bosses",
+            "id": "all_bosses",
+            "description": "Defeat all compulsory bosses in Demon's Souls",
+            "objectives": [
+                {
+                    "id": "phalanx",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": null
+                },
+                {
+                    "id": "tower_knight",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "armor_spider",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "fools_idol",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "adjudicator",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "leechmonger",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "flamelurker",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "armor_spider"
+                        ]
+                    }
+                },
+                {
+                    "id": "maneater",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "fools_idol"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_hero",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "adjudicator"
+                        ]
+                    }
+                },
+                {
+                    "id": "dirty_colossus",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "phalanx"
+                        ]
+                    }
+                },
+                {
+                    "id": "dragon_god",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "flamelurker"
+                        ]
+                    }
+                },
+                {
+                    "id": "old_monk",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "maneater"
+                        ]
+                    }
+                },
+                {
+                    "id": "storm_king",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "old_hero"
+                        ]
+                    }
+                },
+                {
+                    "id": "maiden_astraea",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "dirty_colossus"
+                        ]
+                    }
+                },
+                {
+                    "id": "penetrator",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "dragon_god"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "old_monk"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "storm_king"
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objectives": [
+                                    "maiden_astraea"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "old_king_allant",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "penetrator"
+                        ]
+                    }
+                },
+                {
+                    "id": "king_allant",
+                    "weight": 1,
+                    "labels": [
+                        "required"
+                    ],
+                    "condition": {
+                        "type": "Node",
+                        "status": "completed",
+                        "objectives": [
+                            "old_king_allant"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
