@@ -25,10 +25,15 @@ pub struct Routes {
 
 #[derive(Deserialize)]
 pub struct Route {
-    pub name: String,
     pub id: String,
-    pub description: String,
+    pub info: RouteInfo,
     pub objectives: Vec<RouteObjective>,
+}
+
+#[derive(Deserialize)]
+pub struct RouteInfo {
+    pub name: String,
+    pub description: String,
 }
 
 #[derive(Deserialize)]

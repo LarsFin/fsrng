@@ -4,7 +4,7 @@ use rand_chacha::{ rand_core::SeedableRng, ChaCha8Rng };
 
 pub mod data;
 
-pub fn possible_objectives<'a>(
+fn possible_objectives<'a>(
     remaining: &'a [RouteObjective],
     completed: &[String]
 ) -> Vec<&'a RouteObjective> {
@@ -54,10 +54,7 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-pub fn random_objective_id<'a>(
-    objectives: &'a [&RouteObjective],
-    rng: &mut ChaCha8Rng
-) -> &'a String {
+fn random_objective_id<'a>(objectives: &'a [&RouteObjective], rng: &mut ChaCha8Rng) -> &'a String {
     let total = objectives
         .iter()
         .map(|objective| objective.weight)
@@ -96,4 +93,30 @@ pub fn determine_objective_order(route: Route, rng: &mut ChaCha8Rng) -> Vec<Stri
     }
 
     order
+}
+
+fn get_selection_index(question: String, choices: &[&String]) -> usize {
+    println!("{}", question);
+
+    let mut input = String::new();
+
+    for (i, choice) in choices.iter().enumerate() {
+        println!("{}. {}", i + 1, choice);
+    }
+
+    // TODO: handle panics here, reask selection. Fails if input is not a number
+    // or if the number is out of bounds
+    std::io::stdin().read_line(&mut input).unwrap();
+    input.trim().parse().unwrap()
+}
+
+pub fn get_route_selection(mut routes: Routes) -> Route {
+    let choice = get_selection_index(
+        String::from("Select a route"),
+        &routes.items
+            .iter()
+            .map(|route| &route.info.name)
+            .collect::<Vec<&String>>()
+    );
+    routes.items.remove(choice - 1)
 }

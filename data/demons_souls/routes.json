@@ -1,9 +1,11 @@
 {
     "items": [
         {
-            "name": "All Archstone Bosses & Minibosses",
             "id": "all_bosses_minibosses",
-            "description": "Defeat all main and minibosses, including 'Old King Doran' and the 'Red Dragon'",
+            "info": {
+                "name": "All Archstone Bosses & Minibosses",
+                "description": "Defeat all main and minibosses, including 'Old King Doran' and the 'Red Dragon'"
+            },
             "objectives": [
                 {
                     "id": "phalanx",
@@ -299,9 +301,11 @@
             ]
         },
         {
-            "name": "All Archstone Bosses",
             "id": "all_bosses",
-            "description": "Defeat all compulsory bosses in Demon's Souls",
+            "info": {
+                "name": "All Archstone Bosses",
+                "description": "Defeat all compulsory bosses in Demon's Souls"
+            },
             "objectives": [
                 {
                     "id": "phalanx",
