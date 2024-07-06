@@ -22,9 +22,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -36,9 +34,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -50,9 +46,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -64,9 +58,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -78,9 +70,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -92,9 +82,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -114,9 +102,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -128,9 +114,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "armor_spider"
-                        ]
+                        "objective_id": "armor_spider"
                     }
                 },
                 {
@@ -142,9 +126,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "fools_idol"
-                        ]
+                        "objective_id": "fools_idol"
                     }
                 },
                 {
@@ -156,9 +138,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "adjudicator"
-                        ]
+                        "objective_id": "adjudicator"
                     }
                 },
                 {
@@ -170,9 +150,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -184,9 +162,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "flamelurker"
-                        ]
+                        "objective_id": "flamelurker"
                     }
                 },
                 {
@@ -198,9 +174,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "maneater"
-                        ]
+                        "objective_id": "maneater"
                     }
                 },
                 {
@@ -212,9 +186,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "old_hero"
-                        ]
+                        "objective_id": "old_hero"
                     }
                 },
                 {
@@ -226,9 +198,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "dirty_colossus"
-                        ]
+                        "objective_id": "dirty_colossus"
                     }
                 },
                 {
@@ -244,30 +214,22 @@
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "dragon_god"
-                                ]
+                                "objective_id": "dragon_god"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "old_monk"
-                                ]
+                                "objective_id": "old_monk"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "storm_king"
-                                ]
+                                "objective_id": "storm_king"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "maiden_astraea"
-                                ]
+                                "objective_id": "maiden_astraea"
                             }
                         ]
                     }
@@ -281,9 +243,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "penetrator"
-                        ]
+                        "objective_id": "penetrator"
                     }
                 },
                 {
@@ -295,9 +255,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "penetrator"
-                        ]
+                        "objective_id": "penetrator"
                     }
                 },
                 {
@@ -307,10 +265,34 @@
                         "required"
                     ],
                     "condition": {
-                        "type": "Node",
-                        "status": "completed",
-                        "objectives": [
-                            "old_king_allant"
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "old_king_allant"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "dragon_god"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "old_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "storm_king"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "maiden_astraea"
+                            }
                         ]
                     }
                 }
@@ -338,9 +320,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -352,9 +332,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -366,9 +344,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -380,9 +356,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -394,9 +368,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -408,9 +380,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "armor_spider"
-                        ]
+                        "objective_id": "armor_spider"
                     }
                 },
                 {
@@ -422,9 +392,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "fools_idol"
-                        ]
+                        "objective_id": "fools_idol"
                     }
                 },
                 {
@@ -436,9 +404,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "adjudicator"
-                        ]
+                        "objective_id": "adjudicator"
                     }
                 },
                 {
@@ -450,9 +416,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "phalanx"
-                        ]
+                        "objective_id": "phalanx"
                     }
                 },
                 {
@@ -464,9 +428,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "flamelurker"
-                        ]
+                        "objective_id": "flamelurker"
                     }
                 },
                 {
@@ -478,9 +440,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "maneater"
-                        ]
+                        "objective_id": "maneater"
                     }
                 },
                 {
@@ -492,9 +452,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "old_hero"
-                        ]
+                        "objective_id": "old_hero"
                     }
                 },
                 {
@@ -506,9 +464,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "dirty_colossus"
-                        ]
+                        "objective_id": "dirty_colossus"
                     }
                 },
                 {
@@ -524,30 +480,22 @@
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "dragon_god"
-                                ]
+                                "objective_id": "dragon_god"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "old_monk"
-                                ]
+                                "objective_id": "old_monk"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "storm_king"
-                                ]
+                                "objective_id": "storm_king"
                             },
                             {
                                 "type": "Node",
                                 "status": "completed",
-                                "objectives": [
-                                    "maiden_astraea"
-                                ]
+                                "objective_id": "maiden_astraea"
                             }
                         ]
                     }
@@ -561,9 +509,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objectives": [
-                            "penetrator"
-                        ]
+                        "objective_id": "penetrator"
                     }
                 },
                 {
@@ -573,10 +519,34 @@
                         "required"
                     ],
                     "condition": {
-                        "type": "Node",
-                        "status": "completed",
-                        "objectives": [
-                            "old_king_allant"
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "old_king_allant"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "dragon_god"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "old_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "storm_king"
+                            },
+                            {
+                                "type": "Node",
+                                "status": "completed",
+                                "objective_id": "maiden_astraea"
+                            }
                         ]
                     }
                 }

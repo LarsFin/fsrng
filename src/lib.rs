@@ -6,7 +6,7 @@ pub mod data;
 
 pub fn possible_objectives<'a>(
     remaining: &'a [RouteObjective],
-    completed: &[Objective]
+    completed: &[String]
 ) -> Vec<&'a RouteObjective> {
     let mut possible: Vec<&RouteObjective> = Vec::new();
 
@@ -23,29 +23,23 @@ pub fn possible_objectives<'a>(
     possible
 }
 
-fn condition_met(condition: &Condition, completed: &[Objective]) -> bool {
+fn condition_met(condition: &Condition, completed: &[String]) -> bool {
     match condition {
         Condition::Branch(branch) => condition_branch_met(branch, completed),
         Condition::Node(node) => condition_node_met(node, completed),
     }
 }
 
-fn condition_node_met(condition: &ConditionNode, completed: &[Objective]) -> bool {
+fn condition_node_met(condition: &ConditionNode, completed: &[String]) -> bool {
     if condition.status == "completed" {
-        return condition.objectives
-            .iter()
-            .all(|objective_id| {
-                completed.iter().any(|objective| objective.id == *objective_id)
-            });
+        return completed.iter().any(|objective_id| objective_id == &condition.objective_id);
     }
-
-    // TODO: handle "not_completed" status
 
     false
 }
 
-fn condition_branch_met(condition: &ConditionBranch, completed: &[Objective]) -> bool {
-    if condition.clause == "and" {
+fn condition_branch_met(condition: &ConditionBranch, completed: &[String]) -> bool {
+    if condition.clause == "all" {
         return condition.conditions.iter().all(|condition| condition_met(condition, completed));
     }
 
@@ -81,4 +75,25 @@ pub fn random_objective_id<'a>(
         roll -= objective.weight;
         i += 1;
     }
+}
+
+pub fn determine_objective_order(route: Route, rng: &mut ChaCha8Rng) -> Vec<String> {
+    let mut remaining: Vec<RouteObjective> = route.objectives;
+    let mut order: Vec<String> = Vec::new();
+
+    while !remaining.is_empty() {
+        // Determine the next objective in the order
+        let possible = possible_objectives(&remaining, &order);
+        let next_objective_id = random_objective_id(&possible, rng);
+        order.push(next_objective_id.clone());
+
+        // Remove the objective from the remaining list
+        let index = remaining
+            .iter()
+            .position(|objective| objective.id == *next_objective_id)
+            .unwrap();
+        remaining.remove(index);
+    }
+
+    order
 }
