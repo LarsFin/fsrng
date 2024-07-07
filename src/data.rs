@@ -1,7 +1,13 @@
 pub mod models;
 
-pub fn load_meta(game: &String) -> Result<models::Meta, Box<dyn std::error::Error>> {
-    let path = format!("./data/{}/meta.json", game);
+pub fn load_meta() -> Result<models::Meta, Box<dyn std::error::Error>> {
+    load_data(String::from("./data/meta.json"))
+}
+
+pub fn load_route_schema(
+    file_name: &String
+) -> Result<models::RouteSchema, Box<dyn std::error::Error>> {
+    let path = format!("./data/route_schemas/{}.json", file_name);
     load_data(path)
 }
 

@@ -1,0 +1,212 @@
+{
+    "items": [
+        {
+            "name": "Asylum Demon",
+            "id": "asylum_demon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Northern Undead Asylum"
+        },
+        {
+            "name": "Taurus Demon",
+            "id": "taurus_demon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Undead Burg"
+        },
+        {
+            "name": "Bell Gargoyle",
+            "id": "bell_gargoyle",
+            "labels": [
+                "boss"
+            ],
+            "location": "Undead Parish"
+        },
+        {
+            "name": "Capra Demon",
+            "id": "capra_demon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Lower Undead Burg"
+        },
+        {
+            "name": "Ceaseless Discharge",
+            "id": "ceaseless_discharge",
+            "labels": [
+                "boss"
+            ],
+            "location": "Demon Ruins"
+        },
+        {
+            "name": "Centipede Demon",
+            "id": "centipede_demon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Demon Ruins"
+        },
+        {
+            "name": "Chaos Witch Quelaag",
+            "id": "chaos_witch_quelaag",
+            "labels": [
+                "boss"
+            ],
+            "location": "Quelaag's Domain"
+        },
+        {
+            "name": "Crossbreed Priscilla",
+            "id": "crossbreed_priscilla",
+            "labels": [
+                "boss"
+            ],
+            "location": "Painted World of Ariamis"
+        },
+        {
+            "name": "Dark Sun Gwyndolin",
+            "id": "dark_sun_gwyndolin",
+            "labels": [
+                "boss"
+            ],
+            "location": "Anor Londo"
+        },
+        {
+            "name": "Demon Firesage",
+            "id": "demon_firesage",
+            "labels": [
+                "boss"
+            ],
+            "location": "Demon Ruins"
+        },
+        {
+            "name": "Four Kings",
+            "id": "four_kings",
+            "labels": [
+                "boss"
+            ],
+            "location": "Abyss"
+        },
+        {
+            "name": "Gaping Dragon",
+            "id": "gaping_dragon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Depths"
+        },
+        {
+            "name": "Great Grey Wolf Sif",
+            "id": "great_grey_wolf_sif",
+            "labels": [
+                "boss"
+            ],
+            "location": "Darkroot Garden"
+        },
+        {
+            "name": "Gwyn Lord of Cinder",
+            "id": "gwyn_lord_of_cinder",
+            "labels": [
+                "boss"
+            ],
+            "location": "Kiln of the First Flame"
+        },
+        {
+            "name": "Iron Golem",
+            "id": "iron_golem",
+            "labels": [
+                "boss"
+            ],
+            "location": "Sen's Fortress"
+        },
+        {
+            "name": "Moonlight Butterfly",
+            "id": "moonlight_butterfly",
+            "labels": [
+                "boss"
+            ],
+            "location": "Darkroot Garden"
+        },
+        {
+            "name": "Gravelord Nito",
+            "id": "gravelord_nito",
+            "labels": [
+                "boss"
+            ],
+            "location": "Tomb of the Giants"
+        },
+        {
+            "name": "Ornstein & Smough",
+            "id": "ornstein_and_smough",
+            "labels": [
+                "boss"
+            ],
+            "location": "Anor Londo"
+        },
+        {
+            "name": "Pinwheel",
+            "id": "pinwheel",
+            "labels": [
+                "boss"
+            ],
+            "location": "Catacombs"
+        },
+        {
+            "name": "Seath the Scaleless",
+            "id": "seath_the_scaleless",
+            "labels": [
+                "boss"
+            ],
+            "location": "Crystal Cave"
+        },
+        {
+            "name": "Stray Demon",
+            "id": "stray_demon",
+            "labels": [
+                "boss"
+            ],
+            "location": "Northern Undead Asylum"
+        },
+        {
+            "name": "Bed of Chaos",
+            "id": "bed_of_chaos",
+            "labels": [
+                "boss"
+            ],
+            "location": "Lost Izalith"
+        },
+        {
+            "name": "Sanctuary Guardian",
+            "id": "sanctuary_guardian",
+            "labels": [
+                "boss"
+            ],
+            "location": "Sanctuary Garden"
+        },
+        {
+            "name": "Artorias the Abysswalker",
+            "id": "artorias_the_abysswalker",
+            "labels": [
+                "boss"
+            ],
+            "location": "Oolacile Township"
+        },
+        {
+            "name": "Black Dragon Kalameet",
+            "id": "black_dragon_kalameet",
+            "labels": [
+                "boss"
+            ],
+            "location": "Royal Wood"
+        },
+        {
+            "name": "Manus Father of the Abyss",
+            "id": "manus_father_of_the_abyss",
+            "labels": [
+                "boss"
+            ],
+            "location": "Chasm of the Abyss"
+        }
+    ]
+}

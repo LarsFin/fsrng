@@ -1,26 +1,29 @@
-use data::write_output;
 use fsrng::*;
 
 fn main() {
-    let games = data::load_game_options().unwrap();
-    let game = get_game_selection(&games);
+    let meta = data::load_meta().unwrap();
 
-    let routes = data::load_routes(&game).unwrap();
-    let loaded_objectives = data::load_objectives(&game).unwrap();
-    let selected_route = get_route_selection(routes);
+    println!("Route Randomiser v{}", meta.app_version);
 
-    let seed = get_seed();
+    let game = ask_game_selection(&meta.games);
+
+    println!("Selected {}", game.name);
+
+    let route_schema = load_route_schema(&game.file_name).unwrap();
+
+    let route = ask_route_selection(&route_schema.routes);
+
+    println!("Selected {}", route.info.name);
+
+    let filtered_objectives = filter_objectives(&route.id, route_schema.objectives);
+
+    let seed = ask_seed();
+
     let mut rng = gen_rng(seed);
 
-    let objective_ids = determine_objective_order(selected_route.objectives, &mut rng);
+    let ordered_objectives = generate_ordered_objectives(&route.id, &filtered_objectives, &mut rng);
 
-    let serialisable_route = build_serialisable_route(
-        selected_route.info,
-        seed,
-        loaded_objectives.items,
-        &objective_ids
-    );
+    let generated_route = build_generated_route(route.info.clone(), seed, ordered_objectives);
 
-    let output_name = route_name(&game);
-    write_output(output_name, serialisable_route).unwrap();
+    write_generated_route(generated_route).unwrap();
 }

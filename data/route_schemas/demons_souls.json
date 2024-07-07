@@ -1,0 +1,314 @@
+{
+    "file_version": "1.0.0",
+    "routes": [
+        {
+            "id": "all_archstone_bosses_and_minibosses",
+            "info": {
+                "name": "All Archstone Bosses and Minibosses",
+                "description": "This route includes all bosses and minibosses in the game (e.g; Dragons, Old King Doran and Vanguard)"
+            }
+        },
+        {
+            "id": "all_archstone_bosses",
+            "info": {
+                "name": "All Archstone Bosses",
+                "description": "This route includes all compulsory bosses to complete Demon's Souls"
+            }
+        }
+    ],
+    "objectives": [
+        {
+            "id": "phalanx",
+            "info": {
+                "name": "Phalanx",
+                "location": "Gates of Boletaria"
+            },
+            "excluded_routes": [],
+            "condition": null
+        },
+        {
+            "id": "old_king_doran",
+            "info": {
+                "name": "Old King Doran",
+                "location": "Gates of Boletaria"
+            },
+            "excluded_routes": [
+                "all_archstone_bosses"
+            ],
+            "condition": null
+        },
+        {
+            "id": "vanguard",
+            "info": {
+                "name": "Vanguard",
+                "location": "Island's Edge"
+            },
+            "excluded_routes": [
+                "all_archstone_bosses"
+            ],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "red_dragon",
+            "info": {
+                "name": "Red Dragon",
+                "location": "The Lord's Path"
+            },
+            "excluded_routes": [
+                "all_archstone_bosses"
+            ],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "tower_knight",
+            "info": {
+                "name": "Tower Knight",
+                "location": "The Lord's Path"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "fools_idol",
+            "info": {
+                "name": "Fool's Idol",
+                "location": "Prison of Hope"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "armor_spider",
+            "info": {
+                "name": "Armor Spider",
+                "location": "The Tunnel City"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "adjudicator",
+            "info": {
+                "name": "Adjudicator",
+                "location": "The Ritual Path"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "leechmonger",
+            "info": {
+                "name": "Leechmonger",
+                "location": "Swamp of Sorrow"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "phalanx",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "flamelurker",
+            "info": {
+                "name": "Flamelurker",
+                "location": "Underground Temple"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "armor_spider",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "maneater",
+            "info": {
+                "name": "Maneater",
+                "location": "The Ivory Tower"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "fools_idol",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "old_hero",
+            "info": {
+                "name": "Old Hero",
+                "location": "Altar of Storms"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "adjudicator",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "dirty_colossus",
+            "info": {
+                "name": "Dirty Colossus",
+                "location": "Rotting Haven"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "leechmonger",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "dragon_god",
+            "info": {
+                "name": "Dragon God",
+                "location": "Shrine of the Dragon God"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "flamelurker",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "old_monk",
+            "info": {
+                "name": "Old Monk",
+                "location": "Throne Room of Yormedaar"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "maneater",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "storm_king",
+            "info": {
+                "name": "Storm King",
+                "location": "The Monolith Forest"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "old_hero",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "maiden_astraea",
+            "info": {
+                "name": "Maiden Astraea",
+                "location": "Sanctuary of the Lost"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "dirty_colossus",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "penetrator",
+            "info": {
+                "name": "Penetrator",
+                "location": "Inner Ward"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "dragon_god",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "old_monk",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "storm_king",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "maiden_astraea",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "blue_dragon",
+            "info": {
+                "name": "Blue Dragon",
+                "location": "The King's Tower"
+            },
+            "excluded_routes": [
+                "all_archstone_bosses"
+            ],
+            "condition": {
+                "type": "Node",
+                "objective_id": "penetrator",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "old_king_allant",
+            "info": {
+                "name": "Old King Allant",
+                "location": "Throne of the False King"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "Node",
+                "objective_id": "penetrator",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "king_allant",
+            "info": {
+                "name": "King Allant",
+                "location": "Below the Nexus"
+            },
+            "excluded_routes": [],
+            "condition": {
+                "type": "End"
+            }
+        }
+    ]
+}
