@@ -66,5 +66,6 @@ pub struct ConditionNode {
 #[derive(Serialize)]
 pub struct GeneratedRoute {
     pub info: RouteInfo,
+    pub seed: u64,
     pub objectives: Vec<Objective>,
 }

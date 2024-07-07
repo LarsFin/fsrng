@@ -113,6 +113,22 @@ fn get_selection_index(question: String, choices: &[String]) -> usize {
     input.trim().parse().unwrap()
 }
 
+pub fn get_seed() -> u64 {
+    println!("Enter a seed for the RNG (leave blank for random):");
+
+    let mut input = String::new();
+
+    // TODO: handle panic here
+    std::io::stdin().read_line(&mut input).unwrap();
+
+    if input.trim().is_empty() {
+        return rand::thread_rng().gen();
+    }
+
+    // TODO: handle panic here
+    input.trim().parse().unwrap()
+}
+
 pub fn get_route_selection(mut routes: Routes) -> Route {
     let choices: Vec<String> = routes.items
         .iter()
@@ -129,6 +145,7 @@ pub fn get_game_selection(games: &[String]) -> String {
 
 pub fn build_serialisable_route(
     info: RouteInfo,
+    seed: u64,
     mut objectives: Vec<Objective>,
     objective_ids: &[String]
 ) -> GeneratedRoute {
@@ -145,6 +162,7 @@ pub fn build_serialisable_route(
 
     GeneratedRoute {
         info,
+        seed,
         objectives: ordered_objectives,
     }
 }

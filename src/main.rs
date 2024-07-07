@@ -7,13 +7,16 @@ fn main() {
 
     let routes = data::load_routes(&game).unwrap();
     let loaded_objectives = data::load_objectives(&game).unwrap();
-    let mut rng = gen_rng(11);
-
     let selected_route = get_route_selection(routes);
+
+    let seed = get_seed();
+    let mut rng = gen_rng(seed);
+
     let objective_ids = determine_objective_order(selected_route.objectives, &mut rng);
 
     let serialisable_route = build_serialisable_route(
         selected_route.info,
+        seed,
         loaded_objectives.items,
         &objective_ids
     );
