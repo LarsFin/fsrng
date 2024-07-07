@@ -95,7 +95,7 @@ pub fn determine_objective_order(route: Route, rng: &mut ChaCha8Rng) -> Vec<Stri
     order
 }
 
-fn get_selection_index(question: String, choices: &[&String]) -> usize {
+fn get_selection_index(question: String, choices: &[String]) -> usize {
     println!("{}", question);
 
     let mut input = String::new();
@@ -111,12 +111,15 @@ fn get_selection_index(question: String, choices: &[&String]) -> usize {
 }
 
 pub fn get_route_selection(mut routes: Routes) -> Route {
-    let choice = get_selection_index(
-        String::from("Select a route"),
-        &routes.items
-            .iter()
-            .map(|route| &route.info.name)
-            .collect::<Vec<&String>>()
-    );
+    let choices: Vec<String> = routes.items
+        .iter()
+        .map(|route| route.info.name.clone())
+        .collect();
+    let choice = get_selection_index(String::from("Select a route"), &choices);
     routes.items.remove(choice - 1)
+}
+
+pub fn get_game_selection(games: &[String]) -> String {
+    let choice = get_selection_index(String::from("Select a game"), games);
+    games[choice - 1].clone()
 }

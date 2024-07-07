@@ -1,7 +1,9 @@
 use fsrng::*;
 
 fn main() {
-    let game = String::from("demons_souls");
+    let games = data::load_game_options().unwrap();
+    let game = get_game_selection(&games);
+
     let routes = data::load_routes(game).unwrap();
     let mut rng = gen_rng(11);
 

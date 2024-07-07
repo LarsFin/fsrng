@@ -15,6 +15,27 @@ pub fn load_routes(game: String) -> Result<models::Routes, Box<dyn std::error::E
     load_data(path)
 }
 
+pub fn load_game_options() -> Result<Vec<String>, std::io::Error> {
+    let read_dir = std::fs::read_dir("./data")?;
+    let mut games: Vec<String> = Vec::new();
+
+    for entry in read_dir {
+        let dir = entry?;
+
+        if dir.file_type()?.is_dir() {
+            let file_name = dir.file_name();
+            match file_name.to_str() {
+                Some(name) => games.push(String::from(name)),
+                None => {
+                    continue;
+                }
+            }
+        }
+    }
+
+    Ok(games)
+}
+
 fn load_data<T>(path: String) -> Result<T, Box<dyn std::error::Error>>
     where T: serde::de::DeserializeOwned
 {
