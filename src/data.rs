@@ -1,16 +1,16 @@
 pub mod models;
 
-pub fn load_meta(game: String) -> Result<models::Meta, Box<dyn std::error::Error>> {
+pub fn load_meta(game: &String) -> Result<models::Meta, Box<dyn std::error::Error>> {
     let path = format!("./data/{}/meta.json", game);
     load_data(path)
 }
 
-pub fn load_objectives(game: String) -> Result<models::Objectives, Box<dyn std::error::Error>> {
+pub fn load_objectives(game: &String) -> Result<models::Objectives, Box<dyn std::error::Error>> {
     let path = format!("./data/{}/objectives.json", game);
     load_data(path)
 }
 
-pub fn load_routes(game: String) -> Result<models::Routes, Box<dyn std::error::Error>> {
+pub fn load_routes(game: &String) -> Result<models::Routes, Box<dyn std::error::Error>> {
     let path = format!("./data/{}/routes.json", game);
     load_data(path)
 }
@@ -42,4 +42,12 @@ fn load_data<T>(path: String) -> Result<T, Box<dyn std::error::Error>>
     let data = std::fs::read_to_string(path)?;
     let deserialized: T = serde_json::from_str(&data)?;
     Ok(deserialized)
+}
+
+pub fn write_output<T>(name: String, serialisable_data: T) -> Result<(), std::io::Error>
+    where T: serde::ser::Serialize
+{
+    let path = format!("./output/{}.json", name);
+    let serialised_data = serde_json::to_string_pretty(&serialisable_data)?;
+    std::fs::write(path, serialised_data)
 }

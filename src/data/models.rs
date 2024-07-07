@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{ Deserialize, Serialize };
 
 #[derive(Deserialize)]
 pub struct Meta {
@@ -10,7 +10,7 @@ pub struct Objectives {
     pub items: Vec<Objective>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct Objective {
     pub name: String,
     pub id: String,
@@ -30,7 +30,7 @@ pub struct Route {
     pub objectives: Vec<RouteObjective>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct RouteInfo {
     pub name: String,
     pub description: String,
@@ -61,4 +61,10 @@ pub struct ConditionBranch {
 pub struct ConditionNode {
     pub status: String,
     pub objective_id: String,
+}
+
+#[derive(Serialize)]
+pub struct GeneratedRoute {
+    pub info: RouteInfo,
+    pub objectives: Vec<Objective>,
 }

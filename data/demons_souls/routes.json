@@ -152,7 +152,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objective_id": "phalanx"
+                        "objective_id": "leechmonger"
                     }
                 },
                 {
@@ -420,7 +420,7 @@
                     "condition": {
                         "type": "Node",
                         "status": "completed",
-                        "objective_id": "phalanx"
+                        "objective_id": "leechmonger"
                     }
                 },
                 {

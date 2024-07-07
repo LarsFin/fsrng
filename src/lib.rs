@@ -1,6 +1,7 @@
 use data::models::*;
 use rand::Rng;
 use rand_chacha::{ rand_core::SeedableRng, ChaCha8Rng };
+use std::time::SystemTime;
 
 pub mod data;
 
@@ -74,22 +75,24 @@ fn random_objective_id<'a>(objectives: &'a [&RouteObjective], rng: &mut ChaCha8R
     }
 }
 
-pub fn determine_objective_order(route: Route, rng: &mut ChaCha8Rng) -> Vec<String> {
-    let mut remaining: Vec<RouteObjective> = route.objectives;
+pub fn determine_objective_order(
+    mut objectives: Vec<RouteObjective>,
+    rng: &mut ChaCha8Rng
+) -> Vec<String> {
     let mut order: Vec<String> = Vec::new();
 
-    while !remaining.is_empty() {
+    while !objectives.is_empty() {
         // Determine the next objective in the order
-        let possible = possible_objectives(&remaining, &order);
+        let possible = possible_objectives(&objectives, &order);
         let next_objective_id = random_objective_id(&possible, rng);
         order.push(next_objective_id.clone());
 
         // Remove the objective from the remaining list
-        let index = remaining
+        let index = objectives
             .iter()
             .position(|objective| objective.id == *next_objective_id)
             .unwrap();
-        remaining.remove(index);
+        objectives.remove(index);
     }
 
     order
@@ -122,4 +125,33 @@ pub fn get_route_selection(mut routes: Routes) -> Route {
 pub fn get_game_selection(games: &[String]) -> String {
     let choice = get_selection_index(String::from("Select a game"), games);
     games[choice - 1].clone()
+}
+
+pub fn build_serialisable_route(
+    info: RouteInfo,
+    mut objectives: Vec<Objective>,
+    objective_ids: &[String]
+) -> GeneratedRoute {
+    let mut ordered_objectives: Vec<Objective> = Vec::new();
+
+    for objective_id in objective_ids {
+        for (i, objective) in objectives.iter().enumerate() {
+            if objective.id == *objective_id {
+                ordered_objectives.push(objectives.remove(i));
+                break;
+            }
+        }
+    }
+
+    GeneratedRoute {
+        info,
+        objectives: ordered_objectives,
+    }
+}
+
+pub fn route_name(game: &String) -> String {
+    // TODO: handle unwrap case here, though this would be very rare
+    let timestamp = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH).unwrap().as_secs();
+
+    format!("{}_{}", game, timestamp)
 }
