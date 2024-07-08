@@ -24,6 +24,7 @@
                 "location": "Gates of Boletaria"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": null
         },
         {
@@ -35,6 +36,7 @@
             "excluded_routes": [
                 "all_archstone_bosses"
             ],
+            "weighting": {},
             "condition": null
         },
         {
@@ -46,6 +48,7 @@
             "excluded_routes": [
                 "all_archstone_bosses"
             ],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -61,6 +64,7 @@
             "excluded_routes": [
                 "all_archstone_bosses"
             ],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -74,6 +78,7 @@
                 "location": "The Lord's Path"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -87,6 +92,7 @@
                 "location": "Prison of Hope"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -100,6 +106,7 @@
                 "location": "The Tunnel City"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -113,6 +120,7 @@
                 "location": "The Ritual Path"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -126,6 +134,7 @@
                 "location": "Swamp of Sorrow"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
@@ -139,6 +148,7 @@
                 "location": "Underground Temple"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "armor_spider",
@@ -152,6 +162,7 @@
                 "location": "The Ivory Tower"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "fools_idol",
@@ -165,6 +176,7 @@
                 "location": "Altar of Storms"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "adjudicator",
@@ -178,6 +190,7 @@
                 "location": "Rotting Haven"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "leechmonger",
@@ -191,6 +204,7 @@
                 "location": "Shrine of the Dragon God"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "flamelurker",
@@ -204,6 +218,7 @@
                 "location": "Throne Room of Yormedaar"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "maneater",
@@ -217,6 +232,7 @@
                 "location": "The Monolith Forest"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "old_hero",
@@ -230,6 +246,7 @@
                 "location": "Sanctuary of the Lost"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "dirty_colossus",
@@ -243,6 +260,7 @@
                 "location": "Inner Ward"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Branch",
                 "clause": "any",
@@ -280,6 +298,7 @@
             "excluded_routes": [
                 "all_archstone_bosses"
             ],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "penetrator",
@@ -293,6 +312,7 @@
                 "location": "Throne of the False King"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "Node",
                 "objective_id": "penetrator",
@@ -306,6 +326,7 @@
                 "location": "Below the Nexus"
             },
             "excluded_routes": [],
+            "weighting": {},
             "condition": {
                 "type": "End"
             }

@@ -3,7 +3,6 @@ use interface::*;
 
 use rand::Rng;
 use rand_chacha::{ rand_core::SeedableRng, ChaCha8Rng };
-use std::time::SystemTime;
 
 pub mod data;
 pub mod interface;
@@ -181,26 +180,6 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-fn random_objective_id<'a>(objectives: &'a [&RouteObjective], rng: &mut ChaCha8Rng) -> &'a String {
-    let total = objectives
-        .iter()
-        .map(|objective| objective.weight)
-        .sum::<u32>();
-
-    let mut roll = rng.gen_range(0..total);
-    let mut i = 0;
-
-    loop {
-        let objective = &objectives[i];
-        if roll < objective.weight {
-            return &objective.id;
-        }
-
-        roll -= objective.weight;
-        i += 1;
-    }
-}
-
 pub fn filter_objectives<'a>(route_id: &String, objectives: Vec<_Objective>) -> Vec<_Objective> {
     let mut filtered_objectives: Vec<_Objective> = Vec::new();
 
@@ -225,7 +204,12 @@ pub fn generate_ordered_objectives(
 
     while completed.len() < objectives.len() {
         let possible_objective_ids = possible_objectives_ids(route_id, objectives, &completed);
-        let next_objective_id = random_objective_id_2(&possible_objective_ids, rng);
+        let weighted_objectives = build_weighted_objectives(
+            route_id,
+            &possible_objective_ids,
+            objectives
+        );
+        let next_objective_id = random_weighted_objective(&weighted_objectives, rng);
 
         completed.push(next_objective_id.clone());
 
@@ -240,26 +224,96 @@ pub fn generate_ordered_objectives(
     ordered_objectives
 }
 
-// TODO: forgot about weights in this refactor...
-fn random_objective_id_2(objective_ids: &[String], rng: &mut ChaCha8Rng) -> String {
-    let index = rng.gen_range(0..objective_ids.len());
-    objective_ids[index].clone()
+fn build_weighted_objectives(
+    route_id: &String,
+    objective_ids: &[String],
+    objectives: &[_Objective]
+) -> Vec<_WeightedObjective> {
+    let default_weight: u64 = 1;
+    let mut weighted_objectives: Vec<_WeightedObjective> = Vec::new();
+
+    for objective_id in objective_ids {
+        let objective = objectives
+            .iter()
+            .find(|objective| objective.id == *objective_id)
+            .unwrap();
+
+        weighted_objectives.push(_WeightedObjective {
+            id: objective.id.clone(),
+            weight: objective.weighting.get(route_id).unwrap_or(&default_weight).clone(),
+        });
+    }
+
+    weighted_objectives
+}
+
+fn random_weighted_objective(
+    weighted_objectives: &[_WeightedObjective],
+    rng: &mut ChaCha8Rng
+) -> String {
+    let total = weighted_objectives
+        .iter()
+        .map(|weighted_objective| weighted_objective.weight)
+        .sum::<u64>();
+
+    let mut roll = rng.gen_range(0..total);
+    let mut i = 0;
+
+    loop {
+        let weighted_objective = &weighted_objectives[i];
+        if roll < weighted_objective.weight {
+            return weighted_objective.id.clone();
+        }
+
+        roll -= weighted_objective.weight;
+        i += 1;
+    }
+}
+
+fn random_objective_id<'a>(objectives: &'a [&RouteObjective], rng: &mut ChaCha8Rng) -> &'a String {
+    let total = objectives
+        .iter()
+        .map(|objective| objective.weight)
+        .sum::<u32>();
+
+    let mut roll = rng.gen_range(0..total);
+    let mut i = 0;
+
+    loop {
+        let objective = &objectives[i];
+        if roll < objective.weight {
+            return &objective.id;
+        }
+
+        roll -= objective.weight;
+        i += 1;
+    }
 }
 
 pub fn build_generated_route(
+    app_version: String,
+    game_name: String,
     info: _RouteInfo,
     seed: u64,
     ordered_objectives: Vec<_ObjectiveInfo>
 ) -> _GeneratedRoute {
     _GeneratedRoute {
+        app_version,
+        game_name,
         info,
         seed,
         ordered_objectives,
     }
 }
 
-pub fn write_generated_route(generated_route: _GeneratedRoute) -> Result<(), std::io::Error> {
-    data::write_output(route_name(&generated_route.info.name), generated_route)
+pub fn write_generated_route(
+    game_id: &String,
+    route_id: &String,
+    generated_route: _GeneratedRoute
+) -> Result<(), std::io::Error> {
+    let time_sig = chrono::Local::now().format("%Y%m%d_%H%M%S").to_string();
+    let file_name = format!("{}-{}-{}", game_id, route_id, time_sig);
+    data::write_output(file_name, generated_route)
 }
 
 pub fn determine_objective_order(
@@ -353,11 +407,4 @@ pub fn build_serialisable_route(
         seed,
         objectives: ordered_objectives,
     }
-}
-
-pub fn route_name(game: &String) -> String {
-    // TODO: handle unwrap case here, though this would be very rare
-    let timestamp = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH).unwrap().as_secs();
-
-    format!("{}_{}", game, timestamp)
 }

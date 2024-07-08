@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{ Deserialize, Serialize };
 
 #[derive(Deserialize)]
@@ -36,7 +38,13 @@ pub struct _Objective {
     pub id: String,
     pub info: _ObjectiveInfo,
     pub excluded_routes: Vec<String>,
+    pub weighting: HashMap<String, u64>,
     pub condition: Option<_Condition>,
+}
+
+pub struct _WeightedObjective {
+    pub id: String,
+    pub weight: u64,
 }
 
 #[derive(Deserialize, Serialize, Clone)]
@@ -83,6 +91,8 @@ pub struct _ConditionEnd;
 
 #[derive(Serialize)]
 pub struct _GeneratedRoute {
+    pub app_version: String,
+    pub game_name: String,
     pub info: _RouteInfo,
     pub seed: u64,
     pub ordered_objectives: Vec<_ObjectiveInfo>,

@@ -23,7 +23,13 @@ fn main() {
 
     let ordered_objectives = generate_ordered_objectives(&route.id, &filtered_objectives, &mut rng);
 
-    let generated_route = build_generated_route(route.info.clone(), seed, ordered_objectives);
+    let generated_route = build_generated_route(
+        meta.app_version.clone(),
+        game.name.clone(),
+        route.info.clone(),
+        seed,
+        ordered_objectives
+    );
 
-    write_generated_route(generated_route).unwrap();
+    write_generated_route(&game.file_name, &route.id, generated_route).unwrap();
 }
