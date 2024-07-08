@@ -1,0 +1,660 @@
+{
+    "file_version": "1.0.0",
+    "routes": [
+        {
+            "id": "all_bosses",
+            "info": {
+                "name": "All Bosses",
+                "description": "This route includes all bosses in the game"
+            }
+        },
+        {
+            "id": "all_bosses_master_key",
+            "info": {
+                "name": "All Bosses, starting with Master Key",
+                "description": "This route includes all bosses in the game, but with the Master Key (or thief class)"
+            }
+        },
+        {
+            "id": "all_bosses_sens_skip",
+            "info": {
+                "name": "All Bosses, with Sen's Skip",
+                "description": "This route includes all bosses in the game, but gives the option to leverage Sen's Skip (also includes Master Key)"
+            }
+        }
+    ],
+    "objectives": [
+        {
+            "id": "asylum_demon",
+            "info": {
+                "name": "Asylum Demon",
+                "location": "Northern Undead Asylum"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "taurus_demon",
+            "info": {
+                "name": "Taurus Demon",
+                "location": "Undead Burg"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "asylum_demon",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "bell_gargoyle",
+            "info": {
+                "name": "Bell Gargoyle",
+                "location": "Undead Parish"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "capra_demon",
+            "info": {
+                "name": "Capra Demon",
+                "location": "Lower Undead Burg"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ceaseless_discharge",
+            "info": {
+                "name": "Ceaseless Discharge",
+                "location": "Demon Ruins"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "chaos_witch_quelaag",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "centipede_demon",
+            "info": {
+                "name": "Centipede Demon",
+                "location": "Demon Ruins"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "demon_firesage",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "chaos_witch_quelaag",
+            "info": {
+                "name": "Chaos Witch Quelaag",
+                "location": "Quelaag's Domain"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "crossbreed_priscilla",
+            "info": {
+                "name": "Crossbreed Priscilla",
+                "location": "Painted World of Ariamis"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "iron_golem",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "dark_sun_gwyndolin",
+            "info": {
+                "name": "Dark Sun Gwyndolin",
+                "location": "Anor Londo"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "iron_golem",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "demon_firesage",
+            "info": {
+                "name": "Demon Firesage",
+                "location": "Demon Ruins"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "ceaseless_discharge",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "excluded_routes": [],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "four_kings",
+                                "excluded_routes": []
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "all",
+                                "excluded_routes": [],
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "bell_gargoyle",
+                                        "excluded_routes": []
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "chaos_witch_quelaag",
+                                        "excluded_routes": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "four_kings",
+            "info": {
+                "name": "Four Kings",
+                "location": "Abyss"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "great_grey_wolf_sif",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "gaping_dragon",
+            "info": {
+                "name": "Gaping Dragon",
+                "location": "Depths"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "capra_demon",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "great_grey_wolf_sif",
+            "info": {
+                "name": "Great Grey Wolf Sif",
+                "location": "Darkroot Garden"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "gwyn_lord_of_cinder",
+            "info": {
+                "name": "Gwyn Lord of Cinder",
+                "location": "Kiln of the First Flame"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "End"
+            }
+        },
+        {
+            "id": "iron_golem",
+            "info": {
+                "name": "Iron Golem",
+                "location": "Sen's Fortress"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses",
+                            "all_bosses_master_key"
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "excluded_routes": [],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "chaos_witch_quelaag",
+                                "excluded_routes": []
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "bell_gargoyle",
+                                "excluded_routes": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "moonlight_butterfly",
+            "info": {
+                "name": "Moonlight Butterfly",
+                "location": "Darkroot Garden"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "gravelord_nito",
+            "info": {
+                "name": "Gravelord Nito",
+                "location": "Tomb of the Giants"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "ornstein_and_smough",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "pinwheel",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "excluded_routes": [],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "four_kings",
+                                "excluded_routes": []
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "all",
+                                "excluded_routes": [],
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "bell_gargoyle",
+                                        "excluded_routes": []
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "chaos_witch_quelaag",
+                                        "excluded_routes": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ornstein_and_smough",
+            "info": {
+                "name": "Ornstein & Smough",
+                "location": "Anor Londo"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "iron_golem",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "pinwheel",
+            "info": {
+                "name": "Pinwheel",
+                "location": "Catacombs"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "asylum_demon",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "seath_the_scaleless",
+            "info": {
+                "name": "Seath the Scaleless",
+                "location": "Crystal Cave"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "ornstein_and_smough",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "excluded_routes": [],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "four_kings",
+                                "excluded_routes": []
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "all",
+                                "excluded_routes": [],
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "bell_gargoyle",
+                                        "excluded_routes": []
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "chaos_witch_quelaag",
+                                        "excluded_routes": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "stray_demon",
+            "info": {
+                "name": "Stray Demon",
+                "location": "Northern Undead Asylum"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "asylum_demon",
+                        "excluded_routes": [
+                            "all_bosses"
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "taurus_demon",
+                        "excluded_routes": []
+                    }
+                ]
+            }
+        },
+        {
+            "id": "bed_of_chaos",
+            "info": {
+                "name": "Bed of Chaos",
+                "location": "Lost Izalith"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "centipede_demon",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "sanctuary_guardian",
+            "info": {
+                "name": "Sanctuary Guardian",
+                "location": "Sanctuary Garden"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "excluded_routes": [],
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "ornstein_and_smough",
+                        "excluded_routes": []
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "excluded_routes": [],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "four_kings",
+                                "excluded_routes": []
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "all",
+                                "excluded_routes": [],
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "bell_gargoyle",
+                                        "excluded_routes": []
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "chaos_witch_quelaag",
+                                        "excluded_routes": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "artorias_the_abysswalker",
+            "info": {
+                "name": "Artorias the Abysswalker",
+                "location": "Oolacile Township"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "sanctuary_guardian",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "manus_father_of_the_abyss",
+            "info": {
+                "name": "Manus, Father of the Abyss",
+                "location": "Chasm of the Abyss"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "artorias_the_abysswalker",
+                "excluded_routes": []
+            }
+        },
+        {
+            "id": "kalameet",
+            "info": {
+                "name": "Black Dragon Kalameet",
+                "location": "Royal Wood"
+            },
+            "excluded_routes": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "artorias_the_abysswalker",
+                "excluded_routes": []
+            }
+        }
+    ]
+}

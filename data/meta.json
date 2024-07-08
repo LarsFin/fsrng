@@ -4,6 +4,10 @@
         {
             "name": "Demon's Souls",
             "file_name": "demons_souls"
+        },
+        {
+            "name": "Dark Souls Remastered",
+            "file_name": "dark_souls_remastered"
         }
     ]
 }

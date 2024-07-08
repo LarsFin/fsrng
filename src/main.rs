@@ -19,7 +19,11 @@ fn main() {
 
     let seed = ask_seed();
 
+    println!("Using seed: {}", seed);
+
     let mut rng = gen_rng(seed);
+
+    println!("Generating route...");
 
     let ordered_objectives = generate_ordered_objectives(&route.id, &filtered_objectives, &mut rng);
 
@@ -32,4 +36,6 @@ fn main() {
     );
 
     write_generated_route(&game.file_name, &route.id, generated_route).unwrap();
+
+    println!("Route generated successfully!");
 }
