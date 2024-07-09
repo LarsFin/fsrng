@@ -7,10 +7,8 @@ pub fn load_meta() -> Result<models::Meta, Box<dyn std::error::Error>> {
     load_data(String::from("./data/meta.json"))
 }
 
-pub fn load_route_schema(
-    file_name: &String
-) -> Result<models::RouteSchema, Box<dyn std::error::Error>> {
-    let path = format!("./data/route_schemas/{}.json", file_name);
+pub fn load_schema(file_name: &String) -> Result<models::Schema, Box<dyn std::error::Error>> {
+    let path = format!("./data/schemas/{}.json", file_name);
     load_data(path)
 }
 

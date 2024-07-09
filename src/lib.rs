@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use data::models::*;
 use interface::*;
 
@@ -16,6 +18,7 @@ pub fn ask_game_selection(games: &[Game]) -> &Game {
     &games[choice]
 }
 
+// TODO: ask filter selection, no routes
 pub fn ask_route_selection(routes: &[Route]) -> &Route {
     let choices: Vec<String> = routes
         .iter()
@@ -36,12 +39,12 @@ pub fn ask_seed() -> u64 {
     }
 }
 
-pub fn load_route_schema(file_name: &String) -> Result<RouteSchema, Box<dyn std::error::Error>> {
-    data::load_route_schema(file_name)
+pub fn load_schema(file_name: &String) -> Result<Schema, Box<dyn std::error::Error>> {
+    data::load_schema(file_name)
 }
 
 fn possible_objectives_ids(
-    route_id: &String,
+    filters: &[Filter],
     objectives: &[Objective],
     completed: &[String]
 ) -> Vec<String> {
@@ -53,7 +56,7 @@ fn possible_objectives_ids(
         }
 
         if let Some(condition) = &objective.condition {
-            if !resolve_condition(route_id, condition, completed, objectives.len()) {
+            if !resolve_condition(filters, condition, completed, objectives.len()) {
                 continue;
             }
         }
@@ -65,27 +68,27 @@ fn possible_objectives_ids(
 }
 
 fn resolve_condition(
-    route_id: &String,
+    filters: &[Filter],
     condition: &Condition,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
     match condition {
         Condition::Branch(branch) =>
-            resolve_branch(route_id, branch, completed, total_objective_count),
-        Condition::Node(node) => resolve_node(route_id, node, completed),
+            resolve_branch(filters, branch, completed, total_objective_count),
+        Condition::Node(node) => resolve_node(filters, node, completed),
         Condition::End(_) => completed.len() == total_objective_count - 1,
     }
 }
 
 fn resolve_branch(
-    route_id: &String,
+    filters: &[Filter],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
     // TODO: figure out refactor here as all condition types have excluded routes
-    if branch.excluded_routes.contains(route_id) {
+    if !resolve_filters(filters, &branch.labels) {
         return false;
     }
 
@@ -93,7 +96,7 @@ fn resolve_branch(
         return branch.conditions
             .iter()
             .all(|condition|
-                resolve_condition(route_id, condition, completed, total_objective_count)
+                resolve_condition(filters, condition, completed, total_objective_count)
             );
     }
 
@@ -101,42 +104,54 @@ fn resolve_branch(
         return branch.conditions
             .iter()
             .any(|condition|
-                resolve_condition(route_id, condition, completed, total_objective_count)
+                resolve_condition(filters, condition, completed, total_objective_count)
             );
     }
 
     false
 }
 
-fn resolve_node(route_id: &String, node: &ConditionNode, completed: &[String]) -> bool {
+fn resolve_node(filters: &[Filter], node: &ConditionNode, completed: &[String]) -> bool {
     // TODO: figure out refactor here as all condition types have excluded routes
-    if node.excluded_routes.contains(route_id) {
-        return false;
-    }
-
-    completed.contains(&node.objective_id)
+    resolve_filters(filters, &node.labels) && completed.contains(&node.objective_id)
 }
 
 pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-pub fn filter_objectives(route_id: &String, objectives: Vec<Objective>) -> Vec<Objective> {
+pub fn filter_objectives(filters: &[Filter], objectives: Vec<Objective>) -> Vec<Objective> {
     let mut filtered_objectives: Vec<Objective> = Vec::new();
 
     for objective in objectives {
-        if objective.excluded_routes.contains(route_id) {
-            continue;
+        if resolve_filters(filters, &objective.labels) {
+            filtered_objectives.push(objective);
         }
-
-        filtered_objectives.push(objective);
     }
 
     filtered_objectives
 }
 
+pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
+    for filter in filters {
+        match filter.clause.as_str() {
+            "any" => {
+                // true if any label in filter labels
+            }
+            "all" => {
+                // true if all filter labels are in labels
+            }
+            "none" => {
+                // true if no filter labels are in labels
+            }
+        }
+    }
+
+    true
+}
+
 pub fn generate_ordered_objectives(
-    route_id: &String,
+    filters: &[Filter],
     objectives: &[Objective],
     rng: &mut ChaCha8Rng
 ) -> Vec<ObjectiveInfo> {
@@ -144,9 +159,9 @@ pub fn generate_ordered_objectives(
     let mut ordered_objectives: Vec<ObjectiveInfo> = Vec::new();
 
     while completed.len() < objectives.len() {
-        let possible_objective_ids = possible_objectives_ids(route_id, objectives, &completed);
+        let possible_objective_ids = possible_objectives_ids(filters, objectives, &completed);
         let weighted_objectives = build_weighted_objectives(
-            route_id,
+            filters,
             &possible_objective_ids,
             objectives
         );
@@ -166,7 +181,7 @@ pub fn generate_ordered_objectives(
 }
 
 fn build_weighted_objectives(
-    route_id: &String,
+    filters: &[Filter],
     objective_ids: &[String],
     objectives: &[Objective]
 ) -> Vec<WeightedObjective> {
@@ -181,11 +196,22 @@ fn build_weighted_objectives(
 
         weighted_objectives.push(WeightedObjective {
             id: objective.id.clone(),
-            weight: objective.weighting.get(route_id).unwrap_or(&default_weight).clone(),
+            weight: get_weight(filters, &objective.weighting),
         });
     }
 
     weighted_objectives
+}
+
+fn get_weight(filters: &[Filter], weighting: &HashMap<String, u64>) -> u64 {
+    // first filter id in weightings is used
+    for (filter_id, weight) in weighting {
+        if let Some(weight) = weighting.get(filter_id) {
+            return weight.clone();
+        }
+    }
+
+    return 1;
 }
 
 fn random_weighted_objective(
@@ -214,23 +240,23 @@ fn random_weighted_objective(
 pub fn build_generated_route(
     app_version: String,
     game_name: String,
-    info: RouteInfo,
     seed: u64,
+    filters: Vec<FilterInfo>,
     ordered_objectives: Vec<ObjectiveInfo>
-) -> GeneratedRoute {
-    GeneratedRoute {
+) -> Route {
+    Route {
         app_version,
         game_name,
-        info,
         seed,
+        filters,
         ordered_objectives,
     }
 }
 
-pub fn write_generated_route(
+pub fn write_route(
     game_id: &String,
     route_id: &String,
-    generated_route: GeneratedRoute
+    generated_route: Route
 ) -> Result<(), std::io::Error> {
     let time_sig = chrono::Local::now().format("%Y%m%d_%H%M%S").to_string();
     let file_name = format!("{}-{}-{}", game_id, route_id, time_sig);

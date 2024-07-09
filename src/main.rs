@@ -9,7 +9,7 @@ fn main() {
 
     println!("Selected {}", game.name);
 
-    let route_schema = load_route_schema(&game.file_name).unwrap();
+    let route_schema = load_schema(&game.file_name).unwrap();
 
     let route = ask_route_selection(&route_schema.routes);
 
@@ -35,7 +35,7 @@ fn main() {
         ordered_objectives
     );
 
-    write_generated_route(&game.file_name, &route.id, generated_route).unwrap();
+    write_route(&game.file_name, &route.id, generated_route).unwrap();
 
     println!("Route generated successfully!");
 }

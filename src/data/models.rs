@@ -2,6 +2,13 @@ use std::collections::HashMap;
 
 use serde::{ Deserialize, Serialize };
 
+/**
+ * TODO
+ * Hopefully last change...
+ * A Route is the finished generation, not a part of the schema.
+ * Instead, there are flags which are used to filter objectives and their conditions
+ */
+
 #[derive(Deserialize)]
 pub struct Meta {
     pub app_version: String,
@@ -15,29 +22,17 @@ pub struct Game {
 }
 
 #[derive(Deserialize)]
-pub struct RouteSchema {
+pub struct Schema {
     pub file_version: String,
-    pub routes: Vec<Route>,
+    pub filters: Vec<Filter>,
     pub objectives: Vec<Objective>,
-}
-
-#[derive(Deserialize)]
-pub struct Route {
-    pub id: String,
-    pub info: RouteInfo,
-}
-
-#[derive(Deserialize, Serialize, Clone)]
-pub struct RouteInfo {
-    pub name: String,
-    pub description: String,
 }
 
 #[derive(Deserialize)]
 pub struct Objective {
     pub id: String,
     pub info: ObjectiveInfo,
-    pub excluded_routes: Vec<String>,
+    pub labels: Vec<String>,
     pub weighting: HashMap<String, u64>,
     pub condition: Option<Condition>,
 }
@@ -64,19 +59,18 @@ pub enum Condition {
 #[derive(Deserialize)]
 pub struct ConditionBranch {
     pub clause: String,
-    pub excluded_routes: Vec<String>,
+    pub labels: Vec<String>,
     pub conditions: Vec<Condition>,
 }
 
 #[derive(Deserialize)]
 pub struct ConditionNode {
     pub objective_id: String,
-    pub excluded_routes: Vec<String>,
+    pub labels: Vec<String>,
 }
 
 #[derive(Serialize)]
 pub struct RouteInstance {
-    pub info: RouteInfo,
     pub ordered_objectives: Vec<ObjectiveInfo>,
 }
 
@@ -84,10 +78,22 @@ pub struct RouteInstance {
 pub struct ConditionEnd;
 
 #[derive(Serialize)]
-pub struct GeneratedRoute {
+pub struct Route {
     pub app_version: String,
     pub game_name: String,
-    pub info: RouteInfo,
     pub seed: u64,
+    pub filters: Vec<FilterInfo>,
     pub ordered_objectives: Vec<ObjectiveInfo>,
+}
+
+#[derive(Deserialize)]
+pub struct Filter {
+    pub clause: String,
+    pub labels: Vec<String>,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct FilterInfo {
+    pub name: String,
+    pub description: String,
 }
