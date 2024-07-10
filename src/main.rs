@@ -9,13 +9,12 @@ fn main() {
 
     println!("Selected {}", game.name);
 
-    let route_schema = load_schema(&game.file_name).unwrap();
+    let schema = load_schema(&game.file_name).unwrap();
 
-    let route = ask_route_selection(&route_schema.routes);
+    let filters = ask_filter_selections(&schema.filters);
+    let preferences = ask_preference_selections(&schema.preferences);
 
-    println!("Selected {}", route.info.name);
-
-    let filtered_objectives = filter_objectives(&route.id, route_schema.objectives);
+    let filtered_objectives = filter_objectives(&filters, schema.objectives);
 
     let seed = ask_seed();
 
@@ -25,17 +24,23 @@ fn main() {
 
     println!("Generating route...");
 
-    let ordered_objectives = generate_ordered_objectives(&route.id, &filtered_objectives, &mut rng);
+    let ordered_objectives = generate_ordered_objectives(
+        &filters,
+        &preferences,
+        &filtered_objectives,
+        &mut rng
+    );
 
     let generated_route = build_generated_route(
         meta.app_version.clone(),
         game.name.clone(),
-        route.info.clone(),
         seed,
+        filters,
+        preferences,
         ordered_objectives
     );
 
-    write_route(&game.file_name, &route.id, generated_route).unwrap();
+    write_route(&game.file_name, generated_route).unwrap();
 
     println!("Route generated successfully!");
 }

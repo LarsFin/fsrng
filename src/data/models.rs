@@ -25,6 +25,7 @@ pub struct Game {
 pub struct Schema {
     pub file_version: String,
     pub filters: Vec<Filter>,
+    pub preferences: Vec<Preference>,
     pub objectives: Vec<Objective>,
 }
 
@@ -69,11 +70,6 @@ pub struct ConditionNode {
     pub labels: Vec<String>,
 }
 
-#[derive(Serialize)]
-pub struct RouteInstance {
-    pub ordered_objectives: Vec<ObjectiveInfo>,
-}
-
 #[derive(Deserialize)]
 pub struct ConditionEnd;
 
@@ -82,18 +78,27 @@ pub struct Route {
     pub app_version: String,
     pub game_name: String,
     pub seed: u64,
-    pub filters: Vec<FilterInfo>,
+    pub filters: Vec<BasicInfo>,
+    pub preferences: Vec<BasicInfo>,
     pub ordered_objectives: Vec<ObjectiveInfo>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 pub struct Filter {
+    pub id: String,
+    pub info: BasicInfo,
     pub clause: String,
     pub labels: Vec<String>,
 }
 
-#[derive(Deserialize, Serialize)]
-pub struct FilterInfo {
+#[derive(Deserialize, Clone)]
+pub struct Preference {
+    pub id: String,
+    pub info: BasicInfo,
+}
+
+#[derive(Deserialize, Serialize, Clone)]
+pub struct BasicInfo {
     pub name: String,
     pub description: String,
 }

@@ -1,18 +1,56 @@
 {
     "file_version": "1.0.0",
-    "routes": [
+    "filters": [
         {
-            "id": "all_archstone_bosses_and_minibosses",
+            "id": "only_archstone_bosses",
             "info": {
-                "name": "All Archstone Bosses and Minibosses",
-                "description": "This route includes all bosses and minibosses in the game (e.g; Dragons, Old King Doran and Vanguard)"
+                "name": "Only Archstone Bosses",
+                "description": "Only include Archstone bosses in the randomiser"
+            },
+            "clause": "all",
+            "labels": [
+                "archstone_boss"
+            ]
+        },
+        {
+            "id": "no_optional_npc_bosses",
+            "info": {
+                "name": "No Optional NPC Bosses",
+                "description": "Do not include optional NPC enemies"
+            },
+            "clause": "none",
+            "labels": [
+                "npc"
+            ]
+        }
+    ],
+    "preferences": [
+        {
+            "id": "commit_to_archstones",
+            "info": {
+                "name": "Commit to Archstones",
+                "description": "Likely to finish an archstone before moving on to the next"
             }
         },
         {
-            "id": "all_archstone_bosses",
+            "id": "cycle_archstones",
             "info": {
-                "name": "All Archstone Bosses",
-                "description": "This route includes all compulsory bosses to complete Demon's Souls"
+                "name": "Cycle Archstones",
+                "description": "Likely to move to a different archstone after completing an objective in one"
+            }
+        },
+        {
+            "id": "gradual_difficulty",
+            "info": {
+                "name": "Gradual Difficulty",
+                "description": "Likely to order bosses in opinionated difficulty"
+            }
+        },
+        {
+            "id": "early_flame_lurker",
+            "info": {
+                "name": "Early Flame Lurker",
+                "description": "Likely to place Flame Lurker early in the run to allow boss weapon creation"
             }
         }
     ],
@@ -23,8 +61,12 @@
                 "name": "Phalanx",
                 "location": "Gates of Boletaria"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 10
+            },
             "condition": null
         },
         {
@@ -33,10 +75,13 @@
                 "name": "Old King Doran",
                 "location": "Gates of Boletaria"
             },
-            "excluded_routes": [
-                "all_archstone_bosses"
+            "labels": [
+                "miniboss",
+                "npc"
             ],
-            "weighting": {},
+            "weighting": {
+                "gradual_difficulty": 1
+            },
             "condition": null
         },
         {
@@ -45,14 +90,18 @@
                 "name": "Vanguard",
                 "location": "Island's Edge"
             },
-            "excluded_routes": [
-                "all_archstone_bosses"
+            "labels": [
+                "miniboss"
             ],
-            "weighting": {},
+            "weighting": {
+                "gradual_difficulty": 6
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "miniboss"
+                ]
             }
         },
         {
@@ -61,14 +110,18 @@
                 "name": "Red Dragon",
                 "location": "The Lord's Path"
             },
-            "excluded_routes": [
-                "all_archstone_bosses"
+            "labels": [
+                "miniboss"
             ],
-            "weighting": {},
+            "weighting": {
+                "gradual_difficulty": 4
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "miniboss"
+                ]
             }
         },
         {
@@ -77,12 +130,20 @@
                 "name": "Tower Knight",
                 "location": "The Lord's Path"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 8,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 7
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -91,12 +152,20 @@
                 "name": "Fool's Idol",
                 "location": "Prison of Hope"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 7,
+                "commit_to_archstones": 1,
+                "cycle_archstones": 10
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -105,12 +174,21 @@
                 "name": "Armor Spider",
                 "location": "The Tunnel City"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "early_flame_lurker": 8,
+                "gradual_difficulty": 9,
+                "commit_to_archstones": 1,
+                "cycle_archstones": 10
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -119,12 +197,20 @@
                 "name": "Adjudicator",
                 "location": "The Ritual Path"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 8,
+                "commit_to_archstones": 1,
+                "cycle_archstones": 10
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -133,12 +219,20 @@
                 "name": "Leechmonger",
                 "location": "Swamp of Sorrow"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 7,
+                "commit_to_archstones": 1,
+                "cycle_archstones": 10
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "phalanx",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -147,12 +241,21 @@
                 "name": "Flamelurker",
                 "location": "Underground Temple"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "early_flame_lurker": 8,
+                "gradual_difficulty": 2,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 5
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "armor_spider",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -161,12 +264,20 @@
                 "name": "Maneater",
                 "location": "The Ivory Tower"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 1,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 5
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "fools_idol",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -175,12 +286,20 @@
                 "name": "Old Hero",
                 "location": "Altar of Storms"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 3,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 5
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "adjudicator",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -189,12 +308,20 @@
                 "name": "Dirty Colossus",
                 "location": "Rotting Haven"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 4,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 5
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "leechmonger",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -203,12 +330,20 @@
                 "name": "Dragon God",
                 "location": "Shrine of the Dragon God"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 5,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "flamelurker",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -217,12 +352,20 @@
                 "name": "Old Monk",
                 "location": "Throne Room of Yormedaar"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 6,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "maneater",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -231,12 +374,20 @@
                 "name": "Storm King",
                 "location": "The Monolith Forest"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 7,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "old_hero",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -245,12 +396,20 @@
                 "name": "Maiden Astraea",
                 "location": "Sanctuary of the Lost"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 6,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "dirty_colossus",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -259,32 +418,48 @@
                 "name": "Penetrator",
                 "location": "Inner Ward"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 3,
+                "commit_to_archstones": 1,
+                "cycle_archstones": 3
+            },
             "condition": {
                 "type": "Branch",
                 "clause": "any",
-                "excluded_routes": [],
+                "labels": [
+                    "archstone_boss"
+                ],
                 "conditions": [
                     {
                         "type": "Node",
                         "objective_id": "dragon_god",
-                        "excluded_routes": []
+                        "labels": [
+                            "archstone_boss"
+                        ]
                     },
                     {
                         "type": "Node",
                         "objective_id": "old_monk",
-                        "excluded_routes": []
+                        "labels": [
+                            "archstone_boss"
+                        ]
                     },
                     {
                         "type": "Node",
                         "objective_id": "storm_king",
-                        "excluded_routes": []
+                        "labels": [
+                            "archstone_boss"
+                        ]
                     },
                     {
                         "type": "Node",
                         "objective_id": "maiden_astraea",
-                        "excluded_routes": []
+                        "labels": [
+                            "archstone_boss"
+                        ]
                     }
                 ]
             }
@@ -295,14 +470,18 @@
                 "name": "Blue Dragon",
                 "location": "The King's Tower"
             },
-            "excluded_routes": [
-                "all_archstone_bosses"
+            "labels": [
+                "miniboss"
             ],
-            "weighting": {},
+            "weighting": {
+                "gradual_difficulty": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "penetrator",
-                "excluded_routes": []
+                "labels": [
+                    "miniboss"
+                ]
             }
         },
         {
@@ -311,12 +490,20 @@
                 "name": "Old King Allant",
                 "location": "Throne of the False King"
             },
-            "excluded_routes": [],
-            "weighting": {},
+            "labels": [
+                "archstone_boss"
+            ],
+            "weighting": {
+                "gradual_difficulty": 3,
+                "commit_to_archstones": 10,
+                "cycle_archstones": 1
+            },
             "condition": {
                 "type": "Node",
                 "objective_id": "penetrator",
-                "excluded_routes": []
+                "labels": [
+                    "archstone_boss"
+                ]
             }
         },
         {
@@ -325,7 +512,9 @@
                 "name": "King Allant",
                 "location": "Below the Nexus"
             },
-            "excluded_routes": [],
+            "labels": [
+                "archstone_boss"
+            ],
             "weighting": {},
             "condition": {
                 "type": "End"

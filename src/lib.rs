@@ -18,14 +18,30 @@ pub fn ask_game_selection(games: &[Game]) -> &Game {
     &games[choice]
 }
 
-// TODO: ask filter selection, no routes
-pub fn ask_route_selection(routes: &[Route]) -> &Route {
-    let choices: Vec<String> = routes
+pub fn ask_filter_selections<'a>(filters: &'a [Filter]) -> Vec<Filter> {
+    let choices: Vec<String> = filters
         .iter()
-        .map(|route| route.info.name.clone())
+        .map(|filter| filter.info.name.clone())
         .collect();
-    let choice = ask_option_selection(String::from("Select route"), &choices);
-    &routes[choice]
+
+    let choices = ask_multiple_selection(String::from("Select filters"), &choices);
+    choices
+        .iter()
+        .map(|choice| filters[*choice].clone())
+        .collect()
+}
+
+pub fn ask_preference_selections<'a>(preferences: &'a [Preference]) -> Vec<Preference> {
+    let choices: Vec<String> = preferences
+        .iter()
+        .map(|preference| preference.info.name.clone())
+        .collect();
+
+    let choices = ask_multiple_selection(String::from("Select preferences"), &choices);
+    choices
+        .iter()
+        .map(|choice| preferences[*choice].clone())
+        .collect()
 }
 
 pub fn ask_seed() -> u64 {
@@ -137,12 +153,22 @@ pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
         match filter.clause.as_str() {
             "any" => {
                 // true if any label in filter labels
+                return filter.labels.iter().any(|filter_label| labels.contains(filter_label));
             }
             "all" => {
                 // true if all filter labels are in labels
+                return filter.labels.iter().all(|filter_label| labels.contains(filter_label));
             }
             "none" => {
                 // true if no filter labels are in labels
+                return filter.labels.iter().all(|filter_label| !labels.contains(filter_label));
+            }
+            _ => {
+                println!(
+                    "Unknown filter clause '{}' for filter '{}', skipping",
+                    filter.clause,
+                    filter.info.name
+                );
             }
         }
     }
@@ -152,6 +178,7 @@ pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
 
 pub fn generate_ordered_objectives(
     filters: &[Filter],
+    preferences: &[Preference],
     objectives: &[Objective],
     rng: &mut ChaCha8Rng
 ) -> Vec<ObjectiveInfo> {
@@ -161,7 +188,7 @@ pub fn generate_ordered_objectives(
     while completed.len() < objectives.len() {
         let possible_objective_ids = possible_objectives_ids(filters, objectives, &completed);
         let weighted_objectives = build_weighted_objectives(
-            filters,
+            preferences,
             &possible_objective_ids,
             objectives
         );
@@ -181,11 +208,10 @@ pub fn generate_ordered_objectives(
 }
 
 fn build_weighted_objectives(
-    filters: &[Filter],
+    preferences: &[Preference],
     objective_ids: &[String],
     objectives: &[Objective]
 ) -> Vec<WeightedObjective> {
-    let default_weight: u64 = 1;
     let mut weighted_objectives: Vec<WeightedObjective> = Vec::new();
 
     for objective_id in objective_ids {
@@ -196,17 +222,18 @@ fn build_weighted_objectives(
 
         weighted_objectives.push(WeightedObjective {
             id: objective.id.clone(),
-            weight: get_weight(filters, &objective.weighting),
+            weight: get_weight(preferences, &objective.weighting),
         });
     }
 
     weighted_objectives
 }
 
-fn get_weight(filters: &[Filter], weighting: &HashMap<String, u64>) -> u64 {
+// TODO: weight should not be affected by filters ~ refactor so filter is a subset of flag
+fn get_weight(preferences: &[Preference], weighting: &HashMap<String, u64>) -> u64 {
     // first filter id in weightings is used
-    for (filter_id, weight) in weighting {
-        if let Some(weight) = weighting.get(filter_id) {
+    for preference in preferences {
+        if let Some(weight) = weighting.get(&preference.id) {
             return weight.clone();
         }
     }
@@ -241,25 +268,29 @@ pub fn build_generated_route(
     app_version: String,
     game_name: String,
     seed: u64,
-    filters: Vec<FilterInfo>,
+    filters: Vec<Filter>,
+    preferences: Vec<Preference>,
     ordered_objectives: Vec<ObjectiveInfo>
 ) -> Route {
     Route {
         app_version,
         game_name,
         seed,
-        filters,
+        filters: filters
+            .iter()
+            .map(|filter| filter.info.clone())
+            .collect(),
+        preferences: preferences
+            .iter()
+            .map(|preference| preference.info.clone())
+            .collect(),
         ordered_objectives,
     }
 }
 
-pub fn write_route(
-    game_id: &String,
-    route_id: &String,
-    generated_route: Route
-) -> Result<(), std::io::Error> {
+pub fn write_route(game_id: &String, generated_route: Route) -> Result<(), std::io::Error> {
     let time_sig = chrono::Local::now().format("%Y%m%d_%H%M%S").to_string();
-    let file_name = format!("{}-{}-{}", game_id, route_id, time_sig);
+    let file_name = format!("{}-{}", game_id, time_sig);
     data::write_output(file_name, generated_route)
 }
 

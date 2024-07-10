@@ -4,6 +4,7 @@ fn get_input() -> Result<String, Box<std::io::Error>> {
     Ok(input)
 }
 
+// Keep this in case single selection is required down the road
 pub fn ask_option_selection(question: String, choices: &[String]) -> usize {
     println!("{}", question);
 
@@ -22,6 +23,49 @@ pub fn ask_option_selection(question: String, choices: &[String]) -> usize {
 
         println!("Invalid input. Please enter a number between 1 and {}.", choices.len());
     }
+}
+
+// returns indices of choices made
+pub fn ask_multiple_selection(question: String, choices: &[String]) -> Vec<usize> {
+    struct Decision(String, bool);
+
+    println!("{}", question);
+
+    let mut decisions: Vec<Decision> = choices
+        .iter()
+        .map(|choice| Decision(choice.clone(), false))
+        .collect();
+
+    loop {
+        println!("Select option to toggle, enter nothing to stop");
+
+        for (i, decision) in decisions.iter().enumerate() {
+            println!("[{}] {}. {}", if decision.1 { "X" } else { " " }, i + 1, decision.0);
+        }
+
+        // TODO: improve error handling
+        let input = get_input().unwrap();
+
+        if input.trim().is_empty() {
+            break;
+        }
+
+        let selection = input.trim().parse::<usize>().unwrap();
+
+        if selection < 1 || selection > choices.len() {
+            println!("Selection is invalid");
+            continue;
+        }
+
+        decisions[selection - 1].1 = !decisions[selection - 1].1;
+    }
+
+    decisions
+        .iter()
+        .filter(|decision| decision.1)
+        .enumerate()
+        .map(|(i, _)| i)
+        .collect()
 }
 
 pub fn ask_optional_positive_number(question: &String) -> Option<u64> {
