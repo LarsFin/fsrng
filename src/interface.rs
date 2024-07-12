@@ -62,8 +62,8 @@ pub fn ask_multiple_selection(question: String, choices: &[String]) -> Vec<usize
 
     decisions
         .iter()
-        .filter(|decision| decision.1)
         .enumerate()
+        .filter(|(_, decision)| decision.1)
         .map(|(i, _)| i)
         .collect()
 }

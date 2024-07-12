@@ -23,6 +23,16 @@
             }
         }
     ],
+    "filters": [],
+    "preferences": [
+        {
+            "id": "no_sens_skip",
+            "info": {
+                "name": "No Sen's Skip",
+                "description": "This preference disables the use of Sen's Skip"
+            }
+        }
+    ],
     "objectives": [
         {
             "id": "asylum_demon",

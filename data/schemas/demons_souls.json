@@ -65,7 +65,7 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 10
+                "gradual_difficulty": 100
             },
             "condition": null
         },
@@ -94,7 +94,7 @@
                 "miniboss"
             ],
             "weighting": {
-                "gradual_difficulty": 6
+                "gradual_difficulty": 60
             },
             "condition": {
                 "type": "Node",
@@ -114,7 +114,7 @@
                 "miniboss"
             ],
             "weighting": {
-                "gradual_difficulty": 4
+                "gradual_difficulty": 35
             },
             "condition": {
                 "type": "Node",
@@ -134,9 +134,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 8,
-                "commit_to_archstones": 10,
-                "cycle_archstones": 7
+                "gradual_difficulty": 85,
+                "commit_to_archstones": 100,
+                "cycle_archstones": 70
             },
             "condition": {
                 "type": "Node",
@@ -156,9 +156,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 7,
-                "commit_to_archstones": 1,
-                "cycle_archstones": 10
+                "gradual_difficulty": 75,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 100
             },
             "condition": {
                 "type": "Node",
@@ -178,10 +178,10 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "early_flame_lurker": 8,
-                "gradual_difficulty": 9,
-                "commit_to_archstones": 1,
-                "cycle_archstones": 10
+                "early_flame_lurker": 80,
+                "gradual_difficulty": 90,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 100
             },
             "condition": {
                 "type": "Node",
@@ -201,9 +201,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 8,
-                "commit_to_archstones": 1,
-                "cycle_archstones": 10
+                "gradual_difficulty": 80,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 100
             },
             "condition": {
                 "type": "Node",
@@ -223,9 +223,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 7,
-                "commit_to_archstones": 1,
-                "cycle_archstones": 10
+                "gradual_difficulty": 75,
+                "commit_to_archstones": 5,
+                "cycle_archstones": 100
             },
             "condition": {
                 "type": "Node",
@@ -245,10 +245,10 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "early_flame_lurker": 8,
-                "gradual_difficulty": 2,
-                "commit_to_archstones": 5,
-                "cycle_archstones": 5
+                "early_flame_lurker": 80,
+                "gradual_difficulty": 15,
+                "commit_to_archstones": 50,
+                "cycle_archstones": 50
             },
             "condition": {
                 "type": "Node",
@@ -268,9 +268,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 1,
-                "commit_to_archstones": 5,
-                "cycle_archstones": 5
+                "gradual_difficulty": 10,
+                "commit_to_archstones": 50,
+                "cycle_archstones": 50
             },
             "condition": {
                 "type": "Node",
@@ -290,9 +290,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 3,
-                "commit_to_archstones": 5,
-                "cycle_archstones": 5
+                "gradual_difficulty": 30,
+                "commit_to_archstones": 50,
+                "cycle_archstones": 50
             },
             "condition": {
                 "type": "Node",
@@ -312,9 +312,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 4,
-                "commit_to_archstones": 5,
-                "cycle_archstones": 5
+                "gradual_difficulty": 45,
+                "commit_to_archstones": 50,
+                "cycle_archstones": 50
             },
             "condition": {
                 "type": "Node",
@@ -334,8 +334,8 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 5,
-                "commit_to_archstones": 10,
+                "gradual_difficulty": 45,
+                "commit_to_archstones": 100,
                 "cycle_archstones": 1
             },
             "condition": {
@@ -356,8 +356,8 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 6,
-                "commit_to_archstones": 10,
+                "gradual_difficulty": 60,
+                "commit_to_archstones": 100,
                 "cycle_archstones": 1
             },
             "condition": {
@@ -378,8 +378,8 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 7,
-                "commit_to_archstones": 10,
+                "gradual_difficulty": 75,
+                "commit_to_archstones": 100,
                 "cycle_archstones": 1
             },
             "condition": {
@@ -400,8 +400,8 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 6,
-                "commit_to_archstones": 10,
+                "gradual_difficulty": 55,
+                "commit_to_archstones": 100,
                 "cycle_archstones": 1
             },
             "condition": {
@@ -422,9 +422,9 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 3,
+                "gradual_difficulty": 30,
                 "commit_to_archstones": 1,
-                "cycle_archstones": 3
+                "cycle_archstones": 30
             },
             "condition": {
                 "type": "Branch",
@@ -494,8 +494,8 @@
                 "archstone_boss"
             ],
             "weighting": {
-                "gradual_difficulty": 3,
-                "commit_to_archstones": 10,
+                "gradual_difficulty": 25,
+                "commit_to_archstones": 100,
                 "cycle_archstones": 1
             },
             "condition": {
