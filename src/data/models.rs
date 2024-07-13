@@ -60,14 +60,14 @@ pub enum Condition {
 #[derive(Deserialize)]
 pub struct ConditionBranch {
     pub clause: String,
-    pub labels: Vec<String>,
+    pub labels: Option<Vec<String>>,
     pub conditions: Vec<Condition>,
 }
 
 #[derive(Deserialize)]
 pub struct ConditionNode {
     pub objective_id: String,
-    pub labels: Vec<String>,
+    pub labels: Option<Vec<String>>,
 }
 
 #[derive(Deserialize)]

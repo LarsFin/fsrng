@@ -140,10 +140,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "phalanx",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "phalanx"
             }
         },
         {
@@ -162,10 +159,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "phalanx",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "phalanx"
             }
         },
         {
@@ -185,10 +179,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "phalanx",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "phalanx"
             }
         },
         {
@@ -207,10 +198,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "phalanx",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "phalanx"
             }
         },
         {
@@ -229,10 +217,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "phalanx",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "phalanx"
             }
         },
         {
@@ -252,10 +237,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "armor_spider",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "armor_spider"
             }
         },
         {
@@ -274,10 +256,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "fools_idol",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "fools_idol"
             }
         },
         {
@@ -296,10 +275,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "adjudicator",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "adjudicator"
             }
         },
         {
@@ -318,10 +294,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "leechmonger",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "leechmonger"
             }
         },
         {
@@ -340,10 +313,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "flamelurker",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "flamelurker"
             }
         },
         {
@@ -362,10 +332,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "maneater",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "maneater"
             }
         },
         {
@@ -384,10 +351,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "old_hero",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "old_hero"
             }
         },
         {
@@ -406,10 +370,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "dirty_colossus",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "dirty_colossus"
             }
         },
         {
@@ -429,37 +390,22 @@
             "condition": {
                 "type": "Branch",
                 "clause": "any",
-                "labels": [
-                    "archstone_boss"
-                ],
                 "conditions": [
                     {
                         "type": "Node",
-                        "objective_id": "dragon_god",
-                        "labels": [
-                            "archstone_boss"
-                        ]
+                        "objective_id": "dragon_god"
                     },
                     {
                         "type": "Node",
-                        "objective_id": "old_monk",
-                        "labels": [
-                            "archstone_boss"
-                        ]
+                        "objective_id": "old_monk"
                     },
                     {
                         "type": "Node",
-                        "objective_id": "storm_king",
-                        "labels": [
-                            "archstone_boss"
-                        ]
+                        "objective_id": "storm_king"
                     },
                     {
                         "type": "Node",
-                        "objective_id": "maiden_astraea",
-                        "labels": [
-                            "archstone_boss"
-                        ]
+                        "objective_id": "maiden_astraea"
                     }
                 ]
             }
@@ -478,10 +424,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "penetrator",
-                "labels": [
-                    "miniboss"
-                ]
+                "objective_id": "penetrator"
             }
         },
         {
@@ -500,10 +443,7 @@
             },
             "condition": {
                 "type": "Node",
-                "objective_id": "penetrator",
-                "labels": [
-                    "archstone_boss"
-                ]
+                "objective_id": "penetrator"
             }
         },
         {

@@ -97,15 +97,17 @@ fn resolve_condition(
     }
 }
 
+// TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
     filters: &[Filter],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
-    // TODO: figure out refactor here as all condition types have excluded routes
-    if !resolve_filters(filters, &branch.labels) {
-        return false;
+    if let Some(labels) = &branch.labels {
+        if !resolve_filters(filters, labels) {
+            return false;
+        }
     }
 
     if branch.clause == "all" {
@@ -128,8 +130,13 @@ fn resolve_branch(
 }
 
 fn resolve_node(filters: &[Filter], node: &ConditionNode, completed: &[String]) -> bool {
-    // TODO: figure out refactor here as all condition types have excluded routes
-    resolve_filters(filters, &node.labels) && completed.contains(&node.objective_id)
+    if let Some(labels) = &node.labels {
+        if !resolve_filters(filters, labels) {
+            return false;
+        }
+    }
+
+    completed.contains(&node.objective_id)
 }
 
 pub fn gen_rng(seed: u64) -> ChaCha8Rng {
