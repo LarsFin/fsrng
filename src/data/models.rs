@@ -88,6 +88,8 @@ pub struct Filter {
     pub labels: Vec<String>,
 }
 
+// TODO: flag and preference are the same model, think of a good name
+// across models ~ nomenclature is hard
 #[derive(Deserialize, Clone)]
 pub struct Flag {
     pub id: String,

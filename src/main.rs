@@ -11,9 +11,9 @@ fn main() {
 
     let schema = load_schema(&game.file_name).unwrap();
 
-    let filters = ask_filter_selections(&schema.filters);
-    let flags = ask_flag_selections(&schema.flags);
-    let preferences = ask_preference_selections(&schema.preferences);
+    let filters = ask_selections(String::from("Select filters."), &schema.filters);
+    let flags = ask_selections(String::from("Select flags."), &schema.flags);
+    let preferences = ask_selections(String::from("Select preferences."), &schema.preferences);
 
     let filtered_objectives = filter_objectives(&filters, schema.objectives);
 

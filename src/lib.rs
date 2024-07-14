@@ -18,55 +18,43 @@ pub fn ask_game_selection(games: &[Game]) -> &Game {
     &games[choice]
 }
 
-// TODO: refactor these ask_x_selections functions
-pub fn ask_filter_selections<'a>(filters: &'a [Filter]) -> Vec<Filter> {
-    if filters.is_empty() {
-        return Vec::new();
-    }
-
-    let choices: Vec<String> = filters
-        .iter()
-        .map(|filter| filter.info.name.clone())
-        .collect();
-
-    let choices = ask_multiple_selection(String::from("Select filters"), &choices);
-    choices
-        .iter()
-        .map(|choice| filters[*choice].clone())
-        .collect()
+pub trait Informable: Clone {
+    fn info(self) -> BasicInfo;
 }
 
-pub fn ask_flag_selections<'a>(flags: &'a [Flag]) -> Vec<Flag> {
-    if flags.is_empty() {
-        return Vec::new();
+impl Informable for Filter {
+    fn info(self) -> BasicInfo {
+        self.info
     }
-
-    let choices: Vec<String> = flags
-        .iter()
-        .map(|preference| preference.info.name.clone())
-        .collect();
-
-    let choices = ask_multiple_selection(String::from("Select flags"), &choices);
-    choices
-        .iter()
-        .map(|choice| flags[*choice].clone())
-        .collect()
 }
 
-pub fn ask_preference_selections<'a>(preferences: &'a [Preference]) -> Vec<Preference> {
-    if preferences.is_empty() {
+impl Informable for Flag {
+    fn info(self) -> BasicInfo {
+        self.info
+    }
+}
+
+impl Informable for Preference {
+    fn info(self) -> BasicInfo {
+        self.info
+    }
+}
+
+pub fn ask_selections<'a, T: Informable>(question: String, selections: &'a [T]) -> Vec<T> {
+    if selections.is_empty() {
         return Vec::new();
     }
 
-    let choices: Vec<String> = preferences
+    let choices: Vec<String> = selections
         .iter()
-        .map(|preference| preference.info.name.clone())
+        .map(|selection| selection.clone().info().name)
         .collect();
 
-    let choices = ask_multiple_selection(String::from("Select preferences"), &choices);
-    choices
+    let decisions = ask_multiple_selection(question, &choices);
+
+    decisions
         .iter()
-        .map(|choice| preferences[*choice].clone())
+        .map(|decision| selections[*decision].clone())
         .collect()
 }
 
