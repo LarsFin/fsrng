@@ -1,0 +1,620 @@
+{
+    "file_version": "1.0.0",
+    "filters": [
+        {
+            "id": "no_chalice_bosses",
+            "info": {
+                "name": "No Chalice Bosses",
+                "description": "Exclude Chalice bosses from the randomised route"
+            },
+            "clause": "none",
+            "labels": [
+                "chalice_boss"
+            ]
+        }
+    ],
+    "flags": [
+        {
+            "id": "iosefka_skip",
+            "info": {
+                "name": "Iosefka Skip",
+                "description": "Use skip in Iosefka's Clinic to access Forbidden Woods early"
+            }
+        }
+    ],
+    "preferences": [],
+    "objectives": [
+        {
+            "id": "amygdala",
+            "info": {
+                "name": "Amygdala",
+                "location": "Nightmare Frontier"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "blood_starved_beast",
+            "info": {
+                "name": "Blood-Starved Beast",
+                "location": "Old Yharnam"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "celestial_emissary",
+            "info": {
+                "name": "Celestial Emissary",
+                "location": "Lumenflower Gardens"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cleric_beast",
+            "info": {
+                "name": "Cleric Beast",
+                "location": "Central Yharnam"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "darkbeast_paarl",
+            "info": {
+                "name": "Darkbeast Paarl",
+                "location": "Graveyard of the Darkbeast"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ebrietas_daughter_of_the_cosmos",
+            "info": {
+                "name": "Ebrietas, Daughter of the Cosmos",
+                "location": "Altar of Despair"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "father_gascoigne",
+            "info": {
+                "name": "Father Gascoigne",
+                "location": "Central Yharnam"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "gehrman_the_first_hunter",
+            "info": {
+                "name": "Gehrman, the First Hunter",
+                "location": "Hunter's Dream"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "martyr_logarius",
+            "info": {
+                "name": "Martyr Logarius",
+                "location": "Forsaken Cainhurst Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mergos_wet_nurse",
+            "info": {
+                "name": "Mergo's Wet Nurse",
+                "location": "Wet Nurse's Lunarium"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "micolash_host_of_the_nightmare",
+            "info": {
+                "name": "Micolash, Host of the Nightmare",
+                "location": "Mergo's Loft: Middle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "moon_presence",
+            "info": {
+                "name": "Moon Presence",
+                "location": "Hunter's Dream"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "one_reborn",
+            "info": {
+                "name": "One Reborn",
+                "location": "Advent Plaza"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rom_the_vacuous_spider",
+            "info": {
+                "name": "Rom, the Vacuous Spider",
+                "location": "Moonside Lake"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "shadow_of_yharnam",
+            "info": {
+                "name": "Shadow of Yharnam",
+                "location": "Forbidden Woods"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "vicar_amelia",
+            "info": {
+                "name": "Vicar Amelia",
+                "location": "Grand Cathedral"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "witch_of_hemwick",
+            "info": {
+                "name": "Witch of Hemwick",
+                "location": "Witch's Abode"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ludwig_the_holy_blade",
+            "info": {
+                "name": "Ludwig, the Holy Blade",
+                "location": "Underground Corpse Pile"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "orphan_of_kos",
+            "info": {
+                "name": "Orphan of Kos",
+                "location": "Coast"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "lady_maria_of_the_astral_clocktower",
+            "info": {
+                "name": "Lady Maria of the Astral Clocktower",
+                "location": "Astral Clocktower"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "living_failures",
+            "info": {
+                "name": "Living Failures",
+                "location": "Lumenwood Garden"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "laurence_the_first_vicar",
+            "info": {
+                "name": "Laurence, the First Vicar",
+                "location": "Nightmare Grand Cathedral"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "undead_giant_pthumeru",
+            "info": {
+                "name": "Undead Giant",
+                "location": "Pthumeru Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "merciless_watchers_pthumeru",
+            "info": {
+                "name": "Merciless Watchers",
+                "location": "Pthumeru Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "watchdog_of_the_old_lords_pthumeru",
+            "info": {
+                "name": "Watchdog of the Old Lords",
+                "location": "Pthumeru Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "beast_possessed_soul_central_pthumeru",
+            "info": {
+                "name": "Beast-Possessed Soul",
+                "location": "Central Pthumeru Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "keeper_of_the_old_lords_central_pthumeru",
+            "info": {
+                "name": "Keeper of the Old Lords",
+                "location": "Central Pthumeru Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "pthumerian_descendant_central_pthumeru",
+            "info": {
+                "name": "Pthumerian Descendant",
+                "location": "Central Pthumeru Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "merciless_watchers_lower_pthumeru",
+            "info": {
+                "name": "Merciless Watchers",
+                "location": "Lower Pthumeru Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "undead_giant_lower_pthumeru",
+            "info": {
+                "name": "Undead Giant",
+                "location": "Lower Pthumeru Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rom_the_vacuous_spider_lower_pthumeru",
+            "info": {
+                "name": "Rom, the Vacuous Spider",
+                "location": "Lower Pthumeru Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bloodbetting_beast_lower_pthumeru",
+            "info": {
+                "name": "Bloodletting Beast",
+                "location": "Lower Pthumeru Chalice (Layer 4)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "keeper_of_the_old_lords_defiled_pthumeru",
+            "info": {
+                "name": "Keeper of the Old Lords",
+                "location": "Defiled Pthumeru Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "watchdog_of_the_old_lords_defiled_pthumeru",
+            "info": {
+                "name": "Watchdog of the Old Lords",
+                "location": "Defiled Pthumeru Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "amygdala_defiled_pthumeru",
+            "info": {
+                "name": "Amygdala",
+                "location": "Defiled Pthumeru Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "pthumerian_descendant_great_pthumeru_ihyll",
+            "info": {
+                "name": "Pthumerian Descendant",
+                "location": "Great Pthumeru Ihyll Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "headless_bloodletting_beast_great_pthumeru_ihyll",
+            "info": {
+                "name": "Headless Bloodletting Beast",
+                "location": "Great Pthumeru Ihyll Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "yharnam_pthumerian_queen_great_pthumeru_ihyll",
+            "info": {
+                "name": "Yharnam, Pthumerian Queen",
+                "location": "Great Pthumeru Ihyll Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "maneater_boar_hintertomb",
+            "info": {
+                "name": "Maneater Boar",
+                "location": "Hintertomb Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "undead_giant_hintertomb",
+            "info": {
+                "name": "Undead Giant",
+                "location": "Hintertomb Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "blood_starved_beast",
+            "info": {
+                "name": "Blood-Starved Beast",
+                "location": "Hintertomb Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "brainsucker",
+            "info": {
+                "name": "Brainsucker",
+                "location": "Lower Hintertomb Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "forgotten_madman",
+            "info": {
+                "name": "Forgotten Madman",
+                "location": "Lower Hintertomb Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "pthumerian_elder_lower_hintertomb",
+            "info": {
+                "name": "Pthumerian Elder",
+                "location": "Lower Hintertomb Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "beast_possessed_soul_ailing_loran",
+            "info": {
+                "name": "Beast-Possessed Soul",
+                "location": "Ailing Loran Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "blood_starved_beast_ailing_loran",
+            "info": {
+                "name": "Blood-Starved Beast",
+                "location": "Ailing Loran Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "abhorrent_beast_ailing_loran",
+            "info": {
+                "name": "Abhorrent Beast",
+                "location": "Ailing Loran Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "loran_silverbeast_lower_loran",
+            "info": {
+                "name": "Loran Silverbeast",
+                "location": "Lower Loran Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "abhorrent_beast_lower_loran",
+            "info": {
+                "name": "Abhorrent Beast",
+                "location": "Lower Loran Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "loran_darkbeast_lower_loran",
+            "info": {
+                "name": "Loran Darkbeast",
+                "location": "Lower Loran Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "brainsucker_great_isz",
+            "info": {
+                "name": "Brainsucker",
+                "location": "Great Isz Chalice (Layer 1)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "celestial_emissary_great_isz",
+            "info": {
+                "name": "Celestial Emissary",
+                "location": "Great Isz Chalice (Layer 2)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ebrietas_daughter_of_the_cosmos_great_isz",
+            "info": {
+                "name": "Ebrietas, Daughter of the Cosmos",
+                "location": "Great Isz Chalice (Layer 3)"
+            },
+            "labels": [
+                "chalice_boss"
+            ],
+            "weighting": {},
+            "condition": null
+        }
+    ]
+}
