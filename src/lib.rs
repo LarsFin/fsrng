@@ -40,7 +40,7 @@ impl Informable for Preference {
     }
 }
 
-pub fn ask_selections<'a, T: Informable>(question: String, selections: &'a [T]) -> Vec<T> {
+pub fn ask_selections<T: Informable>(question: String, selections: &[T]) -> Vec<T> {
     if selections.is_empty() {
         return Vec::new();
     }
@@ -297,11 +297,11 @@ fn get_weight(preferences: &[Preference], weighting: &HashMap<String, u64>) -> u
     // first filter id in weightings is used
     for preference in preferences {
         if let Some(weight) = weighting.get(&preference.id) {
-            return weight.clone();
+            return *weight;
         }
     }
 
-    return 1;
+    1
 }
 
 fn random_weighted_objective(
