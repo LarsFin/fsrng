@@ -2,13 +2,6 @@ use std::collections::HashMap;
 
 use serde::{ Deserialize, Serialize };
 
-/**
- * TODO
- * Hopefully last change...
- * A Route is the finished generation, not a part of the schema.
- * Instead, there are flags which are used to filter objectives and their conditions
- */
-
 #[derive(Deserialize)]
 pub struct Meta {
     pub app_version: String,
@@ -25,6 +18,7 @@ pub struct Game {
 pub struct Schema {
     pub file_version: String,
     pub filters: Vec<Filter>,
+    pub flags: Vec<Flag>,
     pub preferences: Vec<Preference>,
     pub objectives: Vec<Objective>,
 }
@@ -61,6 +55,7 @@ pub enum Condition {
 pub struct ConditionBranch {
     pub clause: String,
     pub labels: Option<Vec<String>>,
+    pub flag_check: Option<FlagCheck>,
     pub conditions: Vec<Condition>,
 }
 
@@ -68,6 +63,7 @@ pub struct ConditionBranch {
 pub struct ConditionNode {
     pub objective_id: String,
     pub labels: Option<Vec<String>>,
+    pub flag_check: Option<FlagCheck>,
 }
 
 #[derive(Deserialize)]
@@ -79,6 +75,7 @@ pub struct Route {
     pub game_name: String,
     pub seed: u64,
     pub filters: Vec<BasicInfo>,
+    pub flags: Vec<BasicInfo>,
     pub preferences: Vec<BasicInfo>,
     pub ordered_objectives: Vec<ObjectiveInfo>,
 }
@@ -89,6 +86,18 @@ pub struct Filter {
     pub info: BasicInfo,
     pub clause: String,
     pub labels: Vec<String>,
+}
+
+#[derive(Deserialize, Clone)]
+pub struct Flag {
+    pub id: String,
+    pub info: BasicInfo,
+}
+
+#[derive(Deserialize)]
+pub struct FlagCheck {
+    pub clause: String,
+    pub flag_ids: Vec<String>,
 }
 
 #[derive(Deserialize, Clone)]

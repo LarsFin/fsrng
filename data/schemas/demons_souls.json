@@ -24,6 +24,7 @@
             ]
         }
     ],
+    "flags": [],
     "preferences": [
         {
             "id": "commit_to_archstones",

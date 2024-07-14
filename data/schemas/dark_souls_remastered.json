@@ -1,43 +1,31 @@
 {
     "file_version": "1.0.0",
     "routes": [],
-    "filters": [
+    "filters": [],
+    "flags": [
         {
             "id": "master_key",
             "info": {
                 "name": "Master Key",
                 "description": "Adds route for master key or thief access to undead parish before undead burg"
-            },
-            "clause": "any",
-            "labels": [
-                "master_key"
-            ]
+            }
         },
         {
             "id": "sens_skip",
             "info": {
                 "name": "Sens Skip",
                 "description": "Allows early access to Sen's Foretress using Sens Skip"
-            },
-            "clause": "none",
-            "labels": [
-                "sens_skip"
-            ]
+            }
         },
         {
             "id": "chaos_servant",
             "info": {
                 "name": "Chaos Servant Bypass",
                 "description": "Adds route to offer humanities to the chaos servant covenant, allowing an alternative route around the demon firesage and centipede demon"
-            },
-            "clause": "none",
-            "labels": [
-                "chaos_servant"
-            ]
+            }
         }
     ],
-    "preferences": [
-    ],
+    "preferences": [],
     "objectives": [
         {
             "id": "asylum_demon",
@@ -77,9 +65,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -103,9 +94,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -155,9 +149,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -280,9 +277,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -318,17 +318,23 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key",
-                            "sens_skip"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key",
+                                "sens_skip"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
                         "objective_id": "taurus_demon",
-                        "labels": [
-                            "sens_skip"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "sens_skip"
+                            ]
+                        }
                     },
                     {
                         "type": "Branch",
@@ -362,9 +368,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -504,9 +513,12 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "labels": [
-                            "master_key"
-                        ]
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "master_key"
+                            ]
+                        }
                     },
                     {
                         "type": "Node",
@@ -524,8 +536,58 @@
             "labels": [],
             "weighting": {},
             "condition": {
-                "type": "Node",
-                "objective_id": "centipede_demon"
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "centipede_demon"
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "chaos_servant"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "ceaseless_discharge"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ornstein_and_smough"
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "any",
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "four_kings"
+                                    },
+                                    {
+                                        "type": "Branch",
+                                        "clause": "all",
+                                        "conditions": [
+                                            {
+                                                "type": "Node",
+                                                "objective_id": "bell_gargoyle"
+                                            },
+                                            {
+                                                "type": "Node",
+                                                "objective_id": "chaos_witch_quelaag"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {

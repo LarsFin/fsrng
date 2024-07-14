@@ -18,7 +18,12 @@ pub fn ask_game_selection(games: &[Game]) -> &Game {
     &games[choice]
 }
 
+// TODO: refactor these ask_x_selections functions
 pub fn ask_filter_selections<'a>(filters: &'a [Filter]) -> Vec<Filter> {
+    if filters.is_empty() {
+        return Vec::new();
+    }
+
     let choices: Vec<String> = filters
         .iter()
         .map(|filter| filter.info.name.clone())
@@ -31,7 +36,28 @@ pub fn ask_filter_selections<'a>(filters: &'a [Filter]) -> Vec<Filter> {
         .collect()
 }
 
+pub fn ask_flag_selections<'a>(flags: &'a [Flag]) -> Vec<Flag> {
+    if flags.is_empty() {
+        return Vec::new();
+    }
+
+    let choices: Vec<String> = flags
+        .iter()
+        .map(|preference| preference.info.name.clone())
+        .collect();
+
+    let choices = ask_multiple_selection(String::from("Select flags"), &choices);
+    choices
+        .iter()
+        .map(|choice| flags[*choice].clone())
+        .collect()
+}
+
 pub fn ask_preference_selections<'a>(preferences: &'a [Preference]) -> Vec<Preference> {
+    if preferences.is_empty() {
+        return Vec::new();
+    }
+
     let choices: Vec<String> = preferences
         .iter()
         .map(|preference| preference.info.name.clone())
@@ -61,6 +87,7 @@ pub fn load_schema(file_name: &String) -> Result<Schema, Box<dyn std::error::Err
 
 fn possible_objectives_ids(
     filters: &[Filter],
+    flags: &[Flag],
     objectives: &[Objective],
     completed: &[String]
 ) -> Vec<String> {
@@ -72,7 +99,7 @@ fn possible_objectives_ids(
         }
 
         if let Some(condition) = &objective.condition {
-            if !resolve_condition(filters, condition, completed, objectives.len()) {
+            if !resolve_condition(filters, flags, condition, completed, objectives.len()) {
                 continue;
             }
         }
@@ -85,14 +112,15 @@ fn possible_objectives_ids(
 
 fn resolve_condition(
     filters: &[Filter],
+    flags: &[Flag],
     condition: &Condition,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
     match condition {
         Condition::Branch(branch) =>
-            resolve_branch(filters, branch, completed, total_objective_count),
-        Condition::Node(node) => resolve_node(filters, node, completed),
+            resolve_branch(filters, flags, branch, completed, total_objective_count),
+        Condition::Node(node) => resolve_node(filters, flags, node, completed),
         Condition::End(_) => completed.len() == total_objective_count - 1,
     }
 }
@@ -100,10 +128,17 @@ fn resolve_condition(
 // TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
     filters: &[Filter],
+    flags: &[Flag],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
+    if let Some(flag_check) = &branch.flag_check {
+        if !check_flags(flag_check, flags) {
+            return false;
+        }
+    }
+
     if let Some(labels) = &branch.labels {
         if !resolve_filters(filters, labels) {
             return false;
@@ -114,7 +149,7 @@ fn resolve_branch(
         return branch.conditions
             .iter()
             .all(|condition|
-                resolve_condition(filters, condition, completed, total_objective_count)
+                resolve_condition(filters, flags, condition, completed, total_objective_count)
             );
     }
 
@@ -122,14 +157,25 @@ fn resolve_branch(
         return branch.conditions
             .iter()
             .any(|condition|
-                resolve_condition(filters, condition, completed, total_objective_count)
+                resolve_condition(filters, flags, condition, completed, total_objective_count)
             );
     }
 
     false
 }
 
-fn resolve_node(filters: &[Filter], node: &ConditionNode, completed: &[String]) -> bool {
+fn resolve_node(
+    filters: &[Filter],
+    flags: &[Flag],
+    node: &ConditionNode,
+    completed: &[String]
+) -> bool {
+    if let Some(flag_check) = &node.flag_check {
+        if !check_flags(flag_check, flags) {
+            return false;
+        }
+    }
+
     if let Some(labels) = &node.labels {
         if !resolve_filters(filters, labels) {
             return false;
@@ -183,8 +229,25 @@ pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
     true
 }
 
+pub fn check_flags(flag_check: &FlagCheck, flags: &[Flag]) -> bool {
+    let flag_ids: Vec<String> = flags
+        .iter()
+        .map(|flag| flag.id.clone())
+        .collect();
+
+    match flag_check.clause.as_str() {
+        "any" => flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)),
+        "all" => flag_check.flag_ids.iter().all(|flag_id| flag_ids.contains(flag_id)),
+        _ => {
+            println!("Unknown flag check clause '{}'", flag_check.clause);
+            false
+        }
+    }
+}
+
 pub fn generate_ordered_objectives(
     filters: &[Filter],
+    flags: &[Flag],
     preferences: &[Preference],
     objectives: &[Objective],
     rng: &mut ChaCha8Rng
@@ -193,7 +256,12 @@ pub fn generate_ordered_objectives(
     let mut ordered_objectives: Vec<ObjectiveInfo> = Vec::new();
 
     while completed.len() < objectives.len() {
-        let possible_objective_ids = possible_objectives_ids(filters, objectives, &completed);
+        let possible_objective_ids = possible_objectives_ids(
+            filters,
+            flags,
+            objectives,
+            &completed
+        );
         let weighted_objectives = build_weighted_objectives(
             preferences,
             &possible_objective_ids,
@@ -276,6 +344,7 @@ pub fn build_generated_route(
     game_name: String,
     seed: u64,
     filters: Vec<Filter>,
+    flags: Vec<Flag>,
     preferences: Vec<Preference>,
     ordered_objectives: Vec<ObjectiveInfo>
 ) -> Route {
@@ -287,6 +356,10 @@ pub fn build_generated_route(
             .iter()
             .map(|filter| filter.info.clone())
             .collect(),
+        flags: flags
+            .iter()
+            .map(|flag| flag.info.clone())
+            .collect(),
         preferences: preferences
             .iter()
             .map(|preference| preference.info.clone())
@@ -297,7 +370,7 @@ pub fn build_generated_route(
 
 pub fn write_route(game_id: &String, generated_route: Route) -> Result<(), std::io::Error> {
     let time_sig = chrono::Local::now().format("%Y%m%d_%H%M%S").to_string();
-    let file_name = format!("{}-{}", game_id, time_sig);
+    let file_name = format!("{}-{}", time_sig, game_id);
     data::write_output(file_name, generated_route)
 }
 

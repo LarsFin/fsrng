@@ -12,6 +12,7 @@ fn main() {
     let schema = load_schema(&game.file_name).unwrap();
 
     let filters = ask_filter_selections(&schema.filters);
+    let flags = ask_flag_selections(&schema.flags);
     let preferences = ask_preference_selections(&schema.preferences);
 
     let filtered_objectives = filter_objectives(&filters, schema.objectives);
@@ -26,6 +27,7 @@ fn main() {
 
     let ordered_objectives = generate_ordered_objectives(
         &filters,
+        &flags,
         &preferences,
         &filtered_objectives,
         &mut rng
@@ -36,6 +38,7 @@ fn main() {
         game.name.clone(),
         seed,
         filters,
+        flags,
         preferences,
         ordered_objectives
     );
