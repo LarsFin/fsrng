@@ -1,0 +1,725 @@
+{
+    "file_version": "1.0.0",
+    "filters": [],
+    "flags": [
+        {
+            "id": "soul_memory",
+            "info": {
+                "name": "Million Soul Memory",
+                "description": "It's possible to access Drangleic Castle through the Shrine of Winter when gaining a million souls in Soul Memory"
+            }
+        }
+    ],
+    "preferences": [],
+    "objectives": [
+        {
+            "id": "the_last_giant",
+            "info": {
+                "name": "The Last Giant",
+                "location": "Forest of Fallen Giants"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "the_pursuer",
+            "info": {
+                "name": "The Pursuer",
+                "location": "Forest of Fallen Giants"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "the_last_giant"
+            }
+        },
+        {
+            "id": "executioners_chariot",
+            "info": {
+                "name": "Executioner's Chariot",
+                "location": "Undead Purgatory"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "dragonrider"
+            }
+        },
+        {
+            "id": "looking_glass_knight",
+            "info": {
+                "name": "Looking Glass Knight",
+                "location": "Drangleic Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "twin_dragonriders"
+            }
+        },
+        {
+            "id": "skeleton_lords",
+            "info": {
+                "name": "Skeleton Lords",
+                "location": "Huntsman's Copse"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "dragonrider"
+            }
+        },
+        {
+            "id": "flexile_sentry",
+            "info": {
+                "name": "Flexile Sentry",
+                "location": "No-man's Wharf"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "dragonrider"
+            }
+        },
+        {
+            "id": "lost_sinner",
+            "info": {
+                "name": "Lost Sinner",
+                "location": "Sinner's Rise"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "flexile_sentry"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ruin_sentinels"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "belfry_gargoyles",
+            "info": {
+                "name": "Belfry Gargoyles",
+                "location": "Belfry Luna"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "ruin_sentinels"
+            }
+        },
+        {
+            "id": "ruin_sentinels",
+            "info": {
+                "name": "Ruin Sentinels",
+                "location": "Lost Bastille"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "the_pursuer"
+            }
+        },
+        {
+            "id": "royal_rat_vanguard",
+            "info": {
+                "name": "Royal Rat Vanguard",
+                "location": "Grave of Saints"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "royal_rat_authority",
+            "info": {
+                "name": "Royal Rat Authority",
+                "location": "Doors of Pharros"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "scorpioness_najka"
+            }
+        },
+        {
+            "id": "scorpioness_najka",
+            "info": {
+                "name": "Scorpioness Najka",
+                "location": "Shaded Woods"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "the_dukes_dear_freja",
+            "info": {
+                "name": "The Duke's Dear Freja",
+                "location": "Brightstone Cove Tseldora"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "prowling_magus_and_congregation"
+            }
+        },
+        {
+            "id": "mytha_the_baneful_queen",
+            "info": {
+                "name": "Mytha, the Baneful Queen",
+                "location": "Earthen Peak"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "covetous_demon"
+            }
+        },
+        {
+            "id": "the_rotten",
+            "info": {
+                "name": "The Rotten",
+                "location": "Black Gulch"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "old_dragonslayer",
+            "info": {
+                "name": "Old Dragonslayer",
+                "location": "Heide's Tower of Flame"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "covetous_demon",
+            "info": {
+                "name": "Covetous Demon",
+                "location": "Earthen Peak"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "skeleton_lords"
+            }
+        },
+        {
+            "id": "smelter_demon",
+            "info": {
+                "name": "Smelter Demon",
+                "location": "Iron Keep"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "mytha_the_baneful_queen"
+            }
+        },
+        {
+            "id": "old_iron_king",
+            "info": {
+                "name": "Old Iron King",
+                "location": "Iron Keep"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "mytha_the_baneful_queen"
+            }
+        },
+        {
+            "id": "guardian_dragon",
+            "info": {
+                "name": "Guardian Dragon",
+                "location": "Dragon Aerie"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "velstadt_the_royal_aegis"
+            }
+        },
+        {
+            "id": "demon_of_song",
+            "info": {
+                "name": "Demon of Song",
+                "location": "Shrine of Amana"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "looking_glass_knight"
+            }
+        },
+        {
+            "id": "velstadt_the_royal_aegis",
+            "info": {
+                "name": "Velstadt, the Royal Aegis",
+                "location": "Undead Crypt"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "demon_of_song"
+            }
+        },
+        {
+            "id": "vendrick",
+            "info": {
+                "name": "Vendrick",
+                "location": "Undead Crypt"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "velstadt_the_royal_aegis"
+            }
+        },
+        {
+            "id": "darklurker",
+            "info": {
+                "name": "Darklurker",
+                "location": "Dark Chasm of Old"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "lost_sinner"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_dukes_dear_freja"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "soul_memory"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "dragonrider",
+            "info": {
+                "name": "Dragonrider",
+                "location": "Heide's Tower of Flame"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "twin_dragonriders",
+            "info": {
+                "name": "Twin Dragonriders",
+                "location": "Drangleic Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "lost_sinner"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_dukes_dear_freja"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "soul_memory"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "prowling_magus_and_congregation",
+            "info": {
+                "name": "Prowling Magus and Congregation",
+                "location": "Brightstone Cove Tseldora"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "scorpioness_najka"
+            }
+        },
+        {
+            "id": "giant_lord",
+            "info": {
+                "name": "Giant Lord",
+                "location": "Memory of Jeigh"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "guardian_dragon"
+            }
+        },
+        {
+            "id": "ancient_dragon",
+            "info": {
+                "name": "Ancient Dragon",
+                "location": "Dragon Shrine"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "guardian_dragon"
+            }
+        },
+        {
+            "id": "throne_watcher_and_defender",
+            "info": {
+                "name": "Throne Watcher and Defender",
+                "location": "Drangleic Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "velstadt_the_royal_aegis"
+            }
+        },
+        {
+            "id": "nashandra",
+            "info": {
+                "name": "Nashandra",
+                "location": "Drangleic Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "throne_watcher_and_defender"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "giant_lord"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "aldia_scholar_of_the_first_sin",
+            "info": {
+                "name": "Aldia, Scholar of the First Sin",
+                "location": "Drangleic Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "nashandra"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "vendrick"
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "lost_sinner"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_dukes_dear_freja"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "elana_squalid_queen",
+            "info": {
+                "name": "Elana, Squalid Queen",
+                "location": "Dragon's Rest"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "the_rotten"
+            }
+        },
+        {
+            "id": "sinh_the_slumbering_dragon",
+            "info": {
+                "name": "Sinh, the Slumbering Dragon",
+                "location": "Dragon's Rest"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "elana_squalid_queen"
+            }
+        },
+        {
+            "id": "graverobber_varg_and_cerah",
+            "info": {
+                "name": "Graverobber, Varg and Cerah",
+                "location": "Cave of the Dead"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "the_rotten"
+            }
+        },
+        {
+            "id": "blue_smelter_demon",
+            "info": {
+                "name": "Smelter Demon (Blue)",
+                "location": "Iron Passage"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "old_iron_king"
+            }
+        },
+        {
+            "id": "fume_knight",
+            "info": {
+                "name": "Fume Knight",
+                "location": "Brume Tower"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "old_iron_king"
+            }
+        },
+        {
+            "id": "sir_alonne",
+            "info": {
+                "name": "Sir Alonne",
+                "location": "Memory of the Old Iron King"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "fume_knight"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "guardian_dragon"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "burnt_ivory_king",
+            "info": {
+                "name": "Burnt Ivory King",
+                "location": "Old Chaos"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "aava_the_kings_pet"
+            }
+        },
+        {
+            "id": "aava_the_kings_pet",
+            "info": {
+                "name": "Aava, the King's Pet",
+                "location": "Frozen Eleum Loyce"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "lost_sinner"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_dukes_dear_freja"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "soul_memory"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "the_rotten"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "old_iron_king"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "lud_and_zallen_the_kings_pets",
+            "info": {
+                "name": "Lud and Zallen, the King's Pets",
+                "location": "Frigid Outskirts"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "aava_the_kings_pet"
+            }
+        }
+    ]
+}

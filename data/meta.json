@@ -8,6 +8,10 @@
         {
             "name": "Dark Souls Remastered",
             "file_name": "dark_souls_remastered"
+        },
+        {
+            "name": "Dark Souls II: Scholar of the First Sin",
+            "file_name": "dark_souls_ii_sotfs"
         }
     ]
 }
