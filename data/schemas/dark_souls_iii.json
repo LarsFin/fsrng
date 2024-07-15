@@ -1,0 +1,388 @@
+{
+    "file_version": "1.0.0",
+    "filters": [],
+    "flags": [],
+    "preferences": [],
+    "objectives": [
+        {
+            "id": "iudex_gundyr",
+            "info": {
+                "name": "Iudex Gundyr",
+                "location": "Cemetery of Ash"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "vordt_of_the_boreal_valley",
+            "info": {
+                "name": "Vordt of the Boreal Valley",
+                "location": "High Wall of Lothric"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "iudex_gundyr"
+            }
+        },
+        {
+            "id": "curse_rotted_greatwood",
+            "info": {
+                "name": "Curse-Rotted Greatwood",
+                "location": "Undead Settlement"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "vordt_of_the_boreal_valley"
+            }
+        },
+        {
+            "id": "crystal_sage",
+            "info": {
+                "name": "Crystal Sage",
+                "location": "road_of_sacrifices"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "vordt_of_the_boreal_valley"
+            }
+        },
+        {
+            "id": "abyss_watchers",
+            "info": {
+                "name": "Abyss Watchers",
+                "location": "Farron Keep"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "vordt_of_the_boreal_valley"
+            }
+        },
+        {
+            "id": "deacons_of_the_deep",
+            "info": {
+                "name": "Deacons of the Deep",
+                "location": "Cathedral of the Deep"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "crystal_sage"
+            }
+        },
+        {
+            "id": "high_lord_wolnir",
+            "info": {
+                "name": "High Lord Wolnir",
+                "location": "Catacombs of Carthus"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "abyss_watchers"
+            }
+        },
+        {
+            "id": "old_demon_king",
+            "info": {
+                "name": "Old Demon King",
+                "location": "Smouldering Lake"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "abyss_watchers"
+            }
+        },
+        {
+            "id": "pontiff_sulyvahn",
+            "info": {
+                "name": "Pontiff Sulyvahn",
+                "location": "Irithyll of the Boreal Valley"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "deacons_of_the_deep"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "high_lord_wolnir"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "yhorm_the_giant",
+            "info": {
+                "name": "Yhorm the Giant",
+                "location": "Profaned Capital"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "deacons_of_the_deep"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "high_lord_wolnir"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "aldrich_devourer_of_gods",
+            "info": {
+                "name": "Aldrich, Devourer of Gods",
+                "location": "Anor Londo"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "pontiff_sulyvahn"
+            }
+        },
+        {
+            "id": "dancer_of_the_boreal_valley",
+            "info": {
+                "name": "Dancer of the Boreal Valley",
+                "location": "High Wall of Lothric"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "iudex_gundyr"
+            }
+        },
+        {
+            "id": "dragonslayer_armour",
+            "info": {
+                "name": "Dragonslayer Armour",
+                "location": "Lothric Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "dancer_of_the_boreal_valley"
+            }
+        },
+        {
+            "id": "oceiros_the_consumed_king",
+            "info": {
+                "name": "Oceiros, the Consumed King",
+                "location": "Consumed King's Garden"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "dancer_of_the_boreal_valley"
+            }
+        },
+        {
+            "id": "champion_gundyr",
+            "info": {
+                "name": "Champion Gundyr",
+                "location": "Untended Graves"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "oceiros_the_consumed_king"
+            }
+        },
+        {
+            "id": "lothric_twin_princes",
+            "info": {
+                "name": "Lothric Twin Princes",
+                "location": "Lothric Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "dragonslayer_armour"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "yhorm_the_giant"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "aldrich_devourer_of_gods"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ancient_wyvern",
+            "info": {
+                "name": "Ancient Wyvern",
+                "location": "Archdragon Peak"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "deacons_of_the_deep"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "high_lord_wolnir"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "oceiros_the_consumed_king"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "nameless_king",
+            "info": {
+                "name": "Nameless King",
+                "location": "Archdragon Peak"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_wyvern"
+            }
+        },
+        {
+            "id": "soul_of_cinder",
+            "info": {
+                "name": "Soul of Cinder",
+                "location": "Kiln of the First Flame"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "lothric_twin_princes"
+            }
+        },
+        {
+            "id": "sister_friede",
+            "info": {
+                "name": "Sister Friede",
+                "location": "Painted World of Ariandel"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "crystal_sage"
+            }
+        },
+        {
+            "id": "champions_gravetender_and_greatwolf",
+            "info": {
+                "name": "Champion's Gravetender and Greatwolf",
+                "location": "Painted World of Ariandel"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "crystal_sage"
+            }
+        },
+        {
+            "id": "demon_prince",
+            "info": {
+                "name": "Demon Prince",
+                "location": "The Dreg Heap"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "lothric_twin_princes"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "sister_friede"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "halflight_spear_of_the_church",
+            "info": {
+                "name": "Halflight, Spear of the Church",
+                "location": "The Ringed City"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "demon_prince"
+            }
+        },
+        {
+            "id": "darkeater_midir",
+            "info": {
+                "name": "Darkeater Midir",
+                "location": "The Ringed City"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "demon_prince"
+            }
+        },
+        {
+            "id": "slave_knight_gael",
+            "info": {
+                "name": "Slave Knight Gael",
+                "location": "The Ringed City"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "halflight_spear_of_the_church"
+            }
+        }
+    ]
+}

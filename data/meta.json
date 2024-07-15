@@ -12,6 +12,14 @@
         {
             "name": "Dark Souls II: Scholar of the First Sin",
             "file_name": "dark_souls_ii_sotfs"
+        },
+        {
+            "name": "Bloodborne",
+            "file_name": "bloodborne"
+        },
+        {
+            "name": "Dark Souls III",
+            "file_name": "dark_souls_iii"
         }
     ]
 }

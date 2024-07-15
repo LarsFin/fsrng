@@ -170,7 +170,12 @@ fn resolve_node(
         }
     }
 
-    completed.contains(&node.objective_id)
+    if let Some(objective_id) = &node.objective_id {
+        completed.contains(objective_id)
+    } else {
+        // no objective_id indicates no objective to check, so return true
+        true
+    }
 }
 
 pub fn gen_rng(seed: u64) -> ChaCha8Rng {
@@ -250,6 +255,14 @@ pub fn generate_ordered_objectives(
             objectives,
             &completed
         );
+
+        if possible_objective_ids.is_empty() {
+            panic!(
+                "Could not resolve remaining objectives: {:?}",
+                remaining_objective_ids(&completed, objectives)
+            );
+        }
+
         let weighted_objectives = build_weighted_objectives(
             preferences,
             &possible_objective_ids,
@@ -268,6 +281,17 @@ pub fn generate_ordered_objectives(
     }
 
     ordered_objectives
+}
+
+fn remaining_objective_ids(
+    completed_objective_ids: &[String],
+    all_objectives: &[Objective]
+) -> Vec<String> {
+    all_objectives
+        .iter()
+        .filter(|objective| !completed_objective_ids.contains(&objective.id))
+        .map(|objective| objective.id.clone())
+        .collect()
 }
 
 fn build_weighted_objectives(
@@ -292,9 +316,7 @@ fn build_weighted_objectives(
     weighted_objectives
 }
 
-// TODO: weight should not be affected by filters ~ refactor so filter is a subset of flag
 fn get_weight(preferences: &[Preference], weighting: &HashMap<String, u64>) -> u64 {
-    // first filter id in weightings is used
     for preference in preferences {
         if let Some(weight) = weighting.get(&preference.id) {
             return *weight;

@@ -61,7 +61,7 @@ pub struct ConditionBranch {
 
 #[derive(Deserialize)]
 pub struct ConditionNode {
-    pub objective_id: String,
+    pub objective_id: Option<String>,
     pub labels: Option<Vec<String>>,
     pub flag_check: Option<FlagCheck>,
 }

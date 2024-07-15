@@ -20,6 +20,13 @@
                 "name": "Iosefka Skip",
                 "description": "Use skip in Iosefka's Clinic to access Forbidden Woods early"
             }
+        },
+        {
+            "id": "false_depth_glyphs",
+            "info": {
+                "name": "False Depth Chalices",
+                "description": "Using glyphs found here: https://www.bloodborne-wiki.com/2017/11/save-editing-chalice-dungeons.html#False%20Depth%20Story%20Dungeons, it's possible to access false depth story chalices early"
+            }
         }
     ],
     "preferences": [],
@@ -32,7 +39,46 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "vicar_amelia"
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "iosefka_skip"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Branch",
+                                "clause": "all",
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "father_gascoigne"
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "cleric_beast"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "blood_starved_beast"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "blood_starved_beast",
@@ -42,7 +88,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "father_gascoigne"
+            }
         },
         {
             "id": "celestial_emissary",
@@ -52,7 +101,20 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "blood_starved_beast"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rom_the_vacuous_spider"
+                    }
+                ]
+            }
         },
         {
             "id": "cleric_beast",
@@ -72,7 +134,20 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "blood_starved_beast"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rom_the_vacuous_spider"
+                    }
+                ]
+            }
         },
         {
             "id": "ebrietas_daughter_of_the_cosmos",
@@ -82,7 +157,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "celestial_emissary"
+            }
         },
         {
             "id": "father_gascoigne",
@@ -102,7 +180,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "mergos_wet_nurse"
+            }
         },
         {
             "id": "martyr_logarius",
@@ -112,7 +193,36 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "vicar_amelia"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "witch_of_hemwick"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "iosefka_skip"
+                            ]
+                        },
+                        "objective_id": "witch_of_hemwick"
+                    }
+                ]
+            }
         },
         {
             "id": "mergos_wet_nurse",
@@ -122,7 +232,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "micolash_host_of_the_nightmare"
+            }
         },
         {
             "id": "micolash_host_of_the_nightmare",
@@ -132,7 +245,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "one_reborn"
+            }
         },
         {
             "id": "moon_presence",
@@ -142,7 +258,9 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "End"
+            }
         },
         {
             "id": "one_reborn",
@@ -152,7 +270,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "rom_the_vacuous_spider"
+            }
         },
         {
             "id": "rom_the_vacuous_spider",
@@ -162,17 +283,38 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "shadows_of_yharnam"
+            }
         },
         {
-            "id": "shadow_of_yharnam",
+            "id": "shadows_of_yharnam",
             "info": {
-                "name": "Shadow of Yharnam",
+                "name": "Shadows of Yharnam",
                 "location": "Forbidden Woods"
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "vicar_amelia"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "iosefka_skip"
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         {
             "id": "vicar_amelia",
@@ -182,7 +324,30 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "father_gascoigne"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "cleric_beast"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "blood_starved_beast"
+                    }
+                ]
+            }
         },
         {
             "id": "witch_of_hemwick",
@@ -192,7 +357,30 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "father_gascoigne"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "cleric_beast"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "blood_starved_beast"
+                    }
+                ]
+            }
         },
         {
             "id": "ludwig_the_holy_blade",
@@ -202,7 +390,26 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "vicar_amelia"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "iosefka_skip"
+                            ]
+                        },
+                        "objective_id": "rom_the_vacuous_spider"
+                    }
+                ]
+            }
         },
         {
             "id": "orphan_of_kos",
@@ -212,7 +419,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "lady_maria_of_the_astral_clocktower"
+            }
         },
         {
             "id": "lady_maria_of_the_astral_clocktower",
@@ -222,7 +432,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "living_failures"
+            }
         },
         {
             "id": "living_failures",
@@ -232,7 +445,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ludwig_the_holy_blade"
+            }
         },
         {
             "id": "laurence_the_first_vicar",
@@ -242,7 +458,10 @@
             },
             "labels": [],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ludwig_the_holy_blade"
+            }
         },
         {
             "id": "undead_giant_pthumeru",
@@ -254,7 +473,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "blood_starved_beast"
+            }
         },
         {
             "id": "merciless_watchers_pthumeru",
@@ -266,7 +488,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "undead_giant_pthumeru"
+            }
         },
         {
             "id": "watchdog_of_the_old_lords_pthumeru",
@@ -278,7 +503,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "merciless_watchers_pthumeru"
+            }
         },
         {
             "id": "beast_possessed_soul_central_pthumeru",
@@ -290,7 +518,26 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "watchdog_of_the_old_lords_pthumeru"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "keeper_of_the_old_lords_central_pthumeru",
@@ -302,7 +549,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "beast_possessed_soul_central_pthumeru"
+            }
         },
         {
             "id": "pthumerian_descendant_central_pthumeru",
@@ -314,7 +564,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "keeper_of_the_old_lords_central_pthumeru"
+            }
         },
         {
             "id": "merciless_watchers_lower_pthumeru",
@@ -326,7 +579,26 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "pthumerian_descendant_central_pthumeru"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "undead_giant_lower_pthumeru",
@@ -338,7 +610,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "merciless_watchers_lower_pthumeru"
+            }
         },
         {
             "id": "rom_the_vacuous_spider_lower_pthumeru",
@@ -350,7 +625,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "undead_giant_lower_pthumeru"
+            }
         },
         {
             "id": "bloodbetting_beast_lower_pthumeru",
@@ -362,7 +640,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "rom_the_vacuous_spider_lower_pthumeru"
+            }
         },
         {
             "id": "keeper_of_the_old_lords_defiled_pthumeru",
@@ -374,7 +655,36 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "bloodbetting_beast_lower_pthumeru"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "blood_starved_beast_ailing_loran"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "watchdog_of_the_old_lords_defiled_pthumeru",
@@ -386,7 +696,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "keeper_of_the_old_lords_defiled_pthumeru"
+            }
         },
         {
             "id": "amygdala_defiled_pthumeru",
@@ -398,7 +711,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "watchdog_of_the_old_lords_defiled_pthumeru"
+            }
         },
         {
             "id": "pthumerian_descendant_great_pthumeru_ihyll",
@@ -410,7 +726,50 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "amygdala_defiled_pthumeru"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "micolash_host_of_the_nightmare"
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "any",
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "abhorrent_beast_lower_loran"
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "celestial_emissary_great_isz"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "headless_bloodletting_beast_great_pthumeru_ihyll",
@@ -422,7 +781,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "pthumerian_descendant_great_pthumeru_ihyll"
+            }
         },
         {
             "id": "yharnam_pthumerian_queen_great_pthumeru_ihyll",
@@ -434,7 +796,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "headless_bloodletting_beast_great_pthumeru_ihyll"
+            }
         },
         {
             "id": "maneater_boar_hintertomb",
@@ -446,7 +811,36 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "beast_possessed_soul_central_pthumeru"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "witch_of_hemwick"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "undead_giant_hintertomb",
@@ -458,10 +852,13 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "maneater_boar_hintertomb"
+            }
         },
         {
-            "id": "blood_starved_beast",
+            "id": "blood_starved_beast_hintertomb",
             "info": {
                 "name": "Blood-Starved Beast",
                 "location": "Hintertomb Chalice (Layer 3)"
@@ -470,10 +867,13 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "undead_giant_hintertomb"
+            }
         },
         {
-            "id": "brainsucker",
+            "id": "brainsucker_lower_hinter_tomb",
             "info": {
                 "name": "Brainsucker",
                 "location": "Lower Hintertomb Chalice (Layer 1)"
@@ -482,10 +882,29 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "blood_starved_beast_hintertomb"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
-            "id": "forgotten_madman",
+            "id": "forgotten_madman_lower_hintertomb",
             "info": {
                 "name": "Forgotten Madman",
                 "location": "Lower Hintertomb Chalice (Layer 2)"
@@ -494,7 +913,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "brainsucker_lower_hinter_tomb"
+            }
         },
         {
             "id": "pthumerian_elder_lower_hintertomb",
@@ -506,7 +928,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "forgotten_madman_lower_hintertomb"
+            }
         },
         {
             "id": "beast_possessed_soul_ailing_loran",
@@ -518,7 +943,36 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "amygdala"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "merciless_watchers_lower_pthumeru"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "blood_starved_beast_ailing_loran",
@@ -530,7 +984,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "beast_possessed_soul_ailing_loran"
+            }
         },
         {
             "id": "abhorrent_beast_ailing_loran",
@@ -542,7 +999,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "blood_starved_beast_ailing_loran"
+            }
         },
         {
             "id": "loran_silverbeast_lower_loran",
@@ -554,7 +1014,26 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "abhorrent_beast_ailing_loran"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "abhorrent_beast_lower_loran",
@@ -566,7 +1045,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "loran_silverbeast_lower_loran"
+            }
         },
         {
             "id": "loran_darkbeast_lower_loran",
@@ -578,7 +1060,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "abhorrent_beast_lower_loran"
+            }
         },
         {
             "id": "brainsucker_great_isz",
@@ -590,7 +1075,36 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "ebrietas_daughter_of_the_cosmos"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "merciless_watchers_lower_pthumeru"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "false_depth_glyphs"
+                            ]
+                        },
+                        "objective_id": "merciless_watchers_pthumeru"
+                    }
+                ]
+            }
         },
         {
             "id": "celestial_emissary_great_isz",
@@ -602,7 +1116,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "brainsucker_great_isz"
+            }
         },
         {
             "id": "ebrietas_daughter_of_the_cosmos_great_isz",
@@ -614,7 +1131,10 @@
                 "chalice_boss"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "celestial_emissary_great_isz"
+            }
         }
     ]
 }
