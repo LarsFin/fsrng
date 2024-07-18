@@ -22,22 +22,35 @@ pub trait Informable: Clone {
     fn info(self) -> BasicInfo;
 }
 
+/**
+ * TODO: Odd that a Filter is not a ConfigOption... something to solve
+ */
+
 impl Informable for Filter {
     fn info(self) -> BasicInfo {
         self.info
     }
 }
 
-impl Informable for Flag {
+impl Informable for ConfigOption {
     fn info(self) -> BasicInfo {
         self.info
     }
 }
 
-impl Informable for Preference {
-    fn info(self) -> BasicInfo {
-        self.info
+pub fn ask_selection<T: Informable>(question: String, selections: &[T]) -> Option<T> {
+    if selections.is_empty() {
+        return None;
     }
+
+    let choices: Vec<String> = selections
+        .iter()
+        .map(|selection| selection.clone().info().name)
+        .collect();
+
+    let selection = ask_option_selection(question, &choices);
+
+    Some(selections[selection].clone())
 }
 
 pub fn ask_selections<T: Informable>(question: String, selections: &[T]) -> Vec<T> {
@@ -75,7 +88,7 @@ pub fn load_schema(file_name: &String) -> Result<Schema, Box<dyn std::error::Err
 
 fn possible_objectives_ids(
     filters: &[Filter],
-    flags: &[Flag],
+    flags: &[ConfigOption],
     objectives: &[Objective],
     completed: &[String]
 ) -> Vec<String> {
@@ -100,7 +113,7 @@ fn possible_objectives_ids(
 
 fn resolve_condition(
     filters: &[Filter],
-    flags: &[Flag],
+    flags: &[ConfigOption],
     condition: &Condition,
     completed: &[String],
     total_objective_count: usize
@@ -116,7 +129,7 @@ fn resolve_condition(
 // TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
     filters: &[Filter],
-    flags: &[Flag],
+    flags: &[ConfigOption],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
@@ -154,7 +167,7 @@ fn resolve_branch(
 
 fn resolve_node(
     filters: &[Filter],
-    flags: &[Flag],
+    flags: &[ConfigOption],
     node: &ConditionNode,
     completed: &[String]
 ) -> bool {
@@ -182,16 +195,35 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-pub fn filter_objectives(filters: &[Filter], objectives: Vec<Objective>) -> Vec<Objective> {
+pub fn filter_objectives(
+    route: Option<ConfigOption>,
+    filters: &[Filter],
+    objectives: Vec<Objective>
+) -> Vec<Objective> {
     let mut filtered_objectives: Vec<Objective> = Vec::new();
 
     for objective in objectives {
+        if let Some(route) = &route {
+            if !in_route(route, &objective) {
+                continue;
+            }
+        }
+
         if resolve_filters(filters, &objective.labels) {
             filtered_objectives.push(objective);
         }
     }
 
     filtered_objectives
+}
+
+pub fn in_route(route: &ConfigOption, objective: &Objective) -> bool {
+    if let Some(routes) = &objective.routes {
+        return routes.contains(&route.id);
+    }
+
+    // no routes on objective means it's in all routes
+    true
 }
 
 pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
@@ -222,7 +254,7 @@ pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
     true
 }
 
-pub fn check_flags(flag_check: &FlagCheck, flags: &[Flag]) -> bool {
+pub fn check_flags(flag_check: &FlagCheck, flags: &[ConfigOption]) -> bool {
     let flag_ids: Vec<String> = flags
         .iter()
         .map(|flag| flag.id.clone())
@@ -240,8 +272,8 @@ pub fn check_flags(flag_check: &FlagCheck, flags: &[Flag]) -> bool {
 
 pub fn generate_ordered_objectives(
     filters: &[Filter],
-    flags: &[Flag],
-    preferences: &[Preference],
+    flags: &[ConfigOption],
+    preferences: &[ConfigOption],
     objectives: &[Objective],
     rng: &mut ChaCha8Rng
 ) -> Vec<ObjectiveInfo> {
@@ -295,7 +327,7 @@ fn remaining_objective_ids(
 }
 
 fn build_weighted_objectives(
-    preferences: &[Preference],
+    preferences: &[ConfigOption],
     objective_ids: &[String],
     objectives: &[Objective]
 ) -> Vec<WeightedObjective> {
@@ -316,7 +348,7 @@ fn build_weighted_objectives(
     weighted_objectives
 }
 
-fn get_weight(preferences: &[Preference], weighting: &HashMap<String, u64>) -> u64 {
+fn get_weight(preferences: &[ConfigOption], weighting: &HashMap<String, u64>) -> u64 {
     for preference in preferences {
         if let Some(weight) = weighting.get(&preference.id) {
             return *weight;
@@ -354,8 +386,8 @@ pub fn build_generated_route(
     game_name: String,
     seed: u64,
     filters: Vec<Filter>,
-    flags: Vec<Flag>,
-    preferences: Vec<Preference>,
+    flags: Vec<ConfigOption>,
+    preferences: Vec<ConfigOption>,
     ordered_objectives: Vec<ObjectiveInfo>
 ) -> Route {
     Route {

@@ -1,0 +1,1316 @@
+{
+    "file_version": "1.0.0",
+    "filters": [
+        {
+            "id": "no_apparitions",
+            "info": {
+                "name": "No Apparition Bosses",
+                "description": "Excludes Headless and Shichimen Warrior"
+            },
+            "clause": "none",
+            "labels": [
+                "apparition"
+            ]
+        },
+        {
+            "id": "only_memory_bosses",
+            "info": {
+                "name": "Memory Bosses Only",
+                "description": "Includes only bosses which grant a Memory upon defeat"
+            },
+            "clause": "all",
+            "labels": [
+                "memory_boss"
+            ]
+        }
+    ],
+    "routes": [
+        {
+            "id": "shura_ending",
+            "info": {
+                "name": "Shura Ending",
+                "description": "Includes only bosses through the Shura ending"
+            }
+        },
+        {
+            "id": "standard_ending",
+            "info": {
+                "name": "Standard Ending",
+                "description": "Includes bosses through non shura ending"
+            }
+        }
+    ],
+    "flags": [],
+    "preferences": [],
+    "objectives": [
+        {
+            "id": "leader_shigenori_yamauchi",
+            "info": {
+                "name": "Leader Shigenori Yamauchi",
+                "location": "Ashina Reservoir"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "general_naomori_kawarada",
+            "info": {
+                "name": "General Naomori Kawarada",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "leader_shigenori_yamauchi"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "chained_ogre_ashina_outskirts",
+            "info": {
+                "name": "Chained Ogre",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "leader_shigenori_yamauchi"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "general_tenzen_yamauchi",
+            "info": {
+                "name": "General Tenzen Yamauchi",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "chained_ogre_ashina_outskirts"
+            }
+        },
+        {
+            "id": "gyoubu_masataka_oniwa",
+            "info": {
+                "name": "Gyoubu Masataka Oniwa",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "chained_ogre_ashina_outskirts"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "shinobi_hunter_enshin_of_misen",
+            "info": {
+                "name": "Shinobi Hunter Enshin of Misen",
+                "location": "Hirata Estate"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "leader_shigenori_yamauchi"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "juzou_the_drunkard_hirata_estate",
+            "info": {
+                "name": "Juzou the Drunkard",
+                "location": "Hirata Estate"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "shinobi_hunter_enshin_of_misen"
+            }
+        },
+        {
+            "id": "lady_butterfly",
+            "info": {
+                "name": "Lady Butterfly",
+                "location": "Hirata Estate"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "juzou_the_drunkard_hirata_estate"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "blazing_bull",
+            "info": {
+                "name": "Blazing Bull",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "gyoubu_masataka_oniwa"
+            }
+        },
+        {
+            "id": "general_kuranosuke_matsumoto",
+            "info": {
+                "name": "General Kuranosuke Matsumoto",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "ashina_elite_jinsuke_saze",
+            "info": {
+                "name": "Ashina Elite - Jinsuke Saze",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "genichiro_ashina",
+            "info": {
+                "name": "Genichiro Ashina",
+                "location": "Ashina Castle"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "blazing_bull"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "objective_id": "gyoubu_masataka_oniwa"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "seven_ashina_spears_shikibu_toshikatsu_yamauchi",
+            "info": {
+                "name": "Seven Ashina Spears - Shikibu Toshikatsu Yamauchi",
+                "location": "Ashina Reservoir"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "lone_shadow_longswordsman",
+            "info": {
+                "name": "Lone Shadow Longswordsman",
+                "location": "Ashina Reservoir"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "snake_eyes_shirahagi",
+            "info": {
+                "name": "Snake Eyes Shirahagi",
+                "location": "Ashina Depths"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "genichiro_ashina"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "long_arm_centipede_giraffe"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "lone_shadow_longswordsman"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "tokujiro_the_glutton",
+            "info": {
+                "name": "Tokujiro the Glutton",
+                "location": "Ashina Depths"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "snake_eyes_shirahagi"
+            }
+        },
+        {
+            "id": "mist_noble",
+            "info": {
+                "name": "Mist Noble",
+                "location": "Ashina Depths"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "tokujiro_the_glutton"
+            }
+        },
+        {
+            "id": "orin_of_the_water",
+            "info": {
+                "name": "O'Rin of the Water",
+                "location": "Ashina Depths"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "mist_noble"
+            }
+        },
+        {
+            "id": "corrupted_monk",
+            "info": {
+                "name": "Corrupted Monk",
+                "location": "Ashina Depths"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mist_noble"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "objective_id": "gyoubu_masataka_oniwa"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "armored_warrior",
+            "info": {
+                "name": "Armored Warrior",
+                "location": "Senpou Temple, Mt. Kongo"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "long_arm_centipede_senun",
+            "info": {
+                "name": "Long-arm Centipede Sen'un",
+                "location": "Senpou Temple, Mt. Kongo"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "armored_warrior"
+            }
+        },
+        {
+            "id": "folding_screen_monkeys",
+            "info": {
+                "name": "Folding Screen Monkeys",
+                "location": "Senpou Temple, Mt. Kongo"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "armored_warrior"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ],
+                            "objective_id": "genichiro_ashina"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "snake_eyes_shirafuji",
+            "info": {
+                "name": "Snake Eyes Shirafuji",
+                "location": "Sunken Valley"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "long_arm_centipede_giraffe",
+            "info": {
+                "name": "Long-arm Centipede Giraffe",
+                "location": "Sunken Valley"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "guardian_ape",
+            "info": {
+                "name": "Guardian Ape",
+                "location": "Sunken Valley"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "long_arm_centipede_giraffe"
+                    },
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "objective_id": "genichiro_ashina"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "lone_shadow_masanaga_the_spear_bearer_ashina_castle",
+            "info": {
+                "name": "Lone Shadow Masanaga the Spear-Bearer",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ashina_elite_jinsuke_saze"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "headless_ape_and_bride",
+            "info": {
+                "name": "Headless Ape and Bride",
+                "location": "Ashina Depths"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "guardian_ape"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "snake_eyes_shirahagi"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "chained_ogre_ashina_castle",
+            "info": {
+                "name": "Chained Ogre",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ashina_elite_jinsuke_saze"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "lone_shadow_vilehand",
+            "info": {
+                "name": "Lone Shadow Vilehand",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ashina_elite_jinsuke_saze"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "isshin_ashina",
+            "info": {
+                "name": "Isshin Ashina",
+                "location": "Ashina Castle"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "weighting": {},
+            "routes": [
+                "shura_ending"
+            ],
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ashina_elite_jinsuke_saze"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "great_shinobi_owl",
+            "info": {
+                "name": "Great Shinobi Owl",
+                "location": "Ashina Castle"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "guardian_ape"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "folding_screen_monkeys"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "ashina_elite_jinsuke_saze"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "lone_shadow_masanaga_the_spear_bearer_hirata_estate_owl_memory",
+            "info": {
+                "name": "Lone Shadow Masanaga the Spear-Bearer",
+                "location": "Hirata Estate (Owl Memory)"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "lady_butterfly"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "great_shinobi_owl"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "juzou_the_drunkard_hirata_estate_owl_memory",
+            "info": {
+                "name": "Juzou the Drunkard",
+                "location": "Hirata Estate (Owl Memory)"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "lady_butterfly"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "great_shinobi_owl"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "owl_father",
+            "info": {
+                "name": "Owl (Father)",
+                "location": "Hirata Estate (Owl Memory)"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "lady_butterfly"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "great_shinobi_owl"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "juzou_the_drunkard_hirata_estate_owl_memory"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "true_corrupted_monk",
+            "info": {
+                "name": "Corrupted Monk",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "great_shinobi_owl"
+            }
+        },
+        {
+            "id": "sakura_bull_of_the_palace",
+            "info": {
+                "name": "Sakura Bull of the Palace",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "true_corrupted_monk"
+            }
+        },
+        {
+            "id": "okami_leader_shizu",
+            "info": {
+                "name": "Okami Leader Shizu",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "true_corrupted_monk"
+            }
+        },
+        {
+            "id": "divine_dragon",
+            "info": {
+                "name": "Divine Dragon",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "all",
+                            "flag_ids": [
+                                "only_memory_bosses"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "true_corrupted_monk"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "owl_father"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "okami_leader_shizu"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "lone_shadow_vilehand"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "general_kuranosuke_matsumoto"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "general_naomori_kawarada"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "general_tenzen_yamauchi"
+                            },
+                            {
+                                "type": "Branch",
+                                "clause": "any",
+                                "conditions": [
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "lone_shadow_masanaga_the_spear_bearer_hirata_estate_owl_memory"
+                                    },
+                                    {
+                                        "type": "Node",
+                                        "objective_id": "juzou_the_drunkard_hirata_estate_owl_memory"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ashina_elite_ujinari_mizuo",
+            "info": {
+                "name": "Ashina Elite - Ujinari Mizuo",
+                "location": "Ashina Castle"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "divine_dragon"
+            }
+        },
+        {
+            "id": "shigekichi_of_the_red_guard",
+            "info": {
+                "name": "Shigekichi of the Red Guard",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "divine_dragon"
+            }
+        },
+        {
+            "id": "seven_ashina_spears_shume_masaji_oniwa",
+            "info": {
+                "name": "Seven Ashina Spears - Shume Masaji Oniwa",
+                "location": "Ashina Reservoir"
+            },
+            "labels": [],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "divine_dragon"
+            }
+        },
+        {
+            "id": "demon_of_hatred",
+            "info": {
+                "name": "Demon of Hatred",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "divine_dragon"
+            }
+        },
+        {
+            "id": "isshin_the_sword_saint",
+            "info": {
+                "name": "Isshin, the Sword Saint",
+                "location": "Ashina Reservoir"
+            },
+            "labels": [
+                "memory_boss"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "divine_dragon"
+            }
+        },
+        {
+            "id": "headless_ashina_outskirts",
+            "info": {
+                "name": "Headless",
+                "location": "Ashina Outskirts"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "chained_ogre_ashina_outskirts"
+            }
+        },
+        {
+            "id": "headless_sunken_valley",
+            "info": {
+                "name": "Headless",
+                "location": "Sunken Valley"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "headless_ashina_depths",
+            "info": {
+                "name": "Headless",
+                "location": "Ashina Depths"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "snake_eyes_shirahagi"
+            }
+        },
+        {
+            "id": "headless_ashina_castle",
+            "info": {
+                "name": "Headless",
+                "location": "Ashina Castle"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "headless_fountainhead_palace",
+            "info": {
+                "name": "Headless",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "true_corrupted_monk"
+            }
+        },
+        {
+            "id": "shichimen_warrior_abandoned_dungeon",
+            "info": {
+                "name": "Shichimen Warrior",
+                "location": "Abandoned Dungeon"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "blazing_bull"
+            }
+        },
+        {
+            "id": "shichimen_warrior_ashina_depths",
+            "info": {
+                "name": "Shichimen Warrior",
+                "location": "Ashina Depths"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "headless_ape_and_bride"
+            }
+        },
+        {
+            "id": "shichimen_warrior_fountainhead_palace",
+            "info": {
+                "name": "Shichimen Warrior",
+                "location": "Fountainhead Palace"
+            },
+            "labels": [
+                "apparition"
+            ],
+            "routes": [
+                "standard_ending"
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Node",
+                "objective_id": "true_corrupted_monk"
+            }
+        }
+    ]
+}

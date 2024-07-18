@@ -4,7 +4,6 @@ fn get_input() -> Result<String, Box<std::io::Error>> {
     Ok(input)
 }
 
-// Keep this in case single selection is required down the road
 pub fn ask_option_selection(question: String, choices: &[String]) -> usize {
     println!("{}", question);
 

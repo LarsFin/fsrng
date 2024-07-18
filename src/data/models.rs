@@ -18,9 +18,10 @@ pub struct Game {
 pub struct Schema {
     pub file_version: String,
     pub filters: Vec<Filter>,
-    pub flags: Vec<Flag>,
-    pub preferences: Vec<Preference>,
+    pub flags: Vec<ConfigOption>,
+    pub preferences: Vec<ConfigOption>,
     pub objectives: Vec<Objective>,
+    pub routes: Vec<ConfigOption>,
 }
 
 #[derive(Deserialize)]
@@ -29,6 +30,7 @@ pub struct Objective {
     pub info: ObjectiveInfo,
     pub labels: Vec<String>,
     pub weighting: HashMap<String, u64>,
+    pub routes: Option<Vec<String>>,
     pub condition: Option<Condition>,
 }
 
@@ -88,10 +90,8 @@ pub struct Filter {
     pub labels: Vec<String>,
 }
 
-// TODO: flag and preference are the same model, think of a good name
-// across models ~ nomenclature is hard
 #[derive(Deserialize, Clone)]
-pub struct Flag {
+pub struct ConfigOption {
     pub id: String,
     pub info: BasicInfo,
 }
@@ -100,12 +100,6 @@ pub struct Flag {
 pub struct FlagCheck {
     pub clause: String,
     pub flag_ids: Vec<String>,
-}
-
-#[derive(Deserialize, Clone)]
-pub struct Preference {
-    pub id: String,
-    pub info: BasicInfo,
 }
 
 #[derive(Deserialize, Serialize, Clone)]

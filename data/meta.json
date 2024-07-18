@@ -20,6 +20,10 @@
         {
             "name": "Dark Souls III",
             "file_name": "dark_souls_iii"
+        },
+        {
+            "name": "Sekiro: Shadows Die Twice",
+            "file_name": "sekiro"
         }
     ]
 }

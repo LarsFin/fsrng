@@ -55,6 +55,7 @@
             }
         }
     ],
+    "routes": [],
     "objectives": [
         {
             "id": "phalanx",
