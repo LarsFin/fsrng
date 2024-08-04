@@ -1,8 +1,2432 @@
 {
     "file_version": "1.0.0",
-    "filters": [],
+    "filters": [
+        {
+            "id": "remembrance_only",
+            "info": {
+                "name": "Only Remembrance Bosses",
+                "description": "All bosses that give a remembrance (this does not include Bayle)."
+            },
+            "clause": "all",
+            "labels": [
+                "remembrance"
+            ]
+        },
+        {
+            "id": "legend_only",
+            "info": {
+                "name": "Only Legend Bosses",
+                "description": "All bosses which are legendary status."
+            },
+            "clause": "all",
+            "labels": [
+                "legend"
+            ]
+        },
+        {
+            "id": "no_enemy_bosses",
+            "info": {
+                "name": "No Enemy Bosses",
+                "description": "No enemy type bosses."
+            },
+            "clause": "none",
+            "labels": [
+                "enemy"
+            ]
+        }
+    ],
     "flags": [],
     "preferences": [],
     "routes": [],
-    "objectives": []
+    "objectives": [
+        {
+            "id": "divine_beast_dancing_lion",
+            "info": {
+                "name": "Divin Beast Dancing Lion",
+                "location": "Belurat Tower Settlement"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rellana_twin_moon_knight",
+            "info": {
+                "name": "Rellana, Twin Moon Knight",
+                "location": "Castle Ensis"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "commander_gaius",
+            "info": {
+                "name": "Commander Gaius",
+                "location": "Shadow Keep"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "scadutree_avatar",
+            "info": {
+                "name": "Scadutree Avatar",
+                "location": "Scadutree Base"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrescent_knight",
+            "info": {
+                "name": "Putrescent Knight",
+                "location": "Fissure Depths"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "midra_lord_of_frenzied_flame",
+            "info": {
+                "name": "Midra, Lord of Frenzied Flame",
+                "location": "Midra's Manse"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "romina_saint_of_the_bud",
+            "info": {
+                "name": "Romina, Saint of the Bud",
+                "location": "Church of the Bud"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "metyr_mother_of_fingers",
+            "info": {
+                "name": "Metyr, Mother of Fingers",
+                "location": "Finger Ruins of Miyr"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "messmer_the_impaler",
+            "info": {
+                "name": "Messmer the Impaler",
+                "location": "Shadow Keep Specimen Storehouse"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "radahn_consort_of_miquella",
+            "info": {
+                "name": "Radahn, Consort of Miquella",
+                "location": "Enir-Ilim"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bayle_the_dread",
+            "info": {
+                "name": "Bayle the Dread",
+                "location": "Jagged Peak"
+            },
+            "labels": [
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godrick_the_grafted",
+            "info": {
+                "name": "Godrick the Grafted",
+                "location": "Stormveil Castle"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rennala_queen_of_the_full_moon",
+            "info": {
+                "name": "Rennalla, Queen of the Full Moon",
+                "location": "Raya Lucaria Academy"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "starscourge_radahn",
+            "info": {
+                "name": "Starscourge Radahn",
+                "location": "Redmane Castle"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "morgott_the_omen_king",
+            "info": {
+                "name": "Morgott the Omen King",
+                "location": "Leyndell, Royal Capital"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rykard_lord_of_blasphemy",
+            "info": {
+                "name": "Rykard, Lord of Blasphemy",
+                "location": "Volcano Manor"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mohg_lord_of_blood",
+            "info": {
+                "name": "Mohg, Lord of Blood",
+                "location": "Mohgwyn Palace"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "malenia_blade_of_miquella",
+            "info": {
+                "name": "Malenia Blade of Miquella",
+                "location": "Elphael, Brace of the Haligtree"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "lichdragon_fortissax",
+            "info": {
+                "name": "Lichdragon Fortissax",
+                "location": "Deeproot Depths"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "maliketh_the_black_blade",
+            "info": {
+                "name": "Maliketh, the Black Blade",
+                "location": "Crumbling Farum Azula"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "astel_naturalborn_of_the_void",
+            "info": {
+                "name": "Astel Naturalborn of the Void",
+                "location": "Grand Cloister, Lake of Rot"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "regal_ancestor_spirit",
+            "info": {
+                "name": "Regal Ancestor Spirit",
+                "location": "Nokron, Eternal City"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "radagon_of_the_golden_order",
+            "info": {
+                "name": "Radagon of the Golden Order",
+                "location": "Elden Throne"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godfrey_first_elden_lord",
+            "info": {
+                "name": "Godfrey, First Elden Lord",
+                "location": "Leyndell, Ashen Capital"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fire_giant",
+            "info": {
+                "name": "Fire Giant",
+                "location": "Mountaintops of the Giants"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "dragonlord_placidusax",
+            "info": {
+                "name": "Dragonlord Placidusax",
+                "location": "Crumbling Farum Azula"
+            },
+            "labels": [
+                "remembrance",
+                "legend"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_dragon_senessax",
+            "info": {
+                "name": "Ancient Dragon Senessax",
+                "location": "Jagged Peak"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_dragon_man",
+            "info": {
+                "name": "Ancient Dragon-Man",
+                "location": "Dragon's Pit"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "chief_bloodfiend",
+            "info": {
+                "name": "Chief Bloodfiend",
+                "location": "Rivermouth Cave"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "dancer_of_ranah",
+            "info": {
+                "name": "Dancer of Ranah",
+                "location": "Southern Nameless Mausoleum"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "dryleaf_dane",
+            "info": {
+                "name": "Dryleaf Dane",
+                "location": "Moorth Ruins"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "golden_hippopotamus",
+            "info": {
+                "name": "Golden Hippopotamus",
+                "location": "Shadow Keep"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "jagged_peak_drake_foot_of_the_jagged_peak",
+            "info": {
+                "name": "Jagged Peak Drake",
+                "location": "Foot of the Jagged Peak"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "jagged_peak_drake_dragons_pit",
+            "info": {
+                "name": "Jagged Peak Drake",
+                "location": "Dragon's Pit"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "jori_elder_inquisitor",
+            "info": {
+                "name": "Jori, Elder Inquisitor",
+                "location": "Abyssal Woods"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cemetery_shade_tombsward_catacombs",
+            "info": {
+                "name": "Cemetery Shade",
+                "location": "Tombsward Catacombs"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cemetery_shade_black_knife_catacombs",
+            "info": {
+                "name": "Cemetery Shade",
+                "location": "Black Knife Catacombs"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cemetery_shade_caelid_catacombs",
+            "info": {
+                "name": "Cemetery Shade",
+                "location": "Caelid Catacombs"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancestor_spirit",
+            "info": {
+                "name": "Ancestor Spirit",
+                "location": "Hallowhorn Grounds"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "dragonkin_soldier_siofra_river",
+            "info": {
+                "name": "Dragonkin Soldier",
+                "location": "Siofra River"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "dragonkin_soldier_lake_of_rot",
+            "info": {
+                "name": "Dragonkin Soldier",
+                "location": "Lake of Rot"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "leonine_misbegotten",
+            "info": {
+                "name": "Leonine Misbegotten",
+                "location": "Castle Morne"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "red_wolf_of_radagon",
+            "info": {
+                "name": "Red Wolf of Radagon",
+                "location": "Raya Lucaria Academy"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "glintstone_dragon_adula",
+            "info": {
+                "name": "Glintstone Dragon Adula",
+                "location": "Cathedral of Manus Celes"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "borealis_the_freezing_fog",
+            "info": {
+                "name": "Borealis, the Freezing Fog",
+                "location": "Mountaintops of the Giants"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "decaying_ekyzkes",
+            "info": {
+                "name": "Decaying Ekyzkes",
+                "location": "Caelid"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "valiant_gargoyles",
+            "info": {
+                "name": "Valiant Gargoyles",
+                "location": "Siofra Aqueduct"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godskin_duo",
+            "info": {
+                "name": "Godskin Duo",
+                "location": "Crumbling Farum Azula"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "blackgaol_knight",
+            "info": {
+                "name": "Blackgaol Knight",
+                "location": "Western Nameless Mausoleum"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knight_garrew",
+            "info": {
+                "name": "Black Knight Garrew",
+                "location": "Fog Rift Fort"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knight_edreed",
+            "info": {
+                "name": "Black Knight Edreed",
+                "location": "Fort of Reprimand"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "count_ymir_mother_of_fingers",
+            "info": {
+                "name": "Count Ymir, Mother of Fingers",
+                "location": "Cathedral of Manus Metyr"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "curseblade_labirth",
+            "info": {
+                "name": "Curseblade Labirth",
+                "location": "Bonny Gaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_knight_fog_rift_catacombs",
+            "info": {
+                "name": "Death Knight",
+                "location": "Fog Rift Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_knight_scorpion_river_catacombs",
+            "info": {
+                "name": "Death Knight",
+                "location": "Scorpion River Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_rite_bird_academy_gate_town",
+            "info": {
+                "name": "Death Rite Bird",
+                "location": "Academy Gate Town"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_rite_bird_caelid",
+            "info": {
+                "name": "Death Rite Bird",
+                "location": "Caelid"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_rite_bird_moutaintops_of_the_giants",
+            "info": {
+                "name": "Death Rite Bird",
+                "location": "Mountaintops of the Giants"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_rite_bird_apostate_derelict",
+            "info": {
+                "name": "Death Rite Bird",
+                "location": "Apostate Derelict"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "death_rite_bird_charos_hidden_grave",
+            "info": {
+                "name": "Death Rite Bird",
+                "location": "Charo's Hidden Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_swordmaster_onze",
+            "info": {
+                "name": "Demi-Human Swordmaster Onze",
+                "location": "Belurat Gaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_queen_marigga",
+            "info": {
+                "name": "Demi-Human Queen Marigga",
+                "location": "Cerulean Coast"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fallingstar_beast_sellia_crystal_tunnel",
+            "info": {
+                "name": "Fallingstar Beast",
+                "location": "Sellia Crystal Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fallingstar_beast_altus_plateau",
+            "info": {
+                "name": "Fallingstar Beast",
+                "location": "Altus Plateau"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fallingstar_beast_finger_ruins_of_dheo",
+            "info": {
+                "name": "Fallingstar Beast",
+                "location": "Finger Ruins of Dheo"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "lamenter",
+            "info": {
+                "name": "Lamenter",
+                "location": "Lamenter's Gaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ralva_the_great_red_bear",
+            "info": {
+                "name": "Ralva the Great Red Bear",
+                "location": "Scadu Altus"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rakshasa",
+            "info": {
+                "name": "Rakshasa",
+                "location": "Eastern Nameless Mausoleum"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "red_bear",
+            "info": {
+                "name": "Red Bear",
+                "location": "Northern Nameless Mausoleum"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "rugalea_the_great_red_bear",
+            "info": {
+                "name": "Rugalea the Great Red Bear",
+                "location": "Rauh Base"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tree_sentinel",
+            "info": {
+                "name": "Tree Sentinel",
+                "location": "Limgrave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tree_sentinels_altus_plateau",
+            "info": {
+                "name": "Tree Sentinels",
+                "location": "Altus Plateau"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tree_sentinels_hinterland",
+            "info": {
+                "name": "",
+                "location": ""
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mad_pumpkin_head",
+            "info": {
+                "name": "Mad Pumpkin Head",
+                "location": "Waypoint Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mad_pumpkin_heads",
+            "info": {
+                "name": "Mad Pumpkin Heads",
+                "location": "Caelem Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_burial_watchdog_stormfoot_catacombs",
+            "info": {
+                "name": "Erdtree Burial Watchdog",
+                "location": "Stormfoot Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_burial_watchdog_impalers_catacombs",
+            "info": {
+                "name": "Erdtree Burial Watchdog",
+                "location": "Impaler's Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_burial_watchdog_cliffbottom_catacombs",
+            "info": {
+                "name": "Erdtree Burial Watchdog",
+                "location": "Cliffbottom Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_burial_watchdogs",
+            "info": {
+                "name": "Erdtree Burial Watchdogs",
+                "location": "Minor Erdtree Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_burial_watchdog_wyndham_catacombs",
+            "info": {
+                "name": "Erdtree Burial Watchdog",
+                "location": ""
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "stonedigger_troll",
+            "info": {
+                "name": "Stonedigger Troll",
+                "location": "Limgrave Tunnels"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "grafted_scion",
+            "info": {
+                "name": "Grafted Scion",
+                "location": "Chapel of Anticipation"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "soldier_of_godrick",
+            "info": {
+                "name": "Soldier of Godrick",
+                "location": "Fringefolk Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "beastman_of_farum_azula",
+            "info": {
+                "name": "Beastman of Farum Azula",
+                "location": "Groveside Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "beastmen_of_farum_azula",
+            "info": {
+                "name": "Beastmen of Farum Azula",
+                "location": "Dragonbarrow Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_chiefs",
+            "info": {
+                "name": "Demi-Human Chiefs",
+                "location": "Coastal Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "runebear",
+            "info": {
+                "name": "Runebear",
+                "location": "Earthbore Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crucible_knight",
+            "info": {
+                "name": "Crucible Knight",
+                "location": "Stormhill Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_hero_of_zamor_weeping_evergaol",
+            "info": {
+                "name": "Ancient Hero of Zamor",
+                "location": "Weeping Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_hero_of_zamor_sainted_heros_grave",
+            "info": {
+                "name": "Ancient Hero of Zamor",
+                "location": "Sainted Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_hero_of_zamor_giantconquering_heros_grave",
+            "info": {
+                "name": "Ancient Hero of Zamor",
+                "location": "Giant-Conquering Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "draconic_tree_sentinel",
+            "info": {
+                "name": "Draconic Tree Sentinel",
+                "location": "Capital Outskirts"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knife_assassin_deathtouched_catacombs",
+            "info": {
+                "name": "Black Knife Assassin",
+                "location": "Deathtouched Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knife_assassin_black_knife_catacombs",
+            "info": {
+                "name": "Black Knife Assassin",
+                "location": "Black Knife Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knife_assassin_sages_cave",
+            "info": {
+                "name": "Black Knife Assassin",
+                "location": "Sage's Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_knife_assassin_sainted_heros_grave",
+            "info": {
+                "name": "Black Knife Assassin",
+                "location": "Sainted Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crystalian",
+            "info": {
+                "name": "Crystalian",
+                "location": "Raya Lucaria Crystal Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crstalians_academy_crystal_cave",
+            "info": {
+                "name": "Crystalians",
+                "location": "Academy Crystal Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crystalians_altus_tunnel",
+            "info": {
+                "name": "Crystalians",
+                "location": "Altus Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_crystalians",
+            "info": {
+                "name": "Putrid Crystalians",
+                "location": "Sellia Hideaway"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_limgrave",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Limgrave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_weeping_peninsula",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Weeping Peninsula"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_liurnia_south",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Liurnia South"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_liurnia_north",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Liurnia North"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_caelid",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Caelid"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_altus_plateau",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Altus Plateau"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_forbidden_lands",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Forbidden Lands"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_dragonbarrow",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Dragonbarrow"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nights_cavalry_consecrated_snowfield",
+            "info": {
+                "name": "Night's Cavalry",
+                "location": "Consecrated Snowfield"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bell_bearing_hunter_church_of_vows",
+            "info": {
+                "name": "Bell Bearing Hunter",
+                "location": "Church of Vows"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bell_bearing_hunter_hermit_merchants_shack",
+            "info": {
+                "name": "Bell Bearing Hunter",
+                "location": "Hermit Merchant's Shack"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bell_bearing_hunter_isolated_merchants_shack",
+            "info": {
+                "name": "Bell Bearing Hunter",
+                "location": "Isolated Merchant's Shack"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crucible_knight_ordovis",
+            "info": {
+                "name": "Crucible Knight Ordovis",
+                "location": "Auriza Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fell_twins",
+            "info": {
+                "name": "Fell Twins",
+                "location": "Capital Outskirts"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_blade_kindred_bestial_sanctum",
+            "info": {
+                "name": "Black Blade Kindred",
+                "location": "Bestial Sanctum"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "black_blade_kindred_forbidden_lands",
+            "info": {
+                "name": "Black Blade Kindred",
+                "location": "Forbidden Lands"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "sir_gideon_ofnir_the_allknowing",
+            "info": {
+                "name": "Sir Gideon Ofnir, the All-Knowing",
+                "location": "Leyndell, Ashen Capital"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tibia_mariner_summonwater_village",
+            "info": {
+                "name": "Tibia Mariner",
+                "location": "Summonwater Village"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tibia_mariner_liurnia_of_the_lakes",
+            "info": {
+                "name": "Tibia Mariner",
+                "location": "Liurnia of the Lakes"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tibia_mariner_wyndham_ruins",
+            "info": {
+                "name": "Tibia Mariner",
+                "location": "Wyndham Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "tibia_mariner_charos_hidden_grave",
+            "info": {
+                "name": "Tibia Mariner",
+                "location": "Charo's Hidden Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bloodhound_knight_darriwil",
+            "info": {
+                "name": "Bloodhound Knight Darriwil",
+                "location": "Forlorn Hound Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "esgar_priest_of_blood",
+            "info": {
+                "name": "Esgar, Priest of Blood",
+                "location": "Leyndell, Royal Capital"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_avatar_minor_erdtree_weeping_peninsula",
+            "info": {
+                "name": "Erdtree Avatar",
+                "location": "Minor Erdtree (Weeping Peninsula)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_avatar_minor_erdtree_liurnia_southwest",
+            "info": {
+                "name": "Erdtree Avatar",
+                "location": "Minor Erdtree (Liurnia Southwest)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_avatar_minor_erdtree_liurnia_northeast",
+            "info": {
+                "name": "Erdtree Avatar",
+                "location": "Minor Erdtree (Liurnia Northeast)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "erdtree_avatar_minor_erdtree_mountaintops_east",
+            "info": {
+                "name": "Erdtree Avatar",
+                "location": "Minor Erdtree (Mountaintops East)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "alecto_black_knife_ringleader",
+            "info": {
+                "name": "Alecto Black Knife Ringleader",
+                "location": "Ringleader's Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "grave_warden_duelist_murkwater_catacombs",
+            "info": {
+                "name": "Grave Warden Duelist",
+                "location": "Murkwater Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "grave_warden_duelist_auriza_side_tomb",
+            "info": {
+                "name": "Grave Warden Duelist",
+                "location": "Auriza Side Tomb"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cleanrot_knight",
+            "info": {
+                "name": "Cleanrot Knight",
+                "location": "Stillwater Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "cleanrot_knights",
+            "info": {
+                "name": "Cleanrot Knights",
+                "location": "Abandoned Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "omenkiller",
+            "info": {
+                "name": "Omenkiller",
+                "location": "Village of the Albinaurics"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "spiritcaller_snail_roads_end_catacombs",
+            "info": {
+                "name": "Spirit-Caller Snail",
+                "location": "Road's End Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "spiritcaller_snail_spiritcaller_cave",
+            "info": {
+                "name": "Spirit-Caller Snail",
+                "location": "Spiritcaller Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "perfumer_tricia_and_misbegotten_warrior",
+            "info": {
+                "name": "Perfumer Tricia and Misbegotten Warrior",
+                "location": "Unsightly Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ulcerated_tree_spirit_fringefolk_heros_grave",
+            "info": {
+                "name": "Ulcerated Tree Spirit",
+                "location": "Fringefolk Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ulcerated_tree_spirit_minor_erdtree_mt_gelmir",
+            "info": {
+                "name": "Ulcerated Tree Spirit",
+                "location": "Minor Erdtree (Mt. Gelmir)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ulcerated_tree_spirit_giants_mountaintop_catacombs",
+            "info": {
+                "name": "Ulcerated Tree Spirit",
+                "location": "Giant's Mountaintop Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fullgrown_fallingstar_beast",
+            "info": {
+                "name": "Full-Grown Fallingstar Beast",
+                "location": "Mt. Gelmir"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_queen_margot",
+            "info": {
+                "name": "Demi-Human Queen Margot",
+                "location": "Volcano Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_queen_maggie",
+            "info": {
+                "name": "Demi-Human Queen Maggie",
+                "location": "Hermit Village"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "onyx_lord_royal_grave_evergaol",
+            "info": {
+                "name": "Onyx Lord",
+                "location": "Royal Grave Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "onyx_lord_sealed_tunnel",
+            "info": {
+                "name": "Onyx Lord",
+                "location": "Sealed Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "abductor_virgins",
+            "info": {
+                "name": "Abductor Virgins",
+                "location": "Volcano Manor"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "adan_thief_of_fire",
+            "info": {
+                "name": "Adan, Thief of Fire",
+                "location": "Malefactor's Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "ancient_dragon_lansseax",
+            "info": {
+                "name": "Ancient Dragon Lansseax",
+                "location": "Altus Plateau"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "astel_stars_of_darkness",
+            "info": {
+                "name": "Astel, Stars of Darkness",
+                "location": "Yelough Anix Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "battlemage_hugues",
+            "info": {
+                "name": "Battlemage Hugues",
+                "location": "Sellia Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bloodhound_knight",
+            "info": {
+                "name": "Bloodhound Knight",
+                "location": "Lakeside Crystal Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "bols_carian_knight",
+            "info": {
+                "name": "Bols, Carian Knight",
+                "location": "Cuckoo's Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "commander_oneil",
+            "info": {
+                "name": "Commander O'Neil",
+                "location": "Aeonia Swamp"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "commander_niall",
+            "info": {
+                "name": "Commander Niall",
+                "location": "Castle Sol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "crucible_knight_siluria",
+            "info": {
+                "name": "Crucible Knight Siluria",
+                "location": "Deeproot Depths"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "demihuman_queen_gilika",
+            "info": {
+                "name": "Demi-Human Queen Gilika",
+                "location": "Lux Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "deathbird_warmasters_shack",
+            "info": {
+                "name": "Deathbird",
+                "location": "Warmaster's Shack"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "deathbird_weeping_peninsula",
+            "info": {
+                "name": "Deathbird",
+                "location": "Weeping Peninsula"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "deathbird_scenic_isle",
+            "info": {
+                "name": "Deathbird",
+                "location": "Scenic Isle"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "deathbird_capital_outskirts",
+            "info": {
+                "name": "Deathbird",
+                "location": "Capital Outskirts"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "elemer_of_the_briar",
+            "info": {
+                "name": "Elemer of the Briar",
+                "location": "The Shaded Castle"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "fias_champions",
+            "info": {
+                "name": "Fia's Champions",
+                "location": "Deeproot Depths"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "flying_dragon_greyll",
+            "info": {
+                "name": "Flying Dragon Greyll",
+                "location": "Dragonbarrow"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "frenzied_duelist",
+            "info": {
+                "name": "Frenzied Duelist",
+                "location": "Gaol Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "glintstone_dragon_smarag",
+            "info": {
+                "name": "Glintstone Dragon Smarag",
+                "location": "Liurnia of the Lakes"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godefroy_the_grafted",
+            "info": {
+                "name": "Godefroy the Grafted",
+                "location": "Golden Lineage Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godfrey_first_elden_lord_golden_shade",
+            "info": {
+                "name": "Godfrey, First Elden Lord",
+                "location": "Leyndell, Royal Capital"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godskin_apostle_dominula_windmill_village",
+            "info": {
+                "name": "Godskin Apostle",
+                "location": "Dominula, Windmill Village"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godskin_apostle_divine_tower_of_caelid",
+            "info": {
+                "name": "Godskin Apostle",
+                "location": "Divine Tower of Caelid"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "godskin_noble",
+            "info": {
+                "name": "Godskin Noble",
+                "location": "Volcano Manor"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "great_wyrm_theodorix",
+            "info": {
+                "name": "Great Wyrm Theodorix",
+                "location": "Consecrated Snowfield"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "guardian_golem",
+            "info": {
+                "name": "Guardian Golem",
+                "location": "Highroad Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "kindred_of_rot",
+            "info": {
+                "name": "Kindred of Rot",
+                "location": "Seethewater Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "loretta_knight_of_the_haligtree",
+            "info": {
+                "name": "Loretta, Knight of the Haligtree",
+                "location": "Miquella's Haligtree"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "magma_wyrm_gael_tunnel",
+            "info": {
+                "name": "Magma Wyrm",
+                "location": "Gael Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "magma_wyrm_fort_laiedd",
+            "info": {
+                "name": "Magma Wyrm",
+                "location": "Fort Laiedd"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "magma_wyrm_makar",
+            "info": {
+                "name": "Magma Wyrm Makar",
+                "location": "Ruin-Strewn Precipice"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "miranda_the_blighted_bloom",
+            "info": {
+                "name": "Miranda the Blighted Bloom",
+                "location": "Tombsward Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "misbegotten_crusader",
+            "info": {
+                "name": "Misbegotten Crusader",
+                "location": "Cave of the Forlorn"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "misbegotten_warrior_and_crucible_knight",
+            "info": {
+                "name": "Misbegotten Warrior and Crucible Knight",
+                "location": "Redmane Castle"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mohg_the_omen",
+            "info": {
+                "name": "Mohg, the Omen",
+                "location": "Subterranean Shunning-Grounds"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "necromancer_garris",
+            "info": {
+                "name": "Necromancer Garris",
+                "location": "Sage's Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "nox_swordstress_and_nox_priest",
+            "info": {
+                "name": "Nox Swordstress and Nox Priest",
+                "location": "Sellia, Town of Sorcery"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "patches",
+            "info": {
+                "name": "Patches",
+                "location": "Murkwater Cave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_avatar_minor_erdtree_caelid",
+            "info": {
+                "name": "Putrid Avatar",
+                "location": "Minor Erdtree (Caelid)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_avatar_minor_erdtree_dragonbarrow",
+            "info": {
+                "name": "Putrid Avatar",
+                "location": "Minor Erdtree (Dragonbarrow)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_avatar_minor_erdtree_consecrated_snowfield",
+            "info": {
+                "name": "Putrid Avatar",
+                "location": "Minor Erdtree (Consecrated Snowfield)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_grave_warden_duelist",
+            "info": {
+                "name": "Putrid Grave Warden Duelist",
+                "location": "Consecrated Snowfield Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "putrid_tree_spirit",
+            "info": {
+                "name": "Putrid Tree Spirit",
+                "location": "War-Dead Catacombs"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "red_wolf_of_the_champion",
+            "info": {
+                "name": "Red Wolf of the Champion",
+                "location": "Gelmir Hero's Grave"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "roundtable_knight_vyke",
+            "info": {
+                "name": "Roundtable Knight Vyke",
+                "location": "Lord Contender's Evergaol"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "royal_knight_loretta",
+            "info": {
+                "name": "Royal Knight Loretta",
+                "location": "Caria Manor"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "royal_revenant",
+            "info": {
+                "name": "Royal Revenant",
+                "location": "Kingsrealm Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "sanguine_noble",
+            "info": {
+                "name": "Sanguiine Noble",
+                "location": "Writheblood Ruins"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "scaly_misbegotten",
+            "info": {
+                "name": "Scaly Misbegotten",
+                "location": "Morne Tunnel"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mimic_tear_nokron",
+            "info": {
+                "name": "Mimic Tear",
+                "location": "Nokron, Eternal City"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "mimic_tear_hidden_path",
+            "info": {
+                "name": "Mimic Tear",
+                "location": "Hidden Path to the Haligtree"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "wormface",
+            "info": {
+                "name": "Wormface",
+                "location": "Minor Erdtree (Altus Plateau)"
+            },
+            "labels": [
+                "enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        }
+    ]
 }
