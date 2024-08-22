@@ -50,7 +50,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "rellana_twin_moon_knight",
@@ -63,7 +76,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "commander_gaius",
@@ -76,7 +102,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "scadutree_avatar",
@@ -89,7 +128,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "putrescent_knight",
@@ -102,7 +154,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "midra_lord_of_frenzied_flame",
@@ -115,7 +180,37 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mohg_lord_of_blood"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "jori_elder_inquisitor"
+                    }
+                ]
+            }
         },
         {
             "id": "romina_saint_of_the_bud",
@@ -128,7 +223,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "metyr_mother_of_fingers",
@@ -141,7 +249,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "messmer_the_impaler",
@@ -154,7 +275,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "radahn_consort_of_miquella",
@@ -167,7 +301,20 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "messmer_the_impaler"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "romina_saint_of_the_bud"
+                    }
+                ]
+            }
         },
         {
             "id": "bayle_the_dread",
@@ -179,7 +326,37 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only",
+                                "remembrance_only"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mohg_lord_of_blood"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ancient_dragon_man"
+                    }
+                ]
+            }
         },
         {
             "id": "godrick_the_grafted",
@@ -192,7 +369,26 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "TODO_ADD_MARGIT"
+                    }
+                ]
+            }
         },
         {
             "id": "rennala_queen_of_the_full_moon",
@@ -205,7 +401,26 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "red_wolf_of_radagon"
+                    }
+                ]
+            }
         },
         {
             "id": "starscourge_radahn",
@@ -231,7 +446,45 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godfrey_first_elden_lord_golden_shade"
+                    }
+                ]
+            }
         },
         {
             "id": "rykard_lord_of_blasphemy",
