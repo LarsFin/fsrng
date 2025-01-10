@@ -385,7 +385,7 @@
                     },
                     {
                         "type": "Node",
-                        "objective_id": "TODO_ADD_MARGIT"
+                        "objective_id": "margit_the_fell_omen"
                     }
                 ]
             }
@@ -497,7 +497,30 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_noble"
+                    },
+                    {
+                        "type": "Node",
+                        "clause": "morgott_the_omen_king"
+                    }
+                ]
+            }
         },
         {
             "id": "mohg_lord_of_blood",
@@ -510,7 +533,35 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any_two",
+                "flag_check": {
+                    "clause": "any",
+                    "flag_ids": [
+                        "remembrance_only",
+                        "legend_only"
+                    ]
+                },
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "godrick_the_grafted"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rennala_queen_of_the_full_moon"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rykard_lord_of_blasphemy"
+                    }
+                ]
+            }
         },
         {
             "id": "malenia_blade_of_miquella",
@@ -523,7 +574,28 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only",
+                                "no_enemy_bosses"
+                            ]
+                        },
+                        "objective_id": "morgott_the_omen_king"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "commander_niall"
+                    }
+                ]
+            }
         },
         {
             "id": "lichdragon_fortissax",
@@ -536,7 +608,39 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only",
+                                "no_enemy_bosses"
+                            ]
+                        },
+                        "conditions": []
+                    }
+                ]
+            }
         },
         {
             "id": "maliketh_the_black_blade",
@@ -802,6 +906,30 @@
             "info": {
                 "name": "Dragonkin Soldier",
                 "location": "Lake of Rot"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "margit_the_fell_omen",
+            "info": {
+                "name": "Margit, the Fell Omen",
+                "location": "Stormveil Castle"
+            },
+            "labels": [
+                "great_enemy"
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "flying_dragon_agheel",
+            "info": {
+                "name": "Flying Dragon Agheel",
+                "location": "Dragon-Burnt Ruins"
             },
             "labels": [
                 "great_enemy"
@@ -1716,7 +1844,7 @@
                 "location": "Leyndell, Ashen Capital"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2076,7 +2204,7 @@
                 "location": "Altus Plateau"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2136,7 +2264,7 @@
                 "location": "Aeonia Swamp"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2148,7 +2276,7 @@
                 "location": "Castle Sol"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2160,7 +2288,7 @@
                 "location": "Deeproot Depths"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2232,7 +2360,7 @@
                 "location": "The Shaded Castle"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2244,7 +2372,7 @@
                 "location": "Deeproot Depths"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2256,7 +2384,7 @@
                 "location": "Dragonbarrow"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2280,7 +2408,7 @@
                 "location": "Liurnia of the Lakes"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2292,7 +2420,7 @@
                 "location": "Golden Lineage Evergaol"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2304,7 +2432,7 @@
                 "location": "Leyndell, Royal Capital"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2328,7 +2456,7 @@
                 "location": "Divine Tower of Caelid"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2340,7 +2468,7 @@
                 "location": "Volcano Manor"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2352,7 +2480,7 @@
                 "location": "Consecrated Snowfield"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2388,7 +2516,7 @@
                 "location": "Miquella's Haligtree"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2424,7 +2552,7 @@
                 "location": "Ruin-Strewn Precipice"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2472,7 +2600,7 @@
                 "location": "Subterranean Shunning-Grounds"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2597,6 +2725,7 @@
             "weighting": {},
             "condition": null
         },
+        // HERE KEEP CHECKING _ FEXTRA ASS
         {
             "id": "royal_knight_loretta",
             "info": {
