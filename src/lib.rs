@@ -162,6 +162,17 @@ fn resolve_branch(
             );
     }
 
+    // TODO: probably a nicer way to do this
+    if branch.clause == "any_two" {
+        let mut count = 0;
+        branch.conditions.iter().for_each(|condition| {
+            if resolve_condition(filters, flags, condition, completed, total_objective_count) {
+                count += 1;
+            }
+        });
+        return count >= 2;
+    }
+
     false
 }
 
