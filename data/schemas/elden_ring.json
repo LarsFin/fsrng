@@ -633,8 +633,7 @@
                             "clause": "any",
                             "flag_ids": [
                                 "remembrance_only",
-                                "legend_only",
-                                "no_enemy_bosses"
+                                "legend_only"
                             ]
                         },
                         "conditions": []
@@ -653,7 +652,27 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "fire_giant",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "remembrance_only",
+                                "legend_only"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_duo"
+                    }
+                ]
+            }
         },
         {
             "id": "astel_naturalborn_of_the_void",
@@ -666,7 +685,16 @@
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        // TODO: Continue from here
+                    }
+                ]
+            }
         },
         {
             "id": "regal_ancestor_spirit",
@@ -2725,7 +2753,6 @@
             "weighting": {},
             "condition": null
         },
-        // HERE KEEP CHECKING _ FEXTRA ASS
         {
             "id": "royal_knight_loretta",
             "info": {
@@ -2733,7 +2760,7 @@
                 "location": "Caria Manor"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
@@ -2753,7 +2780,7 @@
         {
             "id": "sanguine_noble",
             "info": {
-                "name": "Sanguiine Noble",
+                "name": "Sanguine Noble",
                 "location": "Writheblood Ruins"
             },
             "labels": [
@@ -2781,7 +2808,7 @@
                 "location": "Nokron, Eternal City"
             },
             "labels": [
-                "enemy"
+                "great_enemy"
             ],
             "weighting": {},
             "condition": null
