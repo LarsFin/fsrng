@@ -2,17 +2,6 @@
     "file_version": "1.0.0",
     "filters": [
         {
-            "id": "remembrance_only",
-            "info": {
-                "name": "Only Remembrance Bosses",
-                "description": "All bosses that give a remembrance (this does not include Bayle)."
-            },
-            "clause": "all",
-            "labels": [
-                "remembrance"
-            ]
-        },
-        {
             "id": "legend_only",
             "info": {
                 "name": "Only Legend Bosses",
@@ -46,7 +35,6 @@
                 "location": "Belurat Tower Settlement"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -72,7 +60,6 @@
                 "location": "Castle Ensis"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -98,7 +85,6 @@
                 "location": "Shadow Keep"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -124,7 +110,6 @@
                 "location": "Scadutree Base"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -150,7 +135,6 @@
                 "location": "Fissure Depths"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -176,7 +160,6 @@
                 "location": "Midra's Manse"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -190,7 +173,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         },
@@ -219,7 +201,6 @@
                 "location": "Church of the Bud"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -234,6 +215,16 @@
                     {
                         "type": "Node",
                         "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "dryleaf_dane",
+                        "flag_check": {
+                            "clause": "none",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        }
                     }
                 ]
             }
@@ -245,7 +236,6 @@
                 "location": "Finger Ruins of Miyr"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -271,7 +261,6 @@
                 "location": "Shadow Keep Specimen Storehouse"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -297,7 +286,6 @@
                 "location": "Enir-Ilim"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -336,8 +324,7 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "legend_only",
-                                "remembrance_only"
+                                "legend_only"
                             ]
                         },
                         "conditions": [
@@ -365,7 +352,6 @@
                 "location": "Stormveil Castle"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -378,7 +364,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         }
@@ -397,7 +382,6 @@
                 "location": "Raya Lucaria Academy"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -410,7 +394,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         }
@@ -429,7 +412,6 @@
                 "location": "Redmane Castle"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -442,7 +424,6 @@
                 "location": "Leyndell, Royal Capital"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -456,7 +437,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         },
@@ -493,7 +473,6 @@
                 "location": "Volcano Manor"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -506,7 +485,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         }
@@ -529,7 +507,6 @@
                 "location": "Mohgwyn Palace"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -539,7 +516,6 @@
                 "flag_check": {
                     "clause": "any",
                     "flag_ids": [
-                        "remembrance_only",
                         "legend_only"
                     ]
                 },
@@ -570,7 +546,6 @@
                 "location": "Elphael, Brace of the Haligtree"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -583,9 +558,7 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
-                                "legend_only",
-                                "no_enemy_bosses"
+                                "legend_only"
                             ]
                         },
                         "objective_id": "morgott_the_omen_king"
@@ -604,7 +577,6 @@
                 "location": "Deeproot Depths"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -627,16 +599,14 @@
                         ]
                     },
                     {
-                        "type": "Branch",
-                        "clause": "all",
+                        "type": "Node",
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         },
-                        "conditions": []
+                        "objective_id": "starscourge_radahn"
                     }
                 ]
             }
@@ -648,7 +618,6 @@
                 "location": "Crumbling Farum Azula"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -662,7 +631,6 @@
                         "flag_check": {
                             "clause": "any",
                             "flag_ids": [
-                                "remembrance_only",
                                 "legend_only"
                             ]
                         }
@@ -681,7 +649,6 @@
                 "location": "Grand Cloister, Lake of Rot"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
@@ -690,8 +657,28 @@
                 "clause": "any",
                 "conditions": [
                     {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "royal_knight_loretta"
+                            }
+                        ]
+                    },
+                    {
                         "type": "Node",
-                        // TODO: Continue from here
+                        "objective_id": "starscourge_radahn",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        }
                     }
                 ]
             }
@@ -703,11 +690,29 @@
                 "location": "Nokron, Eternal City"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         {
             "id": "radagon_of_the_golden_order",
@@ -716,11 +721,13 @@
                 "location": "Elden Throne"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "godfrey_first_elden_lord"
+            }
         },
         {
             "id": "godfrey_first_elden_lord",
@@ -729,11 +736,29 @@
                 "location": "Leyndell, Ashen Capital"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "sir_gideon_ofnir_the_allknowing"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "maliketh_the_black_blade",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         {
             "id": "fire_giant",
@@ -742,11 +767,13 @@
                 "location": "Mountaintops of the Giants"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "dragonlord_placidusax",
@@ -755,11 +782,29 @@
                 "location": "Crumbling Farum Azula"
             },
             "labels": [
-                "remembrance",
                 "legend"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "fire_giant",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_duo"
+                    }
+                ]
+            }
         },
         {
             "id": "ancient_dragon_senessax",
@@ -771,7 +816,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "ancient_dragon_man",
@@ -783,7 +831,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "chief_bloodfiend",
@@ -795,7 +856,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "dancer_of_ranah",
@@ -807,7 +881,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "dryleaf_dane",
@@ -819,7 +906,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "golden_hippopotamus",
@@ -831,7 +931,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "jagged_peak_drake_foot_of_the_jagged_peak",
@@ -843,7 +956,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "jagged_peak_drake_dragons_pit",
@@ -855,7 +971,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "jori_elder_inquisitor",
@@ -867,8 +986,22 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
+        // TODO: continue from here...
         {
             "id": "cemetery_shade_tombsward_catacombs",
             "info": {
