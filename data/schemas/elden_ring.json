@@ -672,6 +672,34 @@
                     },
                     {
                         "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "flag_check": {
+                            "clause": "any",
+                            "flag_ids": [
+                                "legend_only"
+                            ]
+                        },
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
                         "objective_id": "starscourge_radahn",
                         "flag_check": {
                             "clause": "any",
@@ -1001,7 +1029,6 @@
                 ]
             }
         },
-        // TODO: continue from here...
         {
             "id": "cemetery_shade_tombsward_catacombs",
             "info": {
@@ -1072,7 +1099,30 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "royal_knight_loretta"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "margit_the_fell_omen",
@@ -1132,7 +1182,24 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "royal_knight_loretta"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "astel_naturalborn_of_the_void"
+                    }
+                ]
+            }
         },
         {
             "id": "borealis_the_freezing_fog",
@@ -1144,7 +1211,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "decaying_ekyzkes",
@@ -1168,7 +1238,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "mimic_tear_nokron"
+            }
         },
         {
             "id": "godskin_duo",
@@ -1180,7 +1253,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "fire_giant"
+            }
         },
         {
             "id": "blackgaol_knight",
@@ -1192,7 +1268,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "black_knight_garrew",
@@ -1204,7 +1293,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "black_knight_edreed",
@@ -1216,7 +1318,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "count_ymir_mother_of_fingers",
@@ -1228,7 +1343,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "metyr_mother_of_fingers"
+            }
         },
         {
             "id": "curseblade_labirth",
@@ -1240,7 +1358,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_knight_fog_rift_catacombs",
@@ -1252,7 +1383,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_knight_scorpion_river_catacombs",
@@ -1264,7 +1408,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_rite_bird_academy_gate_town",
@@ -1300,7 +1457,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "death_rite_bird_apostate_derelict",
@@ -1312,7 +1472,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "death_rite_bird_charos_hidden_grave",
@@ -1324,7 +1487,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "demihuman_swordmaster_onze",
@@ -1336,7 +1502,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "demihuman_queen_marigga",
@@ -1348,7 +1527,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "fallingstar_beast_sellia_crystal_tunnel",
@@ -1384,7 +1576,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "lamenter",
@@ -1396,7 +1601,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "ralva_the_great_red_bear",
@@ -1408,7 +1626,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "rakshasa",
@@ -1420,7 +1651,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "red_bear",
@@ -1432,7 +1676,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "rugalea_the_great_red_bear",
@@ -1444,7 +1701,20 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "tree_sentinel",
@@ -1473,14 +1743,27 @@
         {
             "id": "tree_sentinels_hinterland",
             "info": {
-                "name": "",
-                "location": ""
+                "name": "Tree Sentinels",
+                "location": "Hinterlands"
             },
             "labels": [
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "mad_pumpkin_head",
@@ -1558,7 +1841,7 @@
             "id": "erdtree_burial_watchdog_wyndham_catacombs",
             "info": {
                 "name": "Erdtree Burial Watchdog",
-                "location": ""
+                "location": "Wyndham Catacombs"
             },
             "labels": [
                 "enemy"
@@ -1696,7 +1979,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "draconic_tree_sentinel",
@@ -1888,7 +2174,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "nights_cavalry_dragonbarrow",
@@ -1912,7 +2201,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "bell_bearing_hunter_church_of_vows",
@@ -1972,7 +2264,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "black_blade_kindred_bestial_sanctum",
@@ -1996,7 +2291,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "sir_gideon_ofnir_the_allknowing",
@@ -2008,7 +2306,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "maliketh_the_black_blade"
+            }
         },
         {
             "id": "tibia_mariner_summonwater_village",
@@ -2056,7 +2357,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "bloodhound_knight_darriwil",
@@ -2080,7 +2384,48 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "draconic_tree_sentinel"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "erdtree_avatar_minor_erdtree_weeping_peninsula",
@@ -2128,7 +2473,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "alecto_black_knife_ringleader",
@@ -2140,7 +2488,24 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "royal_knight_loretta"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "astel_naturalborn_of_the_void"
+                    }
+                ]
+            }
         },
         {
             "id": "grave_warden_duelist_murkwater_catacombs",
@@ -2224,7 +2589,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "perfumer_tricia_and_misbegotten_warrior",
@@ -2272,7 +2640,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "fullgrown_fallingstar_beast",
@@ -2380,7 +2751,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "battlemage_hugues",
@@ -2440,7 +2814,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "crucible_knight_siluria",
@@ -2452,7 +2829,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "valiant_gargoyles"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "demihuman_queen_gilika",
@@ -2536,7 +2926,20 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "valiant_gargoyles"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "flying_dragon_greyll",
@@ -2596,7 +2999,48 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "draconic_tree_sentinel"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "godskin_apostle_dominula_windmill_village",
@@ -2644,7 +3088,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "guardian_golem",
@@ -2680,7 +3127,10 @@
                 "great_enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "magma_wyrm_gael_tunnel",
@@ -2740,7 +3190,10 @@
                 "enemy"
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "misbegotten_warrior_and_crucible_knight",
@@ -2752,6 +3205,7 @@
                 "enemy"
             ],
             "weighting": {},
+            // TODO...
             "condition": null
         },
         {
