@@ -57,7 +57,7 @@ pub enum Condition {
 pub struct ConditionBranch {
     pub clause: String,
     pub labels: Option<Vec<String>>,
-    pub flag_check: Option<FlagCheck>,
+    pub checks: Option<Vec<Check>>,
     pub conditions: Vec<Condition>,
 }
 
@@ -65,7 +65,7 @@ pub struct ConditionBranch {
 pub struct ConditionNode {
     pub objective_id: Option<String>,
     pub labels: Option<Vec<String>>,
-    pub flag_check: Option<FlagCheck>,
+    pub checks: Option<Vec<Check>>,
 }
 
 #[derive(Deserialize)]
@@ -97,9 +97,10 @@ pub struct ConfigOption {
 }
 
 #[derive(Deserialize)]
-pub struct FlagCheck {
+pub struct Check {
+    pub kind: String,
     pub clause: String,
-    pub flag_ids: Vec<String>,
+    pub ids: Vec<String>,
 }
 
 #[derive(Deserialize, Serialize, Clone)]

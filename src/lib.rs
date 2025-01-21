@@ -134,8 +134,8 @@ fn resolve_branch(
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
-    if let Some(flag_check) = &branch.flag_check {
-        if !check_flags(flag_check, flags) {
+    if let Some(checks) = &branch.checks {
+        if !check(checks, filters, flags) {
             return false;
         }
     }
@@ -182,8 +182,8 @@ fn resolve_node(
     node: &ConditionNode,
     completed: &[String]
 ) -> bool {
-    if let Some(flag_check) = &node.flag_check {
-        if !check_flags(flag_check, flags) {
+    if let Some(checks) = &node.checks {
+        if !check(checks, filters, flags) {
             return false;
         }
     }
@@ -265,20 +265,44 @@ pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
     true
 }
 
-pub fn check_flags(flag_check: &FlagCheck, flags: &[ConfigOption]) -> bool {
-    let flag_ids: Vec<String> = flags
+pub fn check(checks: &[Check], filters: &[Filter], flags: &[ConfigOption]) -> bool {
+    let filter_ids: Vec<String> = filters
         .iter()
-        .map(|flag| flag.id.clone())
+        .map(|filter| filter.id.clone())
         .collect();
 
-    match flag_check.clause.as_str() {
-        "any" => flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)),
-        "all" => flag_check.flag_ids.iter().all(|flag_id| flag_ids.contains(flag_id)),
-        _ => {
-            println!("Unknown flag check clause '{}'", flag_check.clause);
-            false
+    let flag_ids: Vec<String> = flags
+        .iter()
+        .map(|filter| filter.id.clone())
+        .collect();
+
+    for check in checks {
+        let checked_ids: &[String];
+
+        if check.kind == "filter" {
+            checked_ids = &filter_ids;
+        } else {
+            checked_ids = &flag_ids;
+        }
+
+        match check.clause.as_str() {
+            "any" => {
+                if !check.ids.iter().any(|id| checked_ids.contains(id)) {
+                    return false;
+                }
+            }
+            "all" => {
+                if !check.ids.iter().all(|id| checked_ids.contains(id)) {
+                    return false;
+                }
+            }
+            _ => {
+                println!("Unknown check clause '{}'", check.clause);
+            }
         }
     }
+
+    return true;
 }
 
 pub fn generate_ordered_objectives(
