@@ -65,12 +65,15 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
@@ -94,12 +97,15 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
@@ -149,12 +155,15 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
@@ -277,12 +286,15 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
@@ -318,23 +330,29 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key",
-                                "sens_skip"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key",
+                                    "sens_skip"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
                         "objective_id": "taurus_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "sens_skip"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "sens_skip"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Branch",
