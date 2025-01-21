@@ -344,12 +344,15 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "soul_memory"
-                            ]
-                        },
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "soul_memory"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
@@ -411,12 +414,15 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "soul_memory"
-                            ]
-                        },
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "soul_memory"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
