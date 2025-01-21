@@ -534,12 +534,15 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "master_key"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "master_key"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "Node",
