@@ -570,12 +570,15 @@
                     {
                         "type": "Branch",
                         "clause": "all",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "chaos_servant"
-                            ]
-                        },
+                        "checks": [
+                            {
+                                "clause": "all",
+                                "kind": "flag",
+                                "ids": [
+                                    "chaos_servant"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
