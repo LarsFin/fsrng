@@ -71,12 +71,15 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]
-                        }
+                        "checks": [
+                            {
+                                "kind": "flag",
+                                "clause": "all",
+                                "ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
