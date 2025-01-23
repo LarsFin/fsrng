@@ -188,10 +188,12 @@ pub fn filter_objectives(
 
         // apparently let is unstable when followed by && that relies on optional value, an issue on GH exists
         if let Some(flag_checks) = &objective.flag_checks {
-            if check_flags(flag_checks, flags) {
-                filtered_objectives.push(objective);
+            if !check_flags(flag_checks, flags) {
+                continue;
             }
         }
+
+        filtered_objectives.push(objective);
     }
 
     filtered_objectives

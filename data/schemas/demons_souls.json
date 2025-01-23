@@ -1,30 +1,21 @@
 {
     "file_version": "1.0.0",
-    "filters": [
+    "flags": [
         {
             "id": "only_archstone_bosses",
             "info": {
                 "name": "Only Archstone Bosses",
                 "description": "Only include Archstone bosses in the randomiser"
-            },
-            "clause": "all",
-            "labels": [
-                "archstone_boss"
-            ]
+            }
         },
         {
             "id": "no_optional_npc_bosses",
             "info": {
                 "name": "No Optional NPC Bosses",
-                "description": "Do not include optional NPC enemies"
-            },
-            "clause": "none",
-            "labels": [
-                "npc"
-            ]
+                "description": "Do not include optional NPC enemies (King Doran)"
+            }
         }
     ],
-    "flags": [],
     "preferences": [
         {
             "id": "commit_to_archstones",
@@ -63,9 +54,6 @@
                 "name": "Phalanx",
                 "location": "Gates of Boletaria"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 100
             },
@@ -77,9 +65,14 @@
                 "name": "Old King Doran",
                 "location": "Gates of Boletaria"
             },
-            "labels": [
-                "miniboss",
-                "npc"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "only_archstone_bosses",
+                        "no_optional_npc_bosses"
+                    ]
+                }
             ],
             "weighting": {
                 "gradual_difficulty": 1
@@ -92,8 +85,13 @@
                 "name": "Vanguard",
                 "location": "Island's Edge"
             },
-            "labels": [
-                "miniboss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "only_archstone_bosses"
+                    ]
+                }
             ],
             "weighting": {
                 "gradual_difficulty": 60
@@ -112,8 +110,13 @@
                 "name": "Red Dragon",
                 "location": "The Lord's Path"
             },
-            "labels": [
-                "miniboss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "only_archstone_bosses"
+                    ]
+                }
             ],
             "weighting": {
                 "gradual_difficulty": 35
@@ -132,9 +135,6 @@
                 "name": "Tower Knight",
                 "location": "The Lord's Path"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 85,
                 "commit_to_archstones": 100,
@@ -151,9 +151,6 @@
                 "name": "Fool's Idol",
                 "location": "Prison of Hope"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 75,
                 "commit_to_archstones": 5,
@@ -170,9 +167,6 @@
                 "name": "Armor Spider",
                 "location": "The Tunnel City"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "early_flame_lurker": 80,
                 "gradual_difficulty": 90,
@@ -190,9 +184,6 @@
                 "name": "Adjudicator",
                 "location": "The Ritual Path"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 80,
                 "commit_to_archstones": 5,
@@ -209,9 +200,6 @@
                 "name": "Leechmonger",
                 "location": "Swamp of Sorrow"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 75,
                 "commit_to_archstones": 5,
@@ -228,9 +216,6 @@
                 "name": "Flamelurker",
                 "location": "Underground Temple"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "early_flame_lurker": 80,
                 "gradual_difficulty": 15,
@@ -248,9 +233,6 @@
                 "name": "Maneater",
                 "location": "The Ivory Tower"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 10,
                 "commit_to_archstones": 50,
@@ -267,9 +249,6 @@
                 "name": "Old Hero",
                 "location": "Altar of Storms"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 30,
                 "commit_to_archstones": 50,
@@ -286,9 +265,6 @@
                 "name": "Dirty Colossus",
                 "location": "Rotting Haven"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 45,
                 "commit_to_archstones": 50,
@@ -305,9 +281,6 @@
                 "name": "Dragon God",
                 "location": "Shrine of the Dragon God"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 45,
                 "commit_to_archstones": 100,
@@ -324,9 +297,6 @@
                 "name": "Old Monk",
                 "location": "Throne Room of Yormedaar"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 60,
                 "commit_to_archstones": 100,
@@ -343,9 +313,6 @@
                 "name": "Storm King",
                 "location": "The Monolith Forest"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 75,
                 "commit_to_archstones": 100,
@@ -362,9 +329,6 @@
                 "name": "Maiden Astraea",
                 "location": "Sanctuary of the Lost"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 55,
                 "commit_to_archstones": 100,
@@ -381,9 +345,6 @@
                 "name": "Penetrator",
                 "location": "Inner Ward"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 30,
                 "commit_to_archstones": 1,
@@ -418,8 +379,13 @@
                 "name": "Blue Dragon",
                 "location": "The King's Tower"
             },
-            "labels": [
-                "miniboss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "only_archstone_bosses"
+                    ]
+                }
             ],
             "weighting": {
                 "gradual_difficulty": 1
@@ -435,9 +401,6 @@
                 "name": "Old King Allant",
                 "location": "Throne of the False King"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {
                 "gradual_difficulty": 25,
                 "commit_to_archstones": 100,
@@ -454,9 +417,6 @@
                 "name": "King Allant",
                 "location": "Below the Nexus"
             },
-            "labels": [
-                "archstone_boss"
-            ],
             "weighting": {},
             "condition": {
                 "type": "End"
