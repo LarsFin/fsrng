@@ -17,7 +17,6 @@ pub struct Game {
 #[derive(Deserialize)]
 pub struct Schema {
     pub file_version: String,
-    pub filters: Vec<Filter>,
     pub flags: Vec<ConfigOption>,
     pub preferences: Vec<ConfigOption>,
     pub objectives: Vec<Objective>,
@@ -28,8 +27,8 @@ pub struct Schema {
 pub struct Objective {
     pub id: String,
     pub info: ObjectiveInfo,
-    pub labels: Vec<String>,
-    pub weighting: HashMap<String, u64>,
+    pub flag_checks: Option<Vec<FlagCheck>>,
+    pub weighting: Option<HashMap<String, u64>>,
     pub routes: Option<Vec<String>>,
     pub condition: Option<Condition>,
 }
@@ -57,7 +56,7 @@ pub enum Condition {
 pub struct ConditionBranch {
     pub clause: String,
     pub labels: Option<Vec<String>>,
-    pub checks: Option<Vec<Check>>,
+    pub flag_checks: Option<Vec<FlagCheck>>,
     pub conditions: Vec<Condition>,
 }
 
@@ -65,7 +64,7 @@ pub struct ConditionBranch {
 pub struct ConditionNode {
     pub objective_id: Option<String>,
     pub labels: Option<Vec<String>>,
-    pub checks: Option<Vec<Check>>,
+    pub flag_checks: Option<Vec<FlagCheck>>,
 }
 
 #[derive(Deserialize)]
@@ -76,18 +75,9 @@ pub struct Route {
     pub app_version: String,
     pub game_name: String,
     pub seed: u64,
-    pub filters: Vec<BasicInfo>,
     pub flags: Vec<BasicInfo>,
     pub preferences: Vec<BasicInfo>,
     pub ordered_objectives: Vec<ObjectiveInfo>,
-}
-
-#[derive(Deserialize, Clone)]
-pub struct Filter {
-    pub id: String,
-    pub info: BasicInfo,
-    pub clause: String,
-    pub labels: Vec<String>,
 }
 
 #[derive(Deserialize, Clone)]
@@ -97,10 +87,9 @@ pub struct ConfigOption {
 }
 
 #[derive(Deserialize)]
-pub struct Check {
-    pub kind: String,
+pub struct FlagCheck {
     pub clause: String,
-    pub ids: Vec<String>,
+    pub flag_ids: Vec<String>,
 }
 
 #[derive(Deserialize, Serialize, Clone)]

@@ -22,16 +22,6 @@ pub trait Informable: Clone {
     fn info(self) -> BasicInfo;
 }
 
-/**
- * TODO: Odd that a Filter is not a ConfigOption... something to solve
- */
-
-impl Informable for Filter {
-    fn info(self) -> BasicInfo {
-        self.info
-    }
-}
-
 impl Informable for ConfigOption {
     fn info(self) -> BasicInfo {
         self.info
@@ -87,7 +77,6 @@ pub fn load_schema(file_name: &String) -> Result<Schema, Box<dyn std::error::Err
 }
 
 fn possible_objectives_ids(
-    filters: &[Filter],
     flags: &[ConfigOption],
     objectives: &[Objective],
     completed: &[String]
@@ -100,7 +89,7 @@ fn possible_objectives_ids(
         }
 
         if let Some(condition) = &objective.condition {
-            if !resolve_condition(filters, flags, condition, completed, objectives.len()) {
+            if !resolve_condition(flags, condition, completed, objectives.len()) {
                 continue;
             }
         }
@@ -112,7 +101,6 @@ fn possible_objectives_ids(
 }
 
 fn resolve_condition(
-    filters: &[Filter],
     flags: &[ConfigOption],
     condition: &Condition,
     completed: &[String],
@@ -120,28 +108,21 @@ fn resolve_condition(
 ) -> bool {
     match condition {
         Condition::Branch(branch) =>
-            resolve_branch(filters, flags, branch, completed, total_objective_count),
-        Condition::Node(node) => resolve_node(filters, flags, node, completed),
+            resolve_branch(flags, branch, completed, total_objective_count),
+        Condition::Node(node) => resolve_node(flags, node, completed),
         Condition::End(_) => completed.len() == total_objective_count - 1,
     }
 }
 
 // TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
-    filters: &[Filter],
     flags: &[ConfigOption],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
 ) -> bool {
-    if let Some(checks) = &branch.checks {
-        if !check(checks, filters, flags) {
-            return false;
-        }
-    }
-
-    if let Some(labels) = &branch.labels {
-        if !resolve_filters(filters, labels) {
+    if let Some(flag_checks) = &branch.flag_checks {
+        if check_flags(flag_checks, flags) {
             return false;
         }
     }
@@ -149,24 +130,20 @@ fn resolve_branch(
     if branch.clause == "all" {
         return branch.conditions
             .iter()
-            .all(|condition|
-                resolve_condition(filters, flags, condition, completed, total_objective_count)
-            );
+            .all(|condition| resolve_condition(flags, condition, completed, total_objective_count));
     }
 
     if branch.clause == "any" {
         return branch.conditions
             .iter()
-            .any(|condition|
-                resolve_condition(filters, flags, condition, completed, total_objective_count)
-            );
+            .any(|condition| resolve_condition(flags, condition, completed, total_objective_count));
     }
 
     // TODO: probably a nicer way to do this
     if branch.clause == "any_two" {
         let mut count = 0;
         branch.conditions.iter().for_each(|condition| {
-            if resolve_condition(filters, flags, condition, completed, total_objective_count) {
+            if resolve_condition(flags, condition, completed, total_objective_count) {
                 count += 1;
             }
         });
@@ -176,20 +153,9 @@ fn resolve_branch(
     false
 }
 
-fn resolve_node(
-    filters: &[Filter],
-    flags: &[ConfigOption],
-    node: &ConditionNode,
-    completed: &[String]
-) -> bool {
-    if let Some(checks) = &node.checks {
-        if !check(checks, filters, flags) {
-            return false;
-        }
-    }
-
-    if let Some(labels) = &node.labels {
-        if !resolve_filters(filters, labels) {
+fn resolve_node(flags: &[ConfigOption], node: &ConditionNode, completed: &[String]) -> bool {
+    if let Some(flag_checks) = &node.flag_checks {
+        if check_flags(flag_checks, flags) {
             return false;
         }
     }
@@ -208,7 +174,7 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
 
 pub fn filter_objectives(
     route: Option<ConfigOption>,
-    filters: &[Filter],
+    flags: &[ConfigOption],
     objectives: Vec<Objective>
 ) -> Vec<Objective> {
     let mut filtered_objectives: Vec<Objective> = Vec::new();
@@ -220,8 +186,11 @@ pub fn filter_objectives(
             }
         }
 
-        if resolve_filters(filters, &objective.labels) {
-            filtered_objectives.push(objective);
+        // apparently let is unstable when followed by && that relies on optional value, an issue on GH exists
+        if let Some(flag_checks) = &objective.flag_checks {
+            if check_flags(flag_checks, flags) {
+                filtered_objectives.push(objective);
+            }
         }
     }
 
@@ -237,67 +206,31 @@ pub fn in_route(route: &ConfigOption, objective: &Objective) -> bool {
     true
 }
 
-pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
-    for filter in filters {
-        match filter.clause.as_str() {
-            "any" => {
-                // true if any label in filter labels
-                return filter.labels.iter().any(|filter_label| labels.contains(filter_label));
-            }
-            "all" => {
-                // true if all filter labels are in labels
-                return filter.labels.iter().all(|filter_label| labels.contains(filter_label));
-            }
-            "none" => {
-                // true if no filter labels are in labels
-                return filter.labels.iter().all(|filter_label| !labels.contains(filter_label));
-            }
-            _ => {
-                println!(
-                    "Unknown filter clause '{}' for filter '{}', skipping",
-                    filter.clause,
-                    filter.info.name
-                );
-            }
-        }
-    }
-
-    true
-}
-
-pub fn check(checks: &[Check], filters: &[Filter], flags: &[ConfigOption]) -> bool {
-    let filter_ids: Vec<String> = filters
-        .iter()
-        .map(|filter| filter.id.clone())
-        .collect();
-
+pub fn check_flags(flag_checks: &[FlagCheck], flags: &[ConfigOption]) -> bool {
     let flag_ids: Vec<String> = flags
         .iter()
         .map(|filter| filter.id.clone())
         .collect();
 
-    for check in checks {
-        let checked_ids: &[String];
-
-        if check.kind == "filter" {
-            checked_ids = &filter_ids;
-        } else {
-            checked_ids = &flag_ids;
-        }
-
-        match check.clause.as_str() {
+    for flag_check in flag_checks {
+        match flag_check.clause.as_str() {
             "any" => {
-                if !check.ids.iter().any(|id| checked_ids.contains(id)) {
+                if !flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)) {
                     return false;
                 }
             }
             "all" => {
-                if !check.ids.iter().all(|id| checked_ids.contains(id)) {
+                if !flag_check.flag_ids.iter().all(|flag_id| flag_ids.contains(flag_id)) {
+                    return false;
+                }
+            }
+            "none" => {
+                if flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)) {
                     return false;
                 }
             }
             _ => {
-                println!("Unknown check clause '{}'", check.clause);
+                println!("Unknown flag check clause '{}'", flag_check.clause);
             }
         }
     }
@@ -306,7 +239,6 @@ pub fn check(checks: &[Check], filters: &[Filter], flags: &[ConfigOption]) -> bo
 }
 
 pub fn generate_ordered_objectives(
-    filters: &[Filter],
     flags: &[ConfigOption],
     preferences: &[ConfigOption],
     objectives: &[Objective],
@@ -316,12 +248,7 @@ pub fn generate_ordered_objectives(
     let mut ordered_objectives: Vec<ObjectiveInfo> = Vec::new();
 
     while completed.len() < objectives.len() {
-        let possible_objective_ids = possible_objectives_ids(
-            filters,
-            flags,
-            objectives,
-            &completed
-        );
+        let possible_objective_ids = possible_objectives_ids(flags, objectives, &completed);
 
         if possible_objective_ids.is_empty() {
             panic!(
@@ -383,10 +310,15 @@ fn build_weighted_objectives(
     weighted_objectives
 }
 
-fn get_weight(preferences: &[ConfigOption], weighting: &HashMap<String, u64>) -> u64 {
-    for preference in preferences {
-        if let Some(weight) = weighting.get(&preference.id) {
-            return *weight;
+fn get_weight(
+    preferences: &[ConfigOption],
+    optional_weighting: &Option<HashMap<String, u64>>
+) -> u64 {
+    if let Some(weighting) = optional_weighting {
+        for preference in preferences {
+            if let Some(weight) = weighting.get(&preference.id) {
+                return *weight;
+            }
         }
     }
 
@@ -420,7 +352,6 @@ pub fn build_generated_route(
     app_version: String,
     game_name: String,
     seed: u64,
-    filters: Vec<Filter>,
     flags: Vec<ConfigOption>,
     preferences: Vec<ConfigOption>,
     ordered_objectives: Vec<ObjectiveInfo>
@@ -429,10 +360,6 @@ pub fn build_generated_route(
         app_version,
         game_name,
         seed,
-        filters: filters
-            .iter()
-            .map(|filter| filter.info.clone())
-            .collect(),
         flags: flags
             .iter()
             .map(|flag| flag.info.clone())
