@@ -1,6 +1,5 @@
 {
     "file_version": "1.0.0",
-    "filters": [],
     "flags": [
         {
             "id": "master_key",
@@ -33,7 +32,6 @@
                 "name": "Asylum Demon",
                 "location": "Northern Undead Asylum"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -65,10 +63,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -97,10 +94,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -155,10 +151,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -286,10 +281,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -330,10 +324,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key",
                                     "sens_skip"
@@ -344,10 +337,9 @@
                     {
                         "type": "Node",
                         "objective_id": "taurus_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "sens_skip"
                                 ]
@@ -386,10 +378,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -534,10 +525,9 @@
                     {
                         "type": "Node",
                         "objective_id": "asylum_demon",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "master_key"
                                 ]
@@ -570,10 +560,9 @@
                     {
                         "type": "Branch",
                         "clause": "all",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
                                 "ids": [
                                     "chaos_servant"
                                 ]
