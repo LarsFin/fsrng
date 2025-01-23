@@ -114,7 +114,6 @@ fn resolve_condition(
     }
 }
 
-// TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
     flags: &[ConfigOption],
     branch: &ConditionBranch,
@@ -122,7 +121,7 @@ fn resolve_branch(
     total_objective_count: usize
 ) -> bool {
     if let Some(flag_checks) = &branch.flag_checks {
-        if check_flags(flag_checks, flags) {
+        if !check_flags(flag_checks, flags) {
             return false;
         }
     }
@@ -155,7 +154,7 @@ fn resolve_branch(
 
 fn resolve_node(flags: &[ConfigOption], node: &ConditionNode, completed: &[String]) -> bool {
     if let Some(flag_checks) = &node.flag_checks {
-        if check_flags(flag_checks, flags) {
+        if !check_flags(flag_checks, flags) {
             return false;
         }
     }
