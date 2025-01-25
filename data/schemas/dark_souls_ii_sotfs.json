@@ -39,7 +39,6 @@
                 "name": "Executioner's Chariot",
                 "location": "Undead Purgatory"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
