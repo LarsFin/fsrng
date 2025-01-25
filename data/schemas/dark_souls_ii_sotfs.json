@@ -413,11 +413,10 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
-                                "ids": [
+                                "flag_ids": [
                                     "soul_memory"
                                 ]
                             }
@@ -694,11 +693,10 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "checks": [
+                        "flag_checks": [
                             {
                                 "clause": "all",
-                                "kind": "flag",
-                                "ids": [
+                                "flag_ids": [
                                     "soul_memory"
                                 ]
                             }
