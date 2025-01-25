@@ -27,7 +27,6 @@
                 "name": "The Pursuer",
                 "location": "Forest of Fallen Giants"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
