@@ -1,6 +1,5 @@
 {
     "file_version": "1.0.0",
-    "filters": [],
     "flags": [
         {
             "id": "soul_memory",
@@ -19,7 +18,6 @@
                 "name": "The Last Giant",
                 "location": "Forest of Fallen Giants"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
