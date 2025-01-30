@@ -1,6 +1,5 @@
 {
     "file_version": "1.0.0",
-    "filters": [],
     "flags": [],
     "preferences": [],
     "routes": [],
@@ -11,7 +10,6 @@
                 "name": "Iudex Gundyr",
                 "location": "Cemetery of Ash"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -21,7 +19,6 @@
                 "name": "Vordt of the Boreal Valley",
                 "location": "High Wall of Lothric"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -34,7 +31,6 @@
                 "name": "Curse-Rotted Greatwood",
                 "location": "Undead Settlement"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -47,7 +43,6 @@
                 "name": "Crystal Sage",
                 "location": "road_of_sacrifices"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -60,7 +55,6 @@
                 "name": "Abyss Watchers",
                 "location": "Farron Keep"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -73,7 +67,6 @@
                 "name": "Deacons of the Deep",
                 "location": "Cathedral of the Deep"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -86,7 +79,6 @@
                 "name": "High Lord Wolnir",
                 "location": "Catacombs of Carthus"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -99,7 +91,6 @@
                 "name": "Old Demon King",
                 "location": "Smouldering Lake"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -112,7 +103,6 @@
                 "name": "Pontiff Sulyvahn",
                 "location": "Irithyll of the Boreal Valley"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -135,7 +125,6 @@
                 "name": "Yhorm the Giant",
                 "location": "Profaned Capital"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -158,7 +147,6 @@
                 "name": "Aldrich, Devourer of Gods",
                 "location": "Anor Londo"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -171,7 +159,6 @@
                 "name": "Dancer of the Boreal Valley",
                 "location": "High Wall of Lothric"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -184,7 +171,6 @@
                 "name": "Dragonslayer Armour",
                 "location": "Lothric Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -197,7 +183,6 @@
                 "name": "Oceiros, the Consumed King",
                 "location": "Consumed King's Garden"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -210,7 +195,6 @@
                 "name": "Champion Gundyr",
                 "location": "Untended Graves"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -223,7 +207,6 @@
                 "name": "Lothric Twin Princes",
                 "location": "Lothric Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -250,7 +233,6 @@
                 "name": "Ancient Wyvern",
                 "location": "Archdragon Peak"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -277,7 +259,6 @@
                 "name": "Nameless King",
                 "location": "Archdragon Peak"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -290,7 +271,6 @@
                 "name": "Soul of Cinder",
                 "location": "Kiln of the First Flame"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -303,7 +283,6 @@
                 "name": "Sister Friede",
                 "location": "Painted World of Ariandel"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -316,7 +295,6 @@
                 "name": "Champion's Gravetender and Greatwolf",
                 "location": "Painted World of Ariandel"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -329,7 +307,6 @@
                 "name": "Demon Prince",
                 "location": "The Dreg Heap"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -352,7 +329,6 @@
                 "name": "Halflight, Spear of the Church",
                 "location": "The Ringed City"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -365,7 +341,6 @@
                 "name": "Darkeater Midir",
                 "location": "The Ringed City"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -378,7 +353,6 @@
                 "name": "Slave Knight Gael",
                 "location": "The Ringed City"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
