@@ -28,6 +28,13 @@ impl Informable for ConfigOption {
     }
 }
 
+#[derive(PartialEq)]
+enum Resolution {
+    Met,
+    Unmet,
+    Ignored,
+}
+
 pub fn ask_selection<T: Informable>(question: String, selections: &[T]) -> Option<T> {
     if selections.is_empty() {
         return None;
@@ -89,7 +96,7 @@ fn possible_objectives_ids(
         }
 
         if let Some(condition) = &objective.condition {
-            if !resolve_condition(flags, condition, completed, objectives.len()) {
+            if resolve_condition(flags, condition, completed, objectives.len()) != Resolution::Met {
                 continue;
             }
         }
@@ -105,12 +112,16 @@ fn resolve_condition(
     condition: &Condition,
     completed: &[String],
     total_objective_count: usize
-) -> bool {
+) -> Resolution {
     match condition {
         Condition::Branch(branch) =>
             resolve_branch(flags, branch, completed, total_objective_count),
         Condition::Node(node) => resolve_node(flags, node, completed),
-        Condition::End(_) => completed.len() == total_objective_count - 1,
+        Condition::End(_) => if completed.len() == total_objective_count - 1 {
+            Resolution::Met
+        } else {
+            Resolution::Unmet
+        }
     }
 }
 
@@ -119,51 +130,80 @@ fn resolve_branch(
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
-) -> bool {
+) -> Resolution {
     if let Some(flag_checks) = &branch.flag_checks {
         if !check_flags(flag_checks, flags) {
-            return false;
+            return Resolution::Ignored;
         }
     }
 
+    // it may seem odd here to consider a branch met if it has no conditions due to flag checks but
+    // semantically this makes sense, it's asking that all conditions within the branch resolve to
+    // something truthy. If there are no conditions, that question is still true
     if branch.clause == "all" {
-        return branch.conditions
-            .iter()
-            .all(|condition| resolve_condition(flags, condition, completed, total_objective_count));
+        if
+            branch.conditions
+                .iter()
+                .all(
+                    |condition|
+                        resolve_condition(flags, condition, completed, total_objective_count) !=
+                        Resolution::Unmet
+                )
+        {
+            return Resolution::Met;
+        } else {
+            return Resolution::Unmet;
+        }
     }
 
     if branch.clause == "any" {
-        return branch.conditions
-            .iter()
-            .any(|condition| resolve_condition(flags, condition, completed, total_objective_count));
-    }
-
-    // TODO: probably a nicer way to do this
-    if branch.clause == "any_two" {
-        let mut count = 0;
-        branch.conditions.iter().for_each(|condition| {
-            if resolve_condition(flags, condition, completed, total_objective_count) {
-                count += 1;
-            }
-        });
-        return count >= 2;
-    }
-
-    false
-}
-
-fn resolve_node(flags: &[ConfigOption], node: &ConditionNode, completed: &[String]) -> bool {
-    if let Some(flag_checks) = &node.flag_checks {
-        if !check_flags(flag_checks, flags) {
-            return false;
+        if
+            branch.conditions
+                .iter()
+                .any(
+                    |condition|
+                        resolve_condition(flags, condition, completed, total_objective_count) ==
+                        Resolution::Met
+                )
+        {
+            return Resolution::Met;
+        } else {
+            return Resolution::Unmet;
         }
     }
 
-    if let Some(objective_id) = &node.objective_id {
-        completed.contains(objective_id)
-    } else {
-        // no objective_id indicates no objective to check, so return true
-        true
+    // TODO: 'any_two' feels like a hack and not very extensible, technically you could design the schema
+    // with multiple 'any' branches but it creates a lot of bloat. Keeping this for now, but should be revisited
+    if branch.clause == "any_two" {
+        let mut count = 0;
+        branch.conditions.iter().for_each(|condition| {
+            if
+                resolve_condition(flags, condition, completed, total_objective_count) ==
+                Resolution::Met
+            {
+                count += 1;
+            }
+        });
+        return if count >= 2 { Resolution::Met } else { Resolution::Unmet };
+    }
+
+    Resolution::Unmet
+}
+
+fn resolve_node(flags: &[ConfigOption], node: &ConditionNode, completed: &[String]) -> Resolution {
+    if let Some(flag_checks) = &node.flag_checks {
+        if !check_flags(flag_checks, flags) {
+            return Resolution::Ignored;
+        }
+    }
+
+    // if no objective_id is present, the node is considered met, perhaps an ugly pattern but this is
+    // the current design
+    match &node.objective_id {
+        Some(objective_id) => {
+            if completed.contains(objective_id) { Resolution::Met } else { Resolution::Unmet }
+        }
+        None => Resolution::Met,
     }
 }
 
