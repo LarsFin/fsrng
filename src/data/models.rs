@@ -20,7 +20,6 @@ pub struct Schema {
     pub flags: Vec<ConfigOption>,
     pub preferences: Vec<ConfigOption>,
     pub objectives: Vec<Objective>,
-    pub routes: Vec<ConfigOption>,
 }
 
 #[derive(Deserialize)]
@@ -29,7 +28,6 @@ pub struct Objective {
     pub info: ObjectiveInfo,
     pub flag_checks: Option<Vec<FlagCheck>>,
     pub weighting: Option<HashMap<String, u64>>,
-    pub routes: Option<Vec<String>>,
     pub condition: Option<Condition>,
 }
 

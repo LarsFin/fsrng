@@ -13,9 +13,8 @@ fn main() {
 
     let flags = ask_selections(String::from("Select flags."), &schema.flags);
     let preferences = ask_selections(String::from("Select preferences."), &schema.preferences);
-    let route = ask_selection(String::from("Select routes."), &schema.routes);
 
-    let filtered_objectives = filter_objectives(route, &flags, schema.objectives);
+    let filtered_objectives = filter_objectives(&flags, schema.objectives);
 
     let seed = ask_seed();
 

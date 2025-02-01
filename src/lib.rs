@@ -171,20 +171,10 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-pub fn filter_objectives(
-    route: Option<ConfigOption>,
-    flags: &[ConfigOption],
-    objectives: Vec<Objective>
-) -> Vec<Objective> {
+pub fn filter_objectives(flags: &[ConfigOption], objectives: Vec<Objective>) -> Vec<Objective> {
     let mut filtered_objectives: Vec<Objective> = Vec::new();
 
     for objective in objectives {
-        if let Some(route) = &route {
-            if !in_route(route, &objective) {
-                continue;
-            }
-        }
-
         // apparently let is unstable when followed by && that relies on optional value, an issue on GH exists
         if let Some(flag_checks) = &objective.flag_checks {
             if !check_flags(flag_checks, flags) {
@@ -196,15 +186,6 @@ pub fn filter_objectives(
     }
 
     filtered_objectives
-}
-
-pub fn in_route(route: &ConfigOption, objective: &Objective) -> bool {
-    if let Some(routes) = &objective.routes {
-        return routes.contains(&route.id);
-    }
-
-    // no routes on objective means it's in all routes
-    true
 }
 
 pub fn check_flags(flag_checks: &[FlagCheck], flags: &[ConfigOption]) -> bool {
