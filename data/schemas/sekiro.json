@@ -132,10 +132,12 @@
                     {
                         "type": "Node",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -205,10 +207,12 @@
                     {
                         "type": "Node",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -292,10 +296,12 @@
                     {
                         "type": "Node",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ],
                         "objective_id": "gyoubu_masataka_oniwa"
                     }
@@ -460,10 +466,12 @@
                     {
                         "type": "Node",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ],
                         "objective_id": "gyoubu_masataka_oniwa"
                     }
@@ -598,10 +606,12 @@
                     {
                         "type": "Node",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ],
                         "objective_id": "genichiro_ashina"
                     }
@@ -624,26 +634,26 @@
             ],
             "weighting": {},
             "condition": {
-                        "type": "Branch",
-                        "clause": "all",
-                        "conditions": [
-                            {
-                                "type": "Node",
-                                "objective_id": "guardian_ape"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "corrupted_monk"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "folding_screen_monkeys"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "ashina_elite_jinsuke_saze"
-                            }
-                        ]
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "guardian_ape"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "corrupted_monk"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "folding_screen_monkeys"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ashina_elite_jinsuke_saze"
+                    }
+                ]
             }
         },
         {
@@ -692,27 +702,27 @@
             ],
             "weighting": {},
             "condition": {
-                        "type": "Branch",
-                        "clause": "all",
-                        "conditions": [
-                            {
-                                "type": "Node",
-                                "objective_id": "guardian_ape"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "corrupted_monk"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "folding_screen_monkeys"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "ashina_elite_jinsuke_saze"
-                            }
-                        ]
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "guardian_ape"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "corrupted_monk"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "folding_screen_monkeys"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ashina_elite_jinsuke_saze"
                     }
+                ]
+            }
         },
         {
             "id": "lone_shadow_vilehand",
@@ -730,26 +740,26 @@
             ],
             "weighting": {},
             "condition": {
-                        "type": "Branch",
-                        "clause": "all",
-                        "conditions": [
-                            {
-                                "type": "Node",
-                                "objective_id": "guardian_ape"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "corrupted_monk"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "folding_screen_monkeys"
-                            },
-                            {
-                                "type": "Node",
-                                "objective_id": "ashina_elite_jinsuke_saze"
-                            }
-                        ]
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "guardian_ape"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "corrupted_monk"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "folding_screen_monkeys"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ashina_elite_jinsuke_saze"
+                    }
+                ]
             }
         },
         {
@@ -941,10 +951,12 @@
                         "type": "Branch",
                         "clause": "all",
                         "flag_checks": [
-                            {"clause": "all",
-                            "flag_ids": [
-                                "only_memory_bosses"
-                            ]}
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "only_memory_bosses"
+                                ]
+                            }
                         ],
                         "conditions": [
                             {
