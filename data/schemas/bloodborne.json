@@ -1,18 +1,5 @@
 {
     "file_version": "1.0.0",
-    "filters": [
-        {
-            "id": "no_chalice_bosses",
-            "info": {
-                "name": "No Chalice Bosses",
-                "description": "Exclude Chalice bosses from the randomised route"
-            },
-            "clause": "none",
-            "labels": [
-                "chalice_boss"
-            ]
-        }
-    ],
     "flags": [
         {
             "id": "iosefka_skip",
@@ -27,10 +14,16 @@
                 "name": "False Depth Chalices",
                 "description": "Using glyphs found here: https://www.bloodborne-wiki.com/2017/11/save-editing-chalice-dungeons.html#False%20Depth%20Story%20Dungeons, it's possible to access false depth story chalices early"
             }
+        },
+        {
+            "id": "no_chalice_bosses",
+            "info": {
+                "name": "No Chalice Bosses",
+                "description": "Exclude Chalice bosses from the randomised route"
+            }
         }
     ],
     "preferences": [],
-    "routes": [],
     "objectives": [
         {
             "id": "amygdala",
@@ -38,7 +31,6 @@
                 "name": "Amygdala",
                 "location": "Nightmare Frontier"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -51,12 +43,14 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "iosefka_skip"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "iosefka_skip"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Branch",
@@ -87,7 +81,6 @@
                 "name": "Blood-Starved Beast",
                 "location": "Old Yharnam"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -100,7 +93,6 @@
                 "name": "Celestial Emissary",
                 "location": "Lumenflower Gardens"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -123,7 +115,6 @@
                 "name": "Cleric Beast",
                 "location": "Central Yharnam"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -133,7 +124,6 @@
                 "name": "Darkbeast Paarl",
                 "location": "Graveyard of the Darkbeast"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -156,7 +146,6 @@
                 "name": "Ebrietas, Daughter of the Cosmos",
                 "location": "Altar of Despair"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -169,7 +158,6 @@
                 "name": "Father Gascoigne",
                 "location": "Central Yharnam"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -179,7 +167,6 @@
                 "name": "Gehrman, the First Hunter",
                 "location": "Hunter's Dream"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -192,7 +179,6 @@
                 "name": "Martyr Logarius",
                 "location": "Forsaken Cainhurst Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -214,12 +200,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "iosefka_skip"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "iosefka_skip"
+                                ]
+                            }
+                        ],
                         "objective_id": "witch_of_hemwick"
                     }
                 ]
@@ -231,7 +219,6 @@
                 "name": "Mergo's Wet Nurse",
                 "location": "Wet Nurse's Lunarium"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -244,7 +231,6 @@
                 "name": "Micolash, Host of the Nightmare",
                 "location": "Mergo's Loft: Middle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -257,7 +243,6 @@
                 "name": "Moon Presence",
                 "location": "Hunter's Dream"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "End"
@@ -269,7 +254,6 @@
                 "name": "One Reborn",
                 "location": "Advent Plaza"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -282,7 +266,6 @@
                 "name": "Rom, the Vacuous Spider",
                 "location": "Moonside Lake"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -295,7 +278,6 @@
                 "name": "Shadows of Yharnam",
                 "location": "Forbidden Woods"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -307,12 +289,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "iosefka_skip"
-                            ]
-                        }
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "iosefka_skip"
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
@@ -323,7 +307,6 @@
                 "name": "Vicar Amelia",
                 "location": "Grand Cathedral"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -356,7 +339,6 @@
                 "name": "Witch of Hemwick",
                 "location": "Witch's Abode"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -389,7 +371,6 @@
                 "name": "Ludwig, the Holy Blade",
                 "location": "Underground Corpse Pile"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -401,12 +382,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "iosefka_skip"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "iosefka_skip"
+                                ]
+                            }
+                        ],
                         "objective_id": "rom_the_vacuous_spider"
                     }
                 ]
@@ -418,7 +401,6 @@
                 "name": "Orphan of Kos",
                 "location": "Coast"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -431,7 +413,6 @@
                 "name": "Lady Maria of the Astral Clocktower",
                 "location": "Astral Clocktower"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -444,7 +425,6 @@
                 "name": "Living Failures",
                 "location": "Lumenwood Garden"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -457,7 +437,6 @@
                 "name": "Laurence, the First Vicar",
                 "location": "Nightmare Grand Cathedral"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -473,6 +452,14 @@
             "labels": [
                 "chalice_boss"
             ],
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
+            ],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -485,8 +472,13 @@
                 "name": "Merciless Watchers",
                 "location": "Pthumeru Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -500,8 +492,13 @@
                 "name": "Watchdog of the Old Lords",
                 "location": "Pthumeru Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -515,8 +512,13 @@
                 "name": "Beast-Possessed Soul",
                 "location": "Central Pthumeru Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -529,12 +531,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -546,8 +550,13 @@
                 "name": "Keeper of the Old Lords",
                 "location": "Central Pthumeru Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -561,8 +570,13 @@
                 "name": "Pthumerian Descendant",
                 "location": "Central Pthumeru Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -576,8 +590,13 @@
                 "name": "Merciless Watchers",
                 "location": "Lower Pthumeru Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -590,12 +609,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -607,8 +628,13 @@
                 "name": "Undead Giant",
                 "location": "Lower Pthumeru Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -622,8 +648,13 @@
                 "name": "Rom, the Vacuous Spider",
                 "location": "Lower Pthumeru Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -637,8 +668,13 @@
                 "name": "Bloodletting Beast",
                 "location": "Lower Pthumeru Chalice (Layer 4)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -652,8 +688,13 @@
                 "name": "Keeper of the Old Lords",
                 "location": "Defiled Pthumeru Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -676,12 +717,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -693,8 +736,13 @@
                 "name": "Watchdog of the Old Lords",
                 "location": "Defiled Pthumeru Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -708,8 +756,13 @@
                 "name": "Amygdala",
                 "location": "Defiled Pthumeru Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -723,8 +776,13 @@
                 "name": "Pthumerian Descendant",
                 "location": "Great Pthumeru Ihyll Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -761,12 +819,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -778,8 +838,13 @@
                 "name": "Headless Bloodletting Beast",
                 "location": "Great Pthumeru Ihyll Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -793,8 +858,13 @@
                 "name": "Yharnam, Pthumerian Queen",
                 "location": "Great Pthumeru Ihyll Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -808,8 +878,13 @@
                 "name": "Maneater Boar",
                 "location": "Hintertomb Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -832,12 +907,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -849,8 +926,13 @@
                 "name": "Undead Giant",
                 "location": "Hintertomb Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -864,8 +946,13 @@
                 "name": "Blood-Starved Beast",
                 "location": "Hintertomb Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -879,8 +966,13 @@
                 "name": "Brainsucker",
                 "location": "Lower Hintertomb Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -893,12 +985,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -910,8 +1004,13 @@
                 "name": "Forgotten Madman",
                 "location": "Lower Hintertomb Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -925,8 +1024,13 @@
                 "name": "Pthumerian Elder",
                 "location": "Lower Hintertomb Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -940,8 +1044,13 @@
                 "name": "Beast-Possessed Soul",
                 "location": "Ailing Loran Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -964,12 +1073,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -981,8 +1092,13 @@
                 "name": "Blood-Starved Beast",
                 "location": "Ailing Loran Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -996,8 +1112,13 @@
                 "name": "Abhorrent Beast",
                 "location": "Ailing Loran Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1011,8 +1132,13 @@
                 "name": "Loran Silverbeast",
                 "location": "Lower Loran Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1025,12 +1151,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -1042,8 +1170,13 @@
                 "name": "Abhorrent Beast",
                 "location": "Lower Loran Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1057,8 +1190,13 @@
                 "name": "Loran Darkbeast",
                 "location": "Lower Loran Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1072,8 +1210,13 @@
                 "name": "Brainsucker",
                 "location": "Great Isz Chalice (Layer 1)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1096,12 +1239,14 @@
                     },
                     {
                         "type": "Node",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "false_depth_glyphs"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "false_depth_glyphs"
+                                ]
+                            }
+                        ],
                         "objective_id": "merciless_watchers_pthumeru"
                     }
                 ]
@@ -1113,8 +1258,13 @@
                 "name": "Celestial Emissary",
                 "location": "Great Isz Chalice (Layer 2)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {
@@ -1128,8 +1278,13 @@
                 "name": "Ebrietas, Daughter of the Cosmos",
                 "location": "Great Isz Chalice (Layer 3)"
             },
-            "labels": [
-                "chalice_boss"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "no_chalice_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": {

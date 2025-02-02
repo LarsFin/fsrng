@@ -1,6 +1,5 @@
 {
     "file_version": "1.0.0",
-    "filters": [],
     "flags": [
         {
             "id": "soul_memory",
@@ -11,7 +10,6 @@
         }
     ],
     "preferences": [],
-    "routes": [],
     "objectives": [
         {
             "id": "the_last_giant",
@@ -19,7 +17,6 @@
                 "name": "The Last Giant",
                 "location": "Forest of Fallen Giants"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -29,7 +26,6 @@
                 "name": "The Pursuer",
                 "location": "Forest of Fallen Giants"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -42,7 +38,6 @@
                 "name": "Executioner's Chariot",
                 "location": "Undead Purgatory"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -55,7 +50,6 @@
                 "name": "Looking Glass Knight",
                 "location": "Drangleic Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -68,7 +62,6 @@
                 "name": "Skeleton Lords",
                 "location": "Huntsman's Copse"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -81,7 +74,6 @@
                 "name": "Flexile Sentry",
                 "location": "No-man's Wharf"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -94,7 +86,6 @@
                 "name": "Lost Sinner",
                 "location": "Sinner's Rise"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -117,7 +108,6 @@
                 "name": "Belfry Gargoyles",
                 "location": "Belfry Luna"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -130,7 +120,6 @@
                 "name": "Ruin Sentinels",
                 "location": "Lost Bastille"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -143,7 +132,6 @@
                 "name": "Royal Rat Vanguard",
                 "location": "Grave of Saints"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -153,7 +141,6 @@
                 "name": "Royal Rat Authority",
                 "location": "Doors of Pharros"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -166,7 +153,6 @@
                 "name": "Scorpioness Najka",
                 "location": "Shaded Woods"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -176,7 +162,6 @@
                 "name": "The Duke's Dear Freja",
                 "location": "Brightstone Cove Tseldora"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -189,7 +174,6 @@
                 "name": "Mytha, the Baneful Queen",
                 "location": "Earthen Peak"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -202,7 +186,6 @@
                 "name": "The Rotten",
                 "location": "Black Gulch"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -212,7 +195,6 @@
                 "name": "Old Dragonslayer",
                 "location": "Heide's Tower of Flame"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -222,7 +204,6 @@
                 "name": "Covetous Demon",
                 "location": "Earthen Peak"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -235,7 +216,6 @@
                 "name": "Smelter Demon",
                 "location": "Iron Keep"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -248,7 +228,6 @@
                 "name": "Old Iron King",
                 "location": "Iron Keep"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -261,7 +240,6 @@
                 "name": "Guardian Dragon",
                 "location": "Dragon Aerie"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -274,7 +252,6 @@
                 "name": "Demon of Song",
                 "location": "Shrine of Amana"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -287,7 +264,6 @@
                 "name": "Velstadt, the Royal Aegis",
                 "location": "Undead Crypt"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -300,7 +276,6 @@
                 "name": "Vendrick",
                 "location": "Undead Crypt"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -313,7 +288,6 @@
                 "name": "Darklurker",
                 "location": "Dark Chasm of Old"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -344,12 +318,14 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "soul_memory"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "soul_memory"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
@@ -370,7 +346,6 @@
                 "name": "Dragonrider",
                 "location": "Heide's Tower of Flame"
             },
-            "labels": [],
             "weighting": {},
             "condition": null
         },
@@ -380,7 +355,6 @@
                 "name": "Twin Dragonriders",
                 "location": "Drangleic Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -411,12 +385,14 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "soul_memory"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "soul_memory"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
@@ -437,7 +413,6 @@
                 "name": "Prowling Magus and Congregation",
                 "location": "Brightstone Cove Tseldora"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -450,7 +425,6 @@
                 "name": "Giant Lord",
                 "location": "Memory of Jeigh"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -463,7 +437,6 @@
                 "name": "Ancient Dragon",
                 "location": "Dragon Shrine"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -476,7 +449,6 @@
                 "name": "Throne Watcher and Defender",
                 "location": "Drangleic Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -489,7 +461,6 @@
                 "name": "Nashandra",
                 "location": "Drangleic Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -512,7 +483,6 @@
                 "name": "Aldia, Scholar of the First Sin",
                 "location": "Drangleic Castle"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -557,7 +527,6 @@
                 "name": "Elana, Squalid Queen",
                 "location": "Dragon's Rest"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -570,7 +539,6 @@
                 "name": "Sinh, the Slumbering Dragon",
                 "location": "Dragon's Rest"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -583,7 +551,6 @@
                 "name": "Graverobber, Varg and Cerah",
                 "location": "Cave of the Dead"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -596,7 +563,6 @@
                 "name": "Smelter Demon (Blue)",
                 "location": "Iron Passage"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -609,7 +575,6 @@
                 "name": "Fume Knight",
                 "location": "Brume Tower"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -622,7 +587,6 @@
                 "name": "Sir Alonne",
                 "location": "Memory of the Old Iron King"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -645,7 +609,6 @@
                 "name": "Burnt Ivory King",
                 "location": "Old Chaos"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",
@@ -658,7 +621,6 @@
                 "name": "Aava, the King's Pet",
                 "location": "Frozen Eleum Loyce"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Branch",
@@ -689,12 +651,14 @@
                     {
                         "type": "Branch",
                         "clause": "any",
-                        "flag_check": {
-                            "clause": "all",
-                            "flag_ids": [
-                                "soul_memory"
-                            ]
-                        },
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "soul_memory"
+                                ]
+                            }
+                        ],
                         "conditions": [
                             {
                                 "type": "Node",
@@ -715,7 +679,6 @@
                 "name": "Lud and Zallen, the King's Pets",
                 "location": "Frigid Outskirts"
             },
-            "labels": [],
             "weighting": {},
             "condition": {
                 "type": "Node",

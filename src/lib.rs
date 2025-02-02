@@ -22,20 +22,17 @@ pub trait Informable: Clone {
     fn info(self) -> BasicInfo;
 }
 
-/**
- * TODO: Odd that a Filter is not a ConfigOption... something to solve
- */
-
-impl Informable for Filter {
+impl Informable for ConfigOption {
     fn info(self) -> BasicInfo {
         self.info
     }
 }
 
-impl Informable for ConfigOption {
-    fn info(self) -> BasicInfo {
-        self.info
-    }
+#[derive(PartialEq)]
+enum Resolution {
+    Met,
+    Unmet,
+    Ignored,
 }
 
 pub fn ask_selection<T: Informable>(question: String, selections: &[T]) -> Option<T> {
@@ -87,7 +84,6 @@ pub fn load_schema(file_name: &String) -> Result<Schema, Box<dyn std::error::Err
 }
 
 fn possible_objectives_ids(
-    filters: &[Filter],
     flags: &[ConfigOption],
     objectives: &[Objective],
     completed: &[String]
@@ -100,7 +96,7 @@ fn possible_objectives_ids(
         }
 
         if let Some(condition) = &objective.condition {
-            if !resolve_condition(filters, flags, condition, completed, objectives.len()) {
+            if resolve_condition(flags, condition, completed, objectives.len()) != Resolution::Met {
                 continue;
             }
         }
@@ -112,82 +108,102 @@ fn possible_objectives_ids(
 }
 
 fn resolve_condition(
-    filters: &[Filter],
     flags: &[ConfigOption],
     condition: &Condition,
     completed: &[String],
     total_objective_count: usize
-) -> bool {
+) -> Resolution {
     match condition {
         Condition::Branch(branch) =>
-            resolve_branch(filters, flags, branch, completed, total_objective_count),
-        Condition::Node(node) => resolve_node(filters, flags, node, completed),
-        Condition::End(_) => completed.len() == total_objective_count - 1,
+            resolve_branch(flags, branch, completed, total_objective_count),
+        Condition::Node(node) => resolve_node(flags, node, completed),
+        Condition::End(_) => if completed.len() == total_objective_count - 1 {
+            Resolution::Met
+        } else {
+            Resolution::Unmet
+        }
     }
 }
 
-// TODO: refactor logic around filtering as it's duplicated in branch and node functions
 fn resolve_branch(
-    filters: &[Filter],
     flags: &[ConfigOption],
     branch: &ConditionBranch,
     completed: &[String],
     total_objective_count: usize
-) -> bool {
-    if let Some(flag_check) = &branch.flag_check {
-        if !check_flags(flag_check, flags) {
-            return false;
+) -> Resolution {
+    if let Some(flag_checks) = &branch.flag_checks {
+        if !check_flags(flag_checks, flags) {
+            return Resolution::Ignored;
         }
     }
 
-    if let Some(labels) = &branch.labels {
-        if !resolve_filters(filters, labels) {
-            return false;
-        }
-    }
-
+    // it may seem odd here to consider a branch met if it has no conditions due to flag checks but
+    // semantically this makes sense, it's asking that all conditions within the branch resolve to
+    // something truthy. If there are no conditions, that question is still true
     if branch.clause == "all" {
-        return branch.conditions
-            .iter()
-            .all(|condition|
-                resolve_condition(filters, flags, condition, completed, total_objective_count)
-            );
+        if
+            branch.conditions
+                .iter()
+                .all(
+                    |condition|
+                        resolve_condition(flags, condition, completed, total_objective_count) !=
+                        Resolution::Unmet
+                )
+        {
+            return Resolution::Met;
+        } else {
+            return Resolution::Unmet;
+        }
     }
 
     if branch.clause == "any" {
-        return branch.conditions
-            .iter()
-            .any(|condition|
-                resolve_condition(filters, flags, condition, completed, total_objective_count)
-            );
+        if
+            branch.conditions
+                .iter()
+                .any(
+                    |condition|
+                        resolve_condition(flags, condition, completed, total_objective_count) ==
+                        Resolution::Met
+                )
+        {
+            return Resolution::Met;
+        } else {
+            return Resolution::Unmet;
+        }
     }
 
-    false
+    // TODO: 'any_two' feels like a hack and not very extensible, technically you could design the schema
+    // with multiple 'any' branches but it creates a lot of bloat. Keeping this for now, but should be revisited
+    if branch.clause == "any_two" {
+        let mut count = 0;
+        branch.conditions.iter().for_each(|condition| {
+            if
+                resolve_condition(flags, condition, completed, total_objective_count) ==
+                Resolution::Met
+            {
+                count += 1;
+            }
+        });
+        return if count >= 2 { Resolution::Met } else { Resolution::Unmet };
+    }
+
+    Resolution::Unmet
 }
 
-fn resolve_node(
-    filters: &[Filter],
-    flags: &[ConfigOption],
-    node: &ConditionNode,
-    completed: &[String]
-) -> bool {
-    if let Some(flag_check) = &node.flag_check {
-        if !check_flags(flag_check, flags) {
-            return false;
+fn resolve_node(flags: &[ConfigOption], node: &ConditionNode, completed: &[String]) -> Resolution {
+    if let Some(flag_checks) = &node.flag_checks {
+        if !check_flags(flag_checks, flags) {
+            return Resolution::Ignored;
         }
     }
 
-    if let Some(labels) = &node.labels {
-        if !resolve_filters(filters, labels) {
-            return false;
+    // if no objective_id is present, the node is considered met, perhaps an ugly pattern but this is
+    // the current design
+    match &node.objective_id {
+        Some(objective_id) => {
+            if completed.contains(objective_id) { Resolution::Met } else { Resolution::Unmet }
         }
-    }
-
-    if let Some(objective_id) = &node.objective_id {
-        completed.contains(objective_id)
-    } else {
-        // no objective_id indicates no objective to check, so return true
-        true
+        None => Resolution::Met,
     }
 }
 
@@ -195,83 +211,56 @@ pub fn gen_rng(seed: u64) -> ChaCha8Rng {
     ChaCha8Rng::seed_from_u64(seed)
 }
 
-pub fn filter_objectives(
-    route: Option<ConfigOption>,
-    filters: &[Filter],
-    objectives: Vec<Objective>
-) -> Vec<Objective> {
+pub fn filter_objectives(flags: &[ConfigOption], objectives: Vec<Objective>) -> Vec<Objective> {
     let mut filtered_objectives: Vec<Objective> = Vec::new();
 
     for objective in objectives {
-        if let Some(route) = &route {
-            if !in_route(route, &objective) {
+        // apparently let is unstable when followed by && that relies on optional value, an issue on GH exists
+        if let Some(flag_checks) = &objective.flag_checks {
+            if !check_flags(flag_checks, flags) {
                 continue;
             }
         }
 
-        if resolve_filters(filters, &objective.labels) {
-            filtered_objectives.push(objective);
-        }
+        filtered_objectives.push(objective);
     }
 
     filtered_objectives
 }
 
-pub fn in_route(route: &ConfigOption, objective: &Objective) -> bool {
-    if let Some(routes) = &objective.routes {
-        return routes.contains(&route.id);
-    }
-
-    // no routes on objective means it's in all routes
-    true
-}
-
-pub fn resolve_filters(filters: &[Filter], labels: &[String]) -> bool {
-    for filter in filters {
-        match filter.clause.as_str() {
-            "any" => {
-                // true if any label in filter labels
-                return filter.labels.iter().any(|filter_label| labels.contains(filter_label));
-            }
-            "all" => {
-                // true if all filter labels are in labels
-                return filter.labels.iter().all(|filter_label| labels.contains(filter_label));
-            }
-            "none" => {
-                // true if no filter labels are in labels
-                return filter.labels.iter().all(|filter_label| !labels.contains(filter_label));
-            }
-            _ => {
-                println!(
-                    "Unknown filter clause '{}' for filter '{}', skipping",
-                    filter.clause,
-                    filter.info.name
-                );
-            }
-        }
-    }
-
-    true
-}
-
-pub fn check_flags(flag_check: &FlagCheck, flags: &[ConfigOption]) -> bool {
+pub fn check_flags(flag_checks: &[FlagCheck], flags: &[ConfigOption]) -> bool {
     let flag_ids: Vec<String> = flags
         .iter()
-        .map(|flag| flag.id.clone())
+        .map(|filter| filter.id.clone())
         .collect();
 
-    match flag_check.clause.as_str() {
-        "any" => flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)),
-        "all" => flag_check.flag_ids.iter().all(|flag_id| flag_ids.contains(flag_id)),
-        _ => {
-            println!("Unknown flag check clause '{}'", flag_check.clause);
-            false
+    for flag_check in flag_checks {
+        match flag_check.clause.as_str() {
+            "any" => {
+                if !flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)) {
+                    return false;
+                }
+            }
+            "all" => {
+                if !flag_check.flag_ids.iter().all(|flag_id| flag_ids.contains(flag_id)) {
+                    return false;
+                }
+            }
+            "none" => {
+                if flag_check.flag_ids.iter().any(|flag_id| flag_ids.contains(flag_id)) {
+                    return false;
+                }
+            }
+            _ => {
+                println!("Unknown flag check clause '{}'", flag_check.clause);
+            }
         }
     }
+
+    return true;
 }
 
 pub fn generate_ordered_objectives(
-    filters: &[Filter],
     flags: &[ConfigOption],
     preferences: &[ConfigOption],
     objectives: &[Objective],
@@ -281,12 +270,7 @@ pub fn generate_ordered_objectives(
     let mut ordered_objectives: Vec<ObjectiveInfo> = Vec::new();
 
     while completed.len() < objectives.len() {
-        let possible_objective_ids = possible_objectives_ids(
-            filters,
-            flags,
-            objectives,
-            &completed
-        );
+        let possible_objective_ids = possible_objectives_ids(flags, objectives, &completed);
 
         if possible_objective_ids.is_empty() {
             panic!(
@@ -348,10 +332,15 @@ fn build_weighted_objectives(
     weighted_objectives
 }
 
-fn get_weight(preferences: &[ConfigOption], weighting: &HashMap<String, u64>) -> u64 {
-    for preference in preferences {
-        if let Some(weight) = weighting.get(&preference.id) {
-            return *weight;
+fn get_weight(
+    preferences: &[ConfigOption],
+    optional_weighting: &Option<HashMap<String, u64>>
+) -> u64 {
+    if let Some(weighting) = optional_weighting {
+        for preference in preferences {
+            if let Some(weight) = weighting.get(&preference.id) {
+                return *weight;
+            }
         }
     }
 
@@ -385,7 +374,6 @@ pub fn build_generated_route(
     app_version: String,
     game_name: String,
     seed: u64,
-    filters: Vec<Filter>,
     flags: Vec<ConfigOption>,
     preferences: Vec<ConfigOption>,
     ordered_objectives: Vec<ObjectiveInfo>
@@ -394,10 +382,6 @@ pub fn build_generated_route(
         app_version,
         game_name,
         seed,
-        filters: filters
-            .iter()
-            .map(|filter| filter.info.clone())
-            .collect(),
         flags: flags
             .iter()
             .map(|flag| flag.info.clone())

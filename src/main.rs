@@ -11,12 +11,10 @@ fn main() {
 
     let schema = load_schema(&game.file_name).unwrap();
 
-    let filters = ask_selections(String::from("Select filters."), &schema.filters);
     let flags = ask_selections(String::from("Select flags."), &schema.flags);
     let preferences = ask_selections(String::from("Select preferences."), &schema.preferences);
-    let route = ask_selection(String::from("Select routes."), &schema.routes);
 
-    let filtered_objectives = filter_objectives(route, &filters, schema.objectives);
+    let filtered_objectives = filter_objectives(&flags, schema.objectives);
 
     let seed = ask_seed();
 
@@ -27,7 +25,6 @@ fn main() {
     println!("Generating route...");
 
     let ordered_objectives = generate_ordered_objectives(
-        &filters,
         &flags,
         &preferences,
         &filtered_objectives,
@@ -38,7 +35,6 @@ fn main() {
         meta.app_version.clone(),
         game.name.clone(),
         seed,
-        filters,
         flags,
         preferences,
         ordered_objectives

@@ -24,6 +24,10 @@
         {
             "name": "Sekiro: Shadows Die Twice",
             "file_name": "sekiro"
+        },
+        {
+            "name": "Elden Ring",
+            "file_name": "elden_ring"
         }
     ]
 }

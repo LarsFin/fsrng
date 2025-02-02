@@ -1,43 +1,22 @@
 {
     "file_version": "1.0.0",
-    "filters": [
-        {
-            "id": "remembrance_only",
-            "info": {
-                "name": "Only Remembrance Bosses",
-                "description": "All bosses that give a remembrance (this does not include Bayle)."
-            },
-            "clause": "all",
-            "labels": [
-                "remembrance"
-            ]
-        },
+    "flags": [
         {
             "id": "legend_only",
             "info": {
                 "name": "Only Legend Bosses",
                 "description": "All bosses which are legendary status."
-            },
-            "clause": "all",
-            "labels": [
-                "legend"
-            ]
+            }
         },
         {
             "id": "no_enemy_bosses",
             "info": {
                 "name": "No Enemy Bosses",
                 "description": "No enemy type bosses."
-            },
-            "clause": "none",
-            "labels": [
-                "enemy"
-            ]
+            }
         }
     ],
-    "flags": [],
     "preferences": [],
-    "routes": [],
     "objectives": [
         {
             "id": "divine_beast_dancing_lion",
@@ -45,12 +24,21 @@
                 "name": "Divin Beast Dancing Lion",
                 "location": "Belurat Tower Settlement"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "rellana_twin_moon_knight",
@@ -58,12 +46,21 @@
                 "name": "Rellana, Twin Moon Knight",
                 "location": "Castle Ensis"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "commander_gaius",
@@ -71,12 +68,21 @@
                 "name": "Commander Gaius",
                 "location": "Shadow Keep"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "scadutree_avatar",
@@ -84,12 +90,21 @@
                 "name": "Scadutree Avatar",
                 "location": "Scadutree Base"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "putrescent_knight",
@@ -97,12 +112,21 @@
                 "name": "Putrescent Knight",
                 "location": "Fissure Depths"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "midra_lord_of_frenzied_flame",
@@ -110,12 +134,39 @@
                 "name": "Midra, Lord of Frenzied Flame",
                 "location": "Midra's Manse"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mohg_lord_of_blood"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "jori_elder_inquisitor"
+                    }
+                ]
+            }
         },
         {
             "id": "romina_saint_of_the_bud",
@@ -123,12 +174,39 @@
                 "name": "Romina, Saint of the Bud",
                 "location": "Church of the Bud"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mohg_lord_of_blood"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "dryleaf_dane"
+                    }
+                ]
+            }
         },
         {
             "id": "metyr_mother_of_fingers",
@@ -136,12 +214,21 @@
                 "name": "Metyr, Mother of Fingers",
                 "location": "Finger Ruins of Miyr"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "messmer_the_impaler",
@@ -149,12 +236,21 @@
                 "name": "Messmer the Impaler",
                 "location": "Shadow Keep Specimen Storehouse"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "radahn_consort_of_miquella",
@@ -162,12 +258,21 @@
                 "name": "Radahn, Consort of Miquella",
                 "location": "Enir-Ilim"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "messmer_the_impaler"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "romina_saint_of_the_bud"
+                    }
+                ]
+            }
         },
         {
             "id": "bayle_the_dread",
@@ -175,11 +280,39 @@
                 "name": "Bayle the Dread",
                 "location": "Jagged Peak"
             },
-            "labels": [
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mohg_lord_of_blood"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "ancient_dragon_man"
+                    }
+                ]
+            }
         },
         {
             "id": "godrick_the_grafted",
@@ -187,12 +320,28 @@
                 "name": "Godrick the Grafted",
                 "location": "Stormveil Castle"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "margit_the_fell_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "rennala_queen_of_the_full_moon",
@@ -200,12 +349,28 @@
                 "name": "Rennalla, Queen of the Full Moon",
                 "location": "Raya Lucaria Academy"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "red_wolf_of_radagon"
+                    }
+                ]
+            }
         },
         {
             "id": "starscourge_radahn",
@@ -213,10 +378,6 @@
                 "name": "Starscourge Radahn",
                 "location": "Redmane Castle"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
             "condition": null
         },
@@ -226,12 +387,47 @@
                 "name": "Morgott the Omen King",
                 "location": "Leyndell, Royal Capital"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "flag_checks": [
+                            {
+                                "clause": "all",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godfrey_first_elden_lord_golden_shade"
+                    }
+                ]
+            }
         },
         {
             "id": "rykard_lord_of_blasphemy",
@@ -239,12 +435,32 @@
                 "name": "Rykard, Lord of Blasphemy",
                 "location": "Volcano Manor"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_noble"
+                    },
+                    {
+                        "type": "Node",
+                        "clause": "morgott_the_omen_king"
+                    }
+                ]
+            }
         },
         {
             "id": "mohg_lord_of_blood",
@@ -252,12 +468,29 @@
                 "name": "Mohg, Lord of Blood",
                 "location": "Mohgwyn Palace"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any_two",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "godrick_the_grafted"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rennala_queen_of_the_full_moon"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "rykard_lord_of_blasphemy"
+                    }
+                ]
+            }
         },
         {
             "id": "malenia_blade_of_miquella",
@@ -265,12 +498,29 @@
                 "name": "Malenia Blade of Miquella",
                 "location": "Elphael, Brace of the Haligtree"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "objective_id": "morgott_the_omen_king"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "commander_niall"
+                    }
+                ]
+            }
         },
         {
             "id": "lichdragon_fortissax",
@@ -278,12 +528,39 @@
                 "name": "Lichdragon Fortissax",
                 "location": "Deeproot Depths"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "maliketh_the_black_blade",
@@ -291,12 +568,29 @@
                 "name": "Maliketh, the Black Blade",
                 "location": "Crumbling Farum Azula"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "fire_giant",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_duo"
+                    }
+                ]
+            }
         },
         {
             "id": "astel_naturalborn_of_the_void",
@@ -304,12 +598,69 @@
                 "name": "Astel Naturalborn of the Void",
                 "location": "Grand Cloister, Lake of Rot"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "royal_knight_loretta"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "regal_ancestor_spirit",
@@ -317,12 +668,29 @@
                 "name": "Regal Ancestor Spirit",
                 "location": "Nokron, Eternal City"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "radagon_of_the_golden_order",
@@ -330,12 +698,11 @@
                 "name": "Radagon of the Golden Order",
                 "location": "Elden Throne"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "godfrey_first_elden_lord"
+            }
         },
         {
             "id": "godfrey_first_elden_lord",
@@ -343,12 +710,29 @@
                 "name": "Godfrey, First Elden Lord",
                 "location": "Leyndell, Ashen Capital"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "sir_gideon_ofnir_the_allknowing"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "maliketh_the_black_blade",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "fire_giant",
@@ -356,12 +740,11 @@
                 "name": "Fire Giant",
                 "location": "Mountaintops of the Giants"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "dragonlord_placidusax",
@@ -369,12 +752,29 @@
                 "name": "Dragonlord Placidusax",
                 "location": "Crumbling Farum Azula"
             },
-            "labels": [
-                "remembrance",
-                "legend"
-            ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "fire_giant",
+                        "flag_checks": [
+                            {
+                                "clause": "any",
+                                "flag_ids": [
+                                    "legend_only"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "godskin_duo"
+                    }
+                ]
+            }
         },
         {
             "id": "ancient_dragon_senessax",
@@ -382,11 +782,19 @@
                 "name": "Ancient Dragon Senessax",
                 "location": "Jagged Peak"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "ancient_dragon_man",
@@ -394,11 +802,29 @@
                 "name": "Ancient Dragon-Man",
                 "location": "Dragon's Pit"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "chief_bloodfiend",
@@ -406,11 +832,29 @@
                 "name": "Chief Bloodfiend",
                 "location": "Rivermouth Cave"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "dancer_of_ranah",
@@ -418,11 +862,29 @@
                 "name": "Dancer of Ranah",
                 "location": "Southern Nameless Mausoleum"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "dryleaf_dane",
@@ -430,11 +892,29 @@
                 "name": "Dryleaf Dane",
                 "location": "Moorth Ruins"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "golden_hippopotamus",
@@ -442,11 +922,29 @@
                 "name": "Golden Hippopotamus",
                 "location": "Shadow Keep"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "jagged_peak_drake_foot_of_the_jagged_peak",
@@ -454,11 +952,19 @@
                 "name": "Jagged Peak Drake",
                 "location": "Foot of the Jagged Peak"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "jagged_peak_drake_dragons_pit",
@@ -466,11 +972,19 @@
                 "name": "Jagged Peak Drake",
                 "location": "Dragon's Pit"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "jori_elder_inquisitor",
@@ -478,11 +992,29 @@
                 "name": "Jori, Elder Inquisitor",
                 "location": "Abyssal Woods"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    }
+                ]
+            }
         },
         {
             "id": "cemetery_shade_tombsward_catacombs",
@@ -490,8 +1022,14 @@
                 "name": "Cemetery Shade",
                 "location": "Tombsward Catacombs"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -502,8 +1040,14 @@
                 "name": "Cemetery Shade",
                 "location": "Black Knife Catacombs"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -514,8 +1058,14 @@
                 "name": "Cemetery Shade",
                 "location": "Caelid Catacombs"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -526,8 +1076,13 @@
                 "name": "Ancestor Spirit",
                 "location": "Hallowhorn Grounds"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -538,8 +1093,13 @@
                 "name": "Dragonkin Soldier",
                 "location": "Siofra River"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -550,8 +1110,70 @@
                 "name": "Dragonkin Soldier",
                 "location": "Lake of Rot"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
+            ],
+            "weighting": {},
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "all",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "royal_knight_loretta"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "mimic_tear_nokron"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "margit_the_fell_omen",
+            "info": {
+                "name": "Margit, the Fell Omen",
+                "location": "Stormveil Castle"
+            },
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
+            ],
+            "weighting": {},
+            "condition": null
+        },
+        {
+            "id": "flying_dragon_agheel",
+            "info": {
+                "name": "Flying Dragon Agheel",
+                "location": "Dragon-Burnt Ruins"
+            },
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -562,8 +1184,13 @@
                 "name": "Leonine Misbegotten",
                 "location": "Castle Morne"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -574,8 +1201,13 @@
                 "name": "Red Wolf of Radagon",
                 "location": "Raya Lucaria Academy"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -586,11 +1218,33 @@
                 "name": "Glintstone Dragon Adula",
                 "location": "Cathedral of Manus Celes"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "royal_knight_loretta"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "astel_naturalborn_of_the_void"
+                    }
+                ]
+            }
         },
         {
             "id": "borealis_the_freezing_fog",
@@ -598,11 +1252,19 @@
                 "name": "Borealis, the Freezing Fog",
                 "location": "Mountaintops of the Giants"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "decaying_ekyzkes",
@@ -610,8 +1272,13 @@
                 "name": "Decaying Ekyzkes",
                 "location": "Caelid"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -622,11 +1289,19 @@
                 "name": "Valiant Gargoyles",
                 "location": "Siofra Aqueduct"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "mimic_tear_nokron"
+            }
         },
         {
             "id": "godskin_duo",
@@ -634,11 +1309,19 @@
                 "name": "Godskin Duo",
                 "location": "Crumbling Farum Azula"
             },
-            "labels": [
-                "great_enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "fire_giant"
+            }
         },
         {
             "id": "blackgaol_knight",
@@ -646,11 +1329,30 @@
                 "name": "Blackgaol Knight",
                 "location": "Western Nameless Mausoleum"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "black_knight_garrew",
@@ -658,11 +1360,30 @@
                 "name": "Black Knight Garrew",
                 "location": "Fog Rift Fort"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "black_knight_edreed",
@@ -670,11 +1391,30 @@
                 "name": "Black Knight Edreed",
                 "location": "Fort of Reprimand"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "count_ymir_mother_of_fingers",
@@ -682,11 +1422,20 @@
                 "name": "Count Ymir, Mother of Fingers",
                 "location": "Cathedral of Manus Metyr"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "metyr_mother_of_fingers"
+            }
         },
         {
             "id": "curseblade_labirth",
@@ -694,11 +1443,30 @@
                 "name": "Curseblade Labirth",
                 "location": "Bonny Gaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_knight_fog_rift_catacombs",
@@ -706,11 +1474,30 @@
                 "name": "Death Knight",
                 "location": "Fog Rift Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_knight_scorpion_river_catacombs",
@@ -718,11 +1505,30 @@
                 "name": "Death Knight",
                 "location": "Scorpion River Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "death_rite_bird_academy_gate_town",
@@ -730,8 +1536,14 @@
                 "name": "Death Rite Bird",
                 "location": "Academy Gate Town"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -742,8 +1554,14 @@
                 "name": "Death Rite Bird",
                 "location": "Caelid"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -754,11 +1572,20 @@
                 "name": "Death Rite Bird",
                 "location": "Mountaintops of the Giants"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "death_rite_bird_apostate_derelict",
@@ -766,11 +1593,20 @@
                 "name": "Death Rite Bird",
                 "location": "Apostate Derelict"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "death_rite_bird_charos_hidden_grave",
@@ -778,11 +1614,20 @@
                 "name": "Death Rite Bird",
                 "location": "Charo's Hidden Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "demihuman_swordmaster_onze",
@@ -790,11 +1635,30 @@
                 "name": "Demi-Human Swordmaster Onze",
                 "location": "Belurat Gaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "demihuman_queen_marigga",
@@ -802,11 +1666,30 @@
                 "name": "Demi-Human Queen Marigga",
                 "location": "Cerulean Coast"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "fallingstar_beast_sellia_crystal_tunnel",
@@ -814,8 +1697,14 @@
                 "name": "Fallingstar Beast",
                 "location": "Sellia Crystal Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -826,8 +1715,14 @@
                 "name": "Fallingstar Beast",
                 "location": "Altus Plateau"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -838,11 +1733,30 @@
                 "name": "Fallingstar Beast",
                 "location": "Finger Ruins of Dheo"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "lamenter",
@@ -850,11 +1764,30 @@
                 "name": "Lamenter",
                 "location": "Lamenter's Gaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "ralva_the_great_red_bear",
@@ -862,11 +1795,30 @@
                 "name": "Ralva the Great Red Bear",
                 "location": "Scadu Altus"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "rakshasa",
@@ -874,11 +1826,30 @@
                 "name": "Rakshasa",
                 "location": "Eastern Nameless Mausoleum"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "red_bear",
@@ -886,11 +1857,30 @@
                 "name": "Red Bear",
                 "location": "Northern Nameless Mausoleum"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "rugalea_the_great_red_bear",
@@ -898,11 +1888,30 @@
                 "name": "Rugalea the Great Red Bear",
                 "location": "Rauh Base"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "tree_sentinel",
@@ -910,8 +1919,14 @@
                 "name": "Tree Sentinel",
                 "location": "Limgrave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -922,8 +1937,14 @@
                 "name": "Tree Sentinels",
                 "location": "Altus Plateau"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -931,14 +1952,33 @@
         {
             "id": "tree_sentinels_hinterland",
             "info": {
-                "name": "",
-                "location": ""
+                "name": "Tree Sentinels",
+                "location": "Hinterlands"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_lord_of_blood"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "starscourge_radahn"
+                    }
+                ]
+            }
         },
         {
             "id": "mad_pumpkin_head",
@@ -946,8 +1986,14 @@
                 "name": "Mad Pumpkin Head",
                 "location": "Waypoint Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -958,8 +2004,14 @@
                 "name": "Mad Pumpkin Heads",
                 "location": "Caelem Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -970,8 +2022,14 @@
                 "name": "Erdtree Burial Watchdog",
                 "location": "Stormfoot Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -982,8 +2040,14 @@
                 "name": "Erdtree Burial Watchdog",
                 "location": "Impaler's Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -994,8 +2058,14 @@
                 "name": "Erdtree Burial Watchdog",
                 "location": "Cliffbottom Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1006,8 +2076,14 @@
                 "name": "Erdtree Burial Watchdogs",
                 "location": "Minor Erdtree Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1016,10 +2092,16 @@
             "id": "erdtree_burial_watchdog_wyndham_catacombs",
             "info": {
                 "name": "Erdtree Burial Watchdog",
-                "location": ""
+                "location": "Wyndham Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1030,8 +2112,14 @@
                 "name": "Stonedigger Troll",
                 "location": "Limgrave Tunnels"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1042,8 +2130,14 @@
                 "name": "Grafted Scion",
                 "location": "Chapel of Anticipation"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1054,8 +2148,14 @@
                 "name": "Soldier of Godrick",
                 "location": "Fringefolk Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1066,8 +2166,14 @@
                 "name": "Beastman of Farum Azula",
                 "location": "Groveside Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1078,8 +2184,14 @@
                 "name": "Beastmen of Farum Azula",
                 "location": "Dragonbarrow Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1090,8 +2202,14 @@
                 "name": "Demi-Human Chiefs",
                 "location": "Coastal Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1102,8 +2220,14 @@
                 "name": "Runebear",
                 "location": "Earthbore Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1114,8 +2238,14 @@
                 "name": "Crucible Knight",
                 "location": "Stormhill Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1126,8 +2256,14 @@
                 "name": "Ancient Hero of Zamor",
                 "location": "Weeping Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1138,8 +2274,14 @@
                 "name": "Ancient Hero of Zamor",
                 "location": "Sainted Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1150,11 +2292,20 @@
                 "name": "Ancient Hero of Zamor",
                 "location": "Giant-Conquering Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "draconic_tree_sentinel",
@@ -1162,8 +2313,14 @@
                 "name": "Draconic Tree Sentinel",
                 "location": "Capital Outskirts"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1174,8 +2331,14 @@
                 "name": "Black Knife Assassin",
                 "location": "Deathtouched Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1186,8 +2349,14 @@
                 "name": "Black Knife Assassin",
                 "location": "Black Knife Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1198,8 +2367,14 @@
                 "name": "Black Knife Assassin",
                 "location": "Sage's Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1210,8 +2385,14 @@
                 "name": "Black Knife Assassin",
                 "location": "Sainted Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1222,8 +2403,14 @@
                 "name": "Crystalian",
                 "location": "Raya Lucaria Crystal Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1234,8 +2421,14 @@
                 "name": "Crystalians",
                 "location": "Academy Crystal Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1246,8 +2439,14 @@
                 "name": "Crystalians",
                 "location": "Altus Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1258,8 +2457,14 @@
                 "name": "Putrid Crystalians",
                 "location": "Sellia Hideaway"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1270,8 +2475,14 @@
                 "name": "Night's Cavalry",
                 "location": "Limgrave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1282,8 +2493,14 @@
                 "name": "Night's Cavalry",
                 "location": "Weeping Peninsula"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1294,8 +2511,14 @@
                 "name": "Night's Cavalry",
                 "location": "Liurnia South"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1306,8 +2529,14 @@
                 "name": "Night's Cavalry",
                 "location": "Liurnia North"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1318,8 +2547,14 @@
                 "name": "Night's Cavalry",
                 "location": "Caelid"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1330,8 +2565,14 @@
                 "name": "Night's Cavalry",
                 "location": "Altus Plateau"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1342,11 +2583,20 @@
                 "name": "Night's Cavalry",
                 "location": "Forbidden Lands"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "nights_cavalry_dragonbarrow",
@@ -1354,8 +2604,14 @@
                 "name": "Night's Cavalry",
                 "location": "Dragonbarrow"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1366,11 +2622,20 @@
                 "name": "Night's Cavalry",
                 "location": "Consecrated Snowfield"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "bell_bearing_hunter_church_of_vows",
@@ -1378,8 +2643,14 @@
                 "name": "Bell Bearing Hunter",
                 "location": "Church of Vows"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1390,8 +2661,14 @@
                 "name": "Bell Bearing Hunter",
                 "location": "Hermit Merchant's Shack"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1402,8 +2679,14 @@
                 "name": "Bell Bearing Hunter",
                 "location": "Isolated Merchant's Shack"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1414,8 +2697,14 @@
                 "name": "Crucible Knight Ordovis",
                 "location": "Auriza Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1426,11 +2715,20 @@
                 "name": "Fell Twins",
                 "location": "Capital Outskirts"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "black_blade_kindred_bestial_sanctum",
@@ -1438,8 +2736,14 @@
                 "name": "Black Blade Kindred",
                 "location": "Bestial Sanctum"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1450,11 +2754,20 @@
                 "name": "Black Blade Kindred",
                 "location": "Forbidden Lands"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "sir_gideon_ofnir_the_allknowing",
@@ -1462,11 +2775,19 @@
                 "name": "Sir Gideon Ofnir, the All-Knowing",
                 "location": "Leyndell, Ashen Capital"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "maliketh_the_black_blade"
+            }
         },
         {
             "id": "tibia_mariner_summonwater_village",
@@ -1474,8 +2795,14 @@
                 "name": "Tibia Mariner",
                 "location": "Summonwater Village"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1486,8 +2813,14 @@
                 "name": "Tibia Mariner",
                 "location": "Liurnia of the Lakes"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1498,8 +2831,14 @@
                 "name": "Tibia Mariner",
                 "location": "Wyndham Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1510,11 +2849,20 @@
                 "name": "Tibia Mariner",
                 "location": "Charo's Hidden Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "ancient_dragon_man"
+            }
         },
         {
             "id": "bloodhound_knight_darriwil",
@@ -1522,8 +2870,14 @@
                 "name": "Bloodhound Knight Darriwil",
                 "location": "Forlorn Hound Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1534,11 +2888,58 @@
                 "name": "Esgar, Priest of Blood",
                 "location": "Leyndell, Royal Capital"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "draconic_tree_sentinel"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "erdtree_avatar_minor_erdtree_weeping_peninsula",
@@ -1546,8 +2947,14 @@
                 "name": "Erdtree Avatar",
                 "location": "Minor Erdtree (Weeping Peninsula)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1558,8 +2965,14 @@
                 "name": "Erdtree Avatar",
                 "location": "Minor Erdtree (Liurnia Southwest)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1570,8 +2983,14 @@
                 "name": "Erdtree Avatar",
                 "location": "Minor Erdtree (Liurnia Northeast)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1582,11 +3001,20 @@
                 "name": "Erdtree Avatar",
                 "location": "Minor Erdtree (Mountaintops East)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "alecto_black_knife_ringleader",
@@ -1594,11 +3022,34 @@
                 "name": "Alecto Black Knife Ringleader",
                 "location": "Ringleader's Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "mimic_tear_nokron"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "royal_knight_loretta"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "astel_naturalborn_of_the_void"
+                    }
+                ]
+            }
         },
         {
             "id": "grave_warden_duelist_murkwater_catacombs",
@@ -1606,8 +3057,14 @@
                 "name": "Grave Warden Duelist",
                 "location": "Murkwater Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1618,8 +3075,14 @@
                 "name": "Grave Warden Duelist",
                 "location": "Auriza Side Tomb"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1630,8 +3093,14 @@
                 "name": "Cleanrot Knight",
                 "location": "Stillwater Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1642,8 +3111,14 @@
                 "name": "Cleanrot Knights",
                 "location": "Abandoned Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1654,8 +3129,14 @@
                 "name": "Omenkiller",
                 "location": "Village of the Albinaurics"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1666,8 +3147,14 @@
                 "name": "Spirit-Caller Snail",
                 "location": "Road's End Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1678,11 +3165,20 @@
                 "name": "Spirit-Caller Snail",
                 "location": "Spiritcaller Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "perfumer_tricia_and_misbegotten_warrior",
@@ -1690,8 +3186,14 @@
                 "name": "Perfumer Tricia and Misbegotten Warrior",
                 "location": "Unsightly Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1702,8 +3204,14 @@
                 "name": "Ulcerated Tree Spirit",
                 "location": "Fringefolk Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1714,8 +3222,14 @@
                 "name": "Ulcerated Tree Spirit",
                 "location": "Minor Erdtree (Mt. Gelmir)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1726,11 +3240,20 @@
                 "name": "Ulcerated Tree Spirit",
                 "location": "Giant's Mountaintop Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "fullgrown_fallingstar_beast",
@@ -1738,8 +3261,14 @@
                 "name": "Full-Grown Fallingstar Beast",
                 "location": "Mt. Gelmir"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1750,8 +3279,14 @@
                 "name": "Demi-Human Queen Margot",
                 "location": "Volcano Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1762,8 +3297,14 @@
                 "name": "Demi-Human Queen Maggie",
                 "location": "Hermit Village"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1774,8 +3315,14 @@
                 "name": "Onyx Lord",
                 "location": "Royal Grave Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1786,8 +3333,14 @@
                 "name": "Onyx Lord",
                 "location": "Sealed Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1798,8 +3351,14 @@
                 "name": "Abductor Virgins",
                 "location": "Volcano Manor"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1810,8 +3369,14 @@
                 "name": "Adan, Thief of Fire",
                 "location": "Malefactor's Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1822,8 +3387,13 @@
                 "name": "Ancient Dragon Lansseax",
                 "location": "Altus Plateau"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1834,11 +3404,20 @@
                 "name": "Astel, Stars of Darkness",
                 "location": "Yelough Anix Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "battlemage_hugues",
@@ -1846,8 +3425,14 @@
                 "name": "Battlemage Hugues",
                 "location": "Sellia Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1858,8 +3443,14 @@
                 "name": "Bloodhound Knight",
                 "location": "Lakeside Crystal Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1870,8 +3461,14 @@
                 "name": "Bols, Carian Knight",
                 "location": "Cuckoo's Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1882,8 +3479,13 @@
                 "name": "Commander O'Neil",
                 "location": "Aeonia Swamp"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1894,11 +3496,19 @@
                 "name": "Commander Niall",
                 "location": "Castle Sol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "crucible_knight_siluria",
@@ -1906,11 +3516,29 @@
                 "name": "Crucible Knight Siluria",
                 "location": "Deeproot Depths"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "valiant_gargoyles"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "demihuman_queen_gilika",
@@ -1918,8 +3546,14 @@
                 "name": "Demi-Human Queen Gilika",
                 "location": "Lux Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1930,8 +3564,14 @@
                 "name": "Deathbird",
                 "location": "Warmaster's Shack"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1942,8 +3582,14 @@
                 "name": "Deathbird",
                 "location": "Weeping Peninsula"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1954,8 +3600,14 @@
                 "name": "Deathbird",
                 "location": "Scenic Isle"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1966,8 +3618,14 @@
                 "name": "Deathbird",
                 "location": "Capital Outskirts"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1978,8 +3636,13 @@
                 "name": "Elemer of the Briar",
                 "location": "The Shaded Castle"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -1990,11 +3653,29 @@
                 "name": "Fia's Champions",
                 "location": "Deeproot Depths"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "any",
+                "conditions": [
+                    {
+                        "type": "Node",
+                        "objective_id": "valiant_gargoyles"
+                    },
+                    {
+                        "type": "Node",
+                        "objective_id": "mohg_the_omen"
+                    }
+                ]
+            }
         },
         {
             "id": "flying_dragon_greyll",
@@ -2002,8 +3683,13 @@
                 "name": "Flying Dragon Greyll",
                 "location": "Dragonbarrow"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2014,8 +3700,14 @@
                 "name": "Frenzied Duelist",
                 "location": "Gaol Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2026,8 +3718,13 @@
                 "name": "Glintstone Dragon Smarag",
                 "location": "Liurnia of the Lakes"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2038,8 +3735,13 @@
                 "name": "Godefroy the Grafted",
                 "location": "Golden Lineage Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2050,11 +3752,57 @@
                 "name": "Godfrey, First Elden Lord",
                 "location": "Leyndell, Royal Capital"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "draconic_tree_sentinel"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "godskin_apostle_dominula_windmill_village",
@@ -2062,8 +3810,14 @@
                 "name": "Godskin Apostle",
                 "location": "Dominula, Windmill Village"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2074,8 +3828,13 @@
                 "name": "Godskin Apostle",
                 "location": "Divine Tower of Caelid"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2086,8 +3845,13 @@
                 "name": "Godskin Noble",
                 "location": "Volcano Manor"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2098,11 +3862,19 @@
                 "name": "Great Wyrm Theodorix",
                 "location": "Consecrated Snowfield"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "guardian_golem",
@@ -2110,8 +3882,14 @@
                 "name": "Guardian Golem",
                 "location": "Highroad Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2122,8 +3900,14 @@
                 "name": "Kindred of Rot",
                 "location": "Seethewater Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2134,11 +3918,19 @@
                 "name": "Loretta, Knight of the Haligtree",
                 "location": "Miquella's Haligtree"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "magma_wyrm_gael_tunnel",
@@ -2146,8 +3938,14 @@
                 "name": "Magma Wyrm",
                 "location": "Gael Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2158,8 +3956,14 @@
                 "name": "Magma Wyrm",
                 "location": "Fort Laiedd"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2170,8 +3974,13 @@
                 "name": "Magma Wyrm Makar",
                 "location": "Ruin-Strewn Precipice"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2182,8 +3991,14 @@
                 "name": "Miranda the Blighted Bloom",
                 "location": "Tombsward Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2194,11 +4009,20 @@
                 "name": "Misbegotten Crusader",
                 "location": "Cave of the Forlorn"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "misbegotten_warrior_and_crucible_knight",
@@ -2206,11 +4030,20 @@
                 "name": "Misbegotten Warrior and Crucible Knight",
                 "location": "Redmane Castle"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "starscourge_radahn"
+            }
         },
         {
             "id": "mohg_the_omen",
@@ -2218,11 +4051,57 @@
                 "name": "Mohg, the Omen",
                 "location": "Subterranean Shunning-Grounds"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Branch",
+                "clause": "all",
+                "conditions": [
+                    {
+                        "type": "Branch",
+                        "clause": "any_two",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "godrick_the_grafted"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rennala_queen_of_the_full_moon"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "starscourge_radahn"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "rykard_lord_of_blasphemy"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Branch",
+                        "clause": "any",
+                        "conditions": [
+                            {
+                                "type": "Node",
+                                "objective_id": "draconic_tree_sentinel"
+                            },
+                            {
+                                "type": "Node",
+                                "objective_id": "fias_champions"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
             "id": "necromancer_garris",
@@ -2230,8 +4109,14 @@
                 "name": "Necromancer Garris",
                 "location": "Sage's Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2242,8 +4127,14 @@
                 "name": "Nox Swordstress and Nox Priest",
                 "location": "Sellia, Town of Sorcery"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2254,8 +4145,14 @@
                 "name": "Patches",
                 "location": "Murkwater Cave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2266,8 +4163,14 @@
                 "name": "Putrid Avatar",
                 "location": "Minor Erdtree (Caelid)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2278,8 +4181,14 @@
                 "name": "Putrid Avatar",
                 "location": "Minor Erdtree (Dragonbarrow)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2290,11 +4199,20 @@
                 "name": "Putrid Avatar",
                 "location": "Minor Erdtree (Consecrated Snowfield)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "putrid_grave_warden_duelist",
@@ -2302,11 +4220,20 @@
                 "name": "Putrid Grave Warden Duelist",
                 "location": "Consecrated Snowfield Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "commander_niall"
+            }
         },
         {
             "id": "putrid_tree_spirit",
@@ -2314,11 +4241,20 @@
                 "name": "Putrid Tree Spirit",
                 "location": "War-Dead Catacombs"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "starscourge_radahn"
+            }
         },
         {
             "id": "red_wolf_of_the_champion",
@@ -2326,8 +4262,14 @@
                 "name": "Red Wolf of the Champion",
                 "location": "Gelmir Hero's Grave"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2338,11 +4280,20 @@
                 "name": "Roundtable Knight Vyke",
                 "location": "Lord Contender's Evergaol"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "royal_knight_loretta",
@@ -2350,8 +4301,13 @@
                 "name": "Royal Knight Loretta",
                 "location": "Caria Manor"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2362,8 +4318,14 @@
                 "name": "Royal Revenant",
                 "location": "Kingsrealm Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2371,11 +4333,17 @@
         {
             "id": "sanguine_noble",
             "info": {
-                "name": "Sanguiine Noble",
+                "name": "Sanguine Noble",
                 "location": "Writheblood Ruins"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2386,8 +4354,14 @@
                 "name": "Scaly Misbegotten",
                 "location": "Morne Tunnel"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
@@ -2398,11 +4372,19 @@
                 "name": "Mimic Tear",
                 "location": "Nokron, Eternal City"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "starscourge_radahn"
+            }
         },
         {
             "id": "mimic_tear_hidden_path",
@@ -2410,11 +4392,20 @@
                 "name": "Mimic Tear",
                 "location": "Hidden Path to the Haligtree"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
-            "condition": null
+            "condition": {
+                "type": "Node",
+                "objective_id": "morgott_the_omen_king"
+            }
         },
         {
             "id": "wormface",
@@ -2422,8 +4413,14 @@
                 "name": "Wormface",
                 "location": "Minor Erdtree (Altus Plateau)"
             },
-            "labels": [
-                "enemy"
+            "flag_checks": [
+                {
+                    "clause": "none",
+                    "flag_ids": [
+                        "legend_only",
+                        "no_enemy_bosses"
+                    ]
+                }
             ],
             "weighting": {},
             "condition": null
